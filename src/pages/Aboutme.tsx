@@ -3,6 +3,7 @@ import React from 'react';
 import { 
     UserOutlined,  
     DownOutlined,
+    EyeOutlined
 
   } 
   from '@ant-design/icons';
@@ -18,23 +19,62 @@ Row,
 Col,
 Comment,
 Form, Button, List, Input, Divider,
-Collapse
+Collapse,
+Table,
+Tag,
+Steps,
+DatePicker 
 } 
-  from 'antd'
-  import 'antd/dist/antd.css';
-  import '../styles/post.css';
+from 'antd'
+import 'antd/dist/antd.css';
+import '../styles/post.css';
 
-  import { Steps } from 'antd';
 
-  const { Step } = Steps;
+interface R {
+  lastName: string;
+}
 
+
+const { Column, ColumnGroup } = Table;
+const { Step } = Steps;
 const { TextArea } = Input
 const { Panel } = Collapse;
 
   const { Text, Title } = Typography
 
+  const dataSource = [
+    {
+      key: '1',
+      name: 'Mike',
+      age: 32,
+      address: '10 Downing Street',
+    },
+    {
+      key: '2',
+      name: 'John',
+      age: 42,
+      address: '10 Downing Street',
+    },
+  ];
   
-
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ];
+  
 
 
 
@@ -44,6 +84,7 @@ const { Panel } = Collapse;
 
 
 export  function Aboutme() {
+
     return (
 
 
@@ -146,6 +187,87 @@ export  function Aboutme() {
     </Panel>
   </Collapse>
   </section>
+
+
+
+
+
+{/***********************************  Card  ************************************ */}
+
+<Row gutter={26} className="white-section-2">
+  <Col span={8}>
+  <section className="white-section white-section-2-card-small">
+      <Image src="image 5.png"></Image>
+  </section>
+
+  <section className="white-section white-section-2-card-small"  style={{height: "284px"}}>
+
+    <Space>
+    <DatePicker  />
+    <DatePicker  />
+    </Space>
+    <br/>
+   <Divider/>
+    <Button type="primary" danger>
+    <EyeOutlined /> Показать
+    </Button>
+
+  
+
+  </section>
+  
+  </Col>
+
+  <Col span={14}>
+  <section className="white-section white-section-2-card  " style={{paddingRight: "100px"}}>
+
+  <Table dataSource={dataSource} columns={columns} />
+
+  {/* <Table dataSource={data}>
+    {/* <ColumnGroup title="Name">
+      <Column title="First Name" dataIndex="firstName" key="firstName" />
+      <Column title="Last Name" dataIndex="lastName" key="lastName" />
+    </ColumnGroup> */}
+    {/* <Column title="Age" dataIndex="age" key="age" />
+    <Column title="Address" dataIndex="address" key="address" />
+    <Column<string[]>
+      title="Tags"
+      dataIndex="tags"
+      key="tags"
+      render={(_, tags) => (
+        <>
+          {tags.map(tag => (
+            <Tag color="blue" key={tag}>
+              {tag}
+            </Tag>
+          ))}
+        </>
+      )}
+    />  */}
+     {/* <Column<R>
+      title="Action"
+      key="action"
+      render={(_, record) => (
+        <Space size="middle">
+          <a>Invite {record.lastName}</a>
+          <a>Delete</a>
+        </Space>
+      )}
+    />
+  </Table> */} 
+
+
+  <Button type="primary" danger>
+        Потратить Сенткоины
+  </Button>
+  </section>
+  
+  </Col>
+
+  
+
+</Row>
+
 
       </>     
         
