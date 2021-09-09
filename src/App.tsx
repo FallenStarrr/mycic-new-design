@@ -41,19 +41,19 @@ function App() {
     
     <Layout>
             <Sider   className="section" style={{height: '100vh', backgroundColor: '#F6F6F9'}} width={300}>
-             <div className="container">
+            
                 <Sidebar/>
-             </div>
+             
               
 
             </Sider>
        
            <Layout>
-              <Header className="section" style={{backgroundColor: '#F6F6F9',}}>
+              <Header className="section" style={{backgroundColor: '#F6F6F9', width: "100vh"}}>
                 
-                <div className="container">
+               
                     <Head/>
-                </div>
+                
                 
               </Header>
 
@@ -63,9 +63,9 @@ function App() {
               <Switch>
              <Route path="/news">
 
-               <div className="container">
+              
                   <Cont></Cont>
-               </div>
+              
               
              </Route>
 

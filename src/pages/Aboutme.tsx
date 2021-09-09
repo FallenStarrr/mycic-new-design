@@ -48,14 +48,14 @@ export  function Aboutme() {
 
 
      <>
-        <section style={{width:"700px"}}>
+        <section style={{width:"700px"}} className="">
           <div className="container">
-            <Row>
+            <Row justify="center">
               <Col span={10}>
                  <Image src="image 4.png"/>
               </Col>
 
-              <Col span={14}>
+              <Col span={10}>
                 <section className="white-section">
                <Title>
                    Алексей Щербаков
