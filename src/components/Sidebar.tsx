@@ -18,17 +18,17 @@ Space,
 } 
   from 'antd'
 
-  const { Sider } = Layout 
+
 
   const { Title  } = Typography
 
  
 
 
-export function Sidebar() {
+export default function Sidebar() {
     return (
 
-<Sider width={250} style={{height: '100vh', backgroundColor: 'white'}}>
+
 <Menu className="nav">
   <Row>
     <Col span={24}><Title level={2} style={{color: '#0057FF', paddingLeft: '50px' }}>My.cic.kz</Title></Col>
@@ -40,7 +40,7 @@ export function Sidebar() {
     <Col span={24}><Menu.Item className="nav__item" key="6">  <Space><EyeOutlined className="purp-icon" />На переговоры</Space></Menu.Item></Col>
   </Row>
   </Menu>
-</Sider>
+
 
     )
 }
