@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+body {
+  font-family: 'Museo Sans Cyrl';
+  font-size: 16px;
+  line-height: 19;
+  color: #000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav__item {
+  color: #474747 !important;
+  padding-left: 50px  !important;
+  width: 200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+.nav__item:hover {
+  content: '';
+  color:  #7449EF !important;
+  border-bottom: 1px solid #7449EF;
+  transition: all .1s ease 
 }
 
-.App-link {
-  color: #61dafb;
+.purp-icon:hover {
+   color:   #7449EF; 
+   transition: all .1s ease 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.purp-icon-move {
+  margin-right: 10px  
 }
