@@ -52,3 +52,20 @@ body {
   border-radius: 5px;
 }
 
+.container {
+  padding: 30px;
+  margin: auto;
+  max-width: 100%;
+}
+
+.page {
+  max-width: 100%;
+  margin: auto;
+  padding: 30px;
+}
+
+.white-section {
+   background: white;
+   width: 500px;
+   padding: 50px;
+}

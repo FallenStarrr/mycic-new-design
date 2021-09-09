@@ -18,7 +18,8 @@ Image,
 Row,
 Col,
 Comment,
-Form, Button, List, Input
+Form, Button, List, Input,
+Carousel
 } 
   from 'antd'
   import 'antd/dist/antd.css';
@@ -31,6 +32,13 @@ const { TextArea } = Input
   const { Text } = Typography
 
   
+const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
 
 
 
@@ -63,11 +71,12 @@ export default function Post() {
 
 
          <Col span="24">
-           <Image 
-           style={{display: "block"}}    
+           <Image    
            src="image2.png"
            width="200"
            /> 
+
+
           
          </Col>
         
@@ -90,7 +99,20 @@ export default function Post() {
    </Col>
          
 </Row>
-
+{/* <Carousel autoplay>
+    <div>
+      <h3 style={contentStyle}>1</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>2</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>3</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>4</h3>
+    </div>
+  </Carousel> */}
 </React.Fragment>
     )
 }
