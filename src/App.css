@@ -66,6 +66,20 @@ body {
 
 .white-section {
    background: white;
-   width: 500px;
+   width: 700px;
    padding: 50px;
+   margin: auto;
 }
+
+.white-section-1 {
+  width: 975px;
+  height: 118px;
+  margin-left: 20px;
+  margin: auto;
+
+}
+
+.white-section-2 {
+  margin-top: 120px;
+}
+
