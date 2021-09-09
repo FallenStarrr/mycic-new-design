@@ -3,7 +3,8 @@ import { ExampleComment } from './ExampleComment';
 import { 
     UserOutlined,  
     DownOutlined,
-
+    HeartFilled,
+    MessageFilled
   } 
   from '@ant-design/icons';
 
@@ -61,12 +62,16 @@ export default function Post() {
       </Col>  
 
 
-         <Col>
-           <Image     
+         <Col span="24">
+           <Image 
+           style={{display: "block"}}    
            src="image2.png"
            width="200"
            /> 
+          
          </Col>
+        
+         <Col > 56 <HeartFilled className="purp-icon" /> 23 <MessageFilled  className="purp-icon"/></Col>
          <Col style={{marginTop: "20px"}}>
            <ExampleComment  />
          </Col>

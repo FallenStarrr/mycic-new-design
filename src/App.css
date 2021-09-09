@@ -39,7 +39,8 @@ body {
 
 .purp-icon:hover {
    color:   #7449EF; 
-   transition: all .1s ease 
+   transition: all .1s ease;
+   cursor: pointer;
 }
 
 .purp-icon-move {
@@ -50,3 +51,4 @@ body {
   box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
 }
+
