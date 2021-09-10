@@ -95,3 +95,10 @@ body {
   width: 519px;
   height: 453px;
 }
+
+
+.show-btn {
+  border: 1px solid #7449EF !important;
+  color: #7449EF !important;
+  padding: 15px;
+}

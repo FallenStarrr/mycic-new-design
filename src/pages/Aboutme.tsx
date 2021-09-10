@@ -209,7 +209,7 @@ export  function Aboutme() {
     </Space>
     <br/>
    <Divider/>
-    <Button type="primary" danger>
+    <Button  className="show-btn">
     <EyeOutlined /> Показать
     </Button>
 
@@ -258,7 +258,11 @@ export  function Aboutme() {
   </Table> */} 
 
 
-  <Button type="primary" danger>
+  <Button style={{background: '#7449EF'
+  , padding: "1px 13px 40px 14px",
+   fontSize: "24px",
+   color: "#fff"
+  }}>
         Потратить Сенткоины
   </Button>
   </section>
