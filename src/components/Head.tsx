@@ -70,7 +70,7 @@ import '../styles/head.css'
 export default function Head() {
     return (
 <>
-        <Menu style={{backgroundColor: '#F6F6F9',}} theme="light" mode="horizontal">
+        <Menu style={{backgroundColor: '#F6F6F9'}} theme="light" mode="horizontal">
         <Menu.Item key="1">О компани</Menu.Item>
         <Menu.Item key="2">Parse</Menu.Item>
         <Menu.Item key="3">Библиотека</Menu.Item>

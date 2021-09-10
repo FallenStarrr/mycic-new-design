@@ -89,7 +89,7 @@ export  function Aboutme() {
 
 
      <>
-        <section style={{width:"700px"}} className="">
+        <section style={{width:"700px"}} >
           <div className="container">
             <Row justify="center">
               <Col span={10}>
@@ -119,7 +119,7 @@ export  function Aboutme() {
         </section>
 
 
-        <section className="white-section white-section-1 white-section-2">
+        <section className="white-section white-section-1" style={{marginRight: "490px"}}>
         <Row justify="space-around">
           <Col>  <Title title="3">Досье</Title>  </Col>
           <Col> <Title title="3"> Мои результаты</Title> </Col>
@@ -132,17 +132,19 @@ export  function Aboutme() {
 
 
   <section className="white-section-1 white-section-2">
-    
-  <Collapse defaultActiveKey={['1']}>
      
-    <Panel header="Кадровое перемещение" key="1">
+  <Collapse defaultActiveKey={['1']}>
+
+    <Panel header="Кадровое перемещение" key="1" >
        <Steps direction="vertical" size="small" current={1}>
        <Step title="Finished" description="This is a description." />
        <Step title="In Progress" description="This is a description." />
        <Step title="Waiting" description="This is a description." />
        </Steps>   
      </Panel>
+
   </Collapse>
+ 
 
   </section>
 
@@ -175,7 +177,7 @@ export  function Aboutme() {
   </Collapse>
   </section>
 
-  <section  className="white-section-1 white-section-2">
+  <section  className="white-section-1 white-section-2" >
     
   <Collapse defaultActiveKey={['1']}>
      <Panel header="Отпуск" key="1">
@@ -187,7 +189,6 @@ export  function Aboutme() {
     </Panel>
   </Collapse>
   </section>
-
 
 
 

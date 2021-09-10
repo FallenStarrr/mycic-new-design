@@ -80,7 +80,9 @@ body {
 }
 
 .white-section-2 {
-  margin-top: 120px;
+  margin-top: 117px;
+  margin-bottom: 47px;
+  margin-right: 490px;
 }
 
 .white-section-2-card {
@@ -91,5 +93,5 @@ body {
 
 .white-section-2-card-small{
   width: 519px;
-height: 453px;
+  height: 453px;
 }

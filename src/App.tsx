@@ -49,7 +49,7 @@ function App() {
             </Sider>
        
            <Layout>
-              <Header className="section" style={{backgroundColor: '#F6F6F9', width: "100vh"}}>
+              <Header className="section" style={{backgroundColor: '#F6F6F9'}}>
                 
                
                     <Head/>
@@ -91,7 +91,7 @@ function App() {
                </Content>
             </Layout>
            
-            <Sider className="section" style={{ marginRight: '60px',  marginTop: '70px', backgroundColor: '#F6F6F9'}} width={300}>
+            <Sider className="section" style={{  backgroundColor: '#F6F6F9', position: "absolute", right: "80px", top: "140px"}} width={300}>
                   
                       <Bday></Bday>
                    
