@@ -222,46 +222,63 @@ export  function Aboutme() {
   <Col span={14}>
   <section className="white-section white-section-2-card  " style={{paddingRight: "100px"}}>
 
-  <Table dataSource={dataSource} columns={columns} />
 
-  {/* <Table dataSource={data}>
-    {/* <ColumnGroup title="Name">
-      <Column title="First Name" dataIndex="firstName" key="firstName" />
-      <Column title="Last Name" dataIndex="lastName" key="lastName" />
-    </ColumnGroup> */}
-    {/* <Column title="Age" dataIndex="age" key="age" />
-    <Column title="Address" dataIndex="address" key="address" />
-    <Column<string[]>
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={(_, tags) => (
-        <>
-          {tags.map(tag => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </>
-      )}
-    />  */}
-     {/* <Column<R>
-      title="Action"
-      key="action"
-      render={(_, record) => (
-        <Space size="middle">
-          <a>Invite {record.lastName}</a>
-          <a>Delete</a>
-        </Space>
-      )}
-    />
-  </Table> */} 
+
+    <table  style={{borderRadius: "25px"}}>
+      <thead>
+        <tr> 
+      <th>№</th>
+      <th>Вид</th>
+      <th>Описание</th>
+      <th>Количество</th>
+      <th>Итого</th>
+       </tr>
+      </thead>
+
+      <tbody>
+        <tr className="gray-row"> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr  className="gray-row"> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+      </tbody>
+    
+    </table>
 
 
   <Button style={{background: '#7449EF'
   , padding: "1px 13px 40px 14px",
    fontSize: "24px",
-   color: "#fff"
+   color: "#fff",
+   borderRadius: "5px",
+   marginTop: "20px",
   }}>
         Потратить Сенткоины
   </Button>

@@ -102,3 +102,32 @@ body {
   color: #7449EF !important;
   padding: 15px;
 }
+table {
+  width: 700px;
+  padding: 40px;
+}
+
+thead {
+  height: 59px;
+  background: #7449EF;
+  color: white;
+
+  padding: 25px !important;
+}
+
+td, th{
+  padding-left: 10px;
+}
+
+th:last-child  {
+  padding-right: 10px;
+
+}
+
+tr {
+  height: 59px;
+}
+
+.gray-row {
+  background: #D9E3FF;
+}
