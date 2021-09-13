@@ -91,7 +91,7 @@ function App() {
                </Content>
             </Layout>
            
-            <Sider className="section" style={{  backgroundColor: '#F6F6F9', position: "absolute", right: "80px", top: "140px"}} width={300}>
+            <Sider className="section" style={{  backgroundColor: '#F6F6F9', position: "absolute", right: "80px", top: "140px"}} width={350}>
                   
                       <Bday></Bday>
                    
