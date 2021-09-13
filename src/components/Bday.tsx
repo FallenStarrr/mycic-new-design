@@ -3,6 +3,8 @@ import { ExampleComment } from './ExampleComment';
 import { 
     UserOutlined,  
     DownOutlined,
+    RightOutlined,
+    LeftOutlined
 
   } 
   from '@ant-design/icons';
@@ -203,15 +205,19 @@ export default function Bday() {
       <div className=" holiday">30</div>
       <div className=" holiday">1</div>
      
-  
-  
+      
 
 
 
 
   
 </div>
+<div style={{marginTop: "25px"}}>
+<LeftOutlined />
+<RightOutlined />
+</div>
 
+  
 
 </div>
  
