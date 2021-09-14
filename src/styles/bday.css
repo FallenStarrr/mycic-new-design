@@ -8,3 +8,69 @@
     border-radius: 2px;
     padding-right: 40px !important;
 }
+
+
+.calendar-header {
+    background: rgb(214, 193, 193);
+}
+
+.calendar {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    margin-top: 15px;
+
+}
+
+.calendar div {
+    /* margin-left: 4px;
+  padding: 5px; */
+   width: 40px;
+   position: relative;
+   top: 25px;
+   padding: 5px;
+}
+
+.calendar div:hover {
+    color: white;
+    background: #7449EF;
+    border-radius: 50%;
+    padding: 2px;
+    text-align: center;
+}
+
+
+
+.holiday {
+    color : #7449EF;
+    position: relative;
+}
+
+
+.holiday-circle {
+    color: white;
+    background: #7449EF;
+    border-radius: 50%;
+    padding: 2px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+
+    
+   
+
+ 
+}
+
+.holiday-filled {
+    color: white;
+    background: #7449EF;
+    border-radius: 50%;
+    text-align: center;
+    padding: 2px;
+    position: relative;
+    right: 15px;
+}

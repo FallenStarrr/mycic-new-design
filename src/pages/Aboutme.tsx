@@ -89,7 +89,7 @@ export  function Aboutme() {
 
 
      <>
-        <section style={{width:"700px"}} className="">
+        <section style={{width:"700px"}} >
           <div className="container">
             <Row justify="center">
               <Col span={10}>
@@ -119,7 +119,7 @@ export  function Aboutme() {
         </section>
 
 
-        <section className="white-section white-section-1 white-section-2">
+        <section className="white-section white-section-1" style={{marginRight: "490px"}}>
         <Row justify="space-around">
           <Col>  <Title title="3">Досье</Title>  </Col>
           <Col> <Title title="3"> Мои результаты</Title> </Col>
@@ -132,17 +132,19 @@ export  function Aboutme() {
 
 
   <section className="white-section-1 white-section-2">
-    
-  <Collapse defaultActiveKey={['1']}>
      
-    <Panel header="Кадровое перемещение" key="1">
+  <Collapse defaultActiveKey={['1']}>
+
+    <Panel header="Кадровое перемещение" key="1" >
        <Steps direction="vertical" size="small" current={1}>
        <Step title="Finished" description="This is a description." />
        <Step title="In Progress" description="This is a description." />
        <Step title="Waiting" description="This is a description." />
        </Steps>   
      </Panel>
+
   </Collapse>
+ 
 
   </section>
 
@@ -175,7 +177,7 @@ export  function Aboutme() {
   </Collapse>
   </section>
 
-  <section  className="white-section-1 white-section-2">
+  <section  className="white-section-1 white-section-2" >
     
   <Collapse defaultActiveKey={['1']}>
      <Panel header="Отпуск" key="1">
@@ -187,7 +189,6 @@ export  function Aboutme() {
     </Panel>
   </Collapse>
   </section>
-
 
 
 
@@ -208,7 +209,7 @@ export  function Aboutme() {
     </Space>
     <br/>
    <Divider/>
-    <Button type="primary" danger>
+    <Button  className="show-btn">
     <EyeOutlined /> Показать
     </Button>
 
@@ -221,43 +222,64 @@ export  function Aboutme() {
   <Col span={14}>
   <section className="white-section white-section-2-card  " style={{paddingRight: "100px"}}>
 
-  <Table dataSource={dataSource} columns={columns} />
-
-  {/* <Table dataSource={data}>
-    {/* <ColumnGroup title="Name">
-      <Column title="First Name" dataIndex="firstName" key="firstName" />
-      <Column title="Last Name" dataIndex="lastName" key="lastName" />
-    </ColumnGroup> */}
-    {/* <Column title="Age" dataIndex="age" key="age" />
-    <Column title="Address" dataIndex="address" key="address" />
-    <Column<string[]>
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={(_, tags) => (
-        <>
-          {tags.map(tag => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </>
-      )}
-    />  */}
-     {/* <Column<R>
-      title="Action"
-      key="action"
-      render={(_, record) => (
-        <Space size="middle">
-          <a>Invite {record.lastName}</a>
-          <a>Delete</a>
-        </Space>
-      )}
-    />
-  </Table> */} 
 
 
-  <Button type="primary" danger>
+    <table  style={{borderRadius: "25px"}}>
+      <thead>
+        <tr> 
+      <th>№</th>
+      <th>Вид</th>
+      <th>Описание</th>
+      <th>Количество</th>
+      <th>Итого</th>
+       </tr>
+      </thead>
+
+      <tbody>
+        <tr className="gray-row"> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr  className="gray-row"> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+       <tr> 
+      <td>256</td>
+      <td>Поступление</td>
+      <td>Организационная группа 
+Kazakhstan Marketing Conference</td>
+      <td>5</td>
+      <td>5</td>
+       </tr>
+      </tbody>
+    
+    </table>
+
+
+  <Button style={{background: '#7449EF'
+  , padding: "1px 13px 40px 14px",
+   fontSize: "24px",
+   color: "#fff",
+   borderRadius: "5px",
+   marginTop: "20px",
+  }}>
         Потратить Сенткоины
   </Button>
   </section>
