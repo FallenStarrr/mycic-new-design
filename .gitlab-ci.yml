@@ -5,7 +5,7 @@ stages:
 build-docker:
   stage: build
   only:
-    - colleagues
+    - master
   # https://www.cloudsigma.com/deploying-laravel-nginx-and-mysql-with-docker-compose/
   # https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose-ru
   script: |
@@ -21,7 +21,7 @@ build-docker:
 deploy-app:
   stage: deploy
   only:
-    - colleagues
+    - master
   script: |
     rancher up -d --stack MyCIC-Front --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml
     rancher up -d --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml --force-upgrade --pull --stack MyCIC-Front --confirm-upgrade app
