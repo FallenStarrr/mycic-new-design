@@ -11,7 +11,8 @@ WORKDIR /app
 
 COPY package-lock.json ./
 COPY package.json ./
-COPY . .
+COPY ./src ./
+COPY ./public ./
 
 COPY --from=mycic-front-vendor /app/node_modules /app/node_modules
 
