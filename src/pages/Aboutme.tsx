@@ -72,7 +72,7 @@ const columns = [
 
 export function Aboutme() {
   return (
-    <>
+    <div>
       <section style={{ width: "700px" }}>
         <div className="container">
           <Row justify="center">
@@ -123,10 +123,13 @@ export function Aboutme() {
           </Col>
         </Row>
         <Divider />
-      </section>
+        
+     </section>
 
-      <section className="white-section-1 white-section-2">
-        <Collapse defaultActiveKey={["1"]}>
+
+     
+     <div>
+     <Collapse defaultActiveKey={["1"]} style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px'}}>
           <Panel header="Кадровое перемещение" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -135,10 +138,9 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-      </section>
-
-      <section className="white-section-1  white-section-2">
-        <Collapse defaultActiveKey={["1"]}>
+      
+     
+        <Collapse  style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px',marginTop: '25px'}}>
           <Panel header="Административные дни" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -147,10 +149,10 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-      </section>
+     
 
-      <section className="white-section-1 white-section-2">
-        <Collapse defaultActiveKey={["1"]}>
+   
+        <Collapse  style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px'}}>
           <Panel header="Больничные дни" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -159,10 +161,10 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-      </section>
+     
 
-      <section className="white-section-1 white-section-2">
-        <Collapse defaultActiveKey={["1"]}>
+      
+        <Collapse style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px' }}>
           <Panel header="Отпуск" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -171,8 +173,12 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-      </section>
+    
+        </div>
 
+  
+
+        
       {/***********************************  Card  ************************************ */}
 
       <Row gutter={26} className="white-section-2">
@@ -292,6 +298,6 @@ export function Aboutme() {
           </section>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }
