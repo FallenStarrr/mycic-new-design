@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+build-docker:
+  stage: build
+  only:
+    - master
+  # https://www.cloudsigma.com/deploying-laravel-nginx-and-mysql-with-docker-compose/
+  # https://www.digitalocean.com/community/tutorials/how-to-set-up-laravel-nginx-and-mysql-with-docker-compose-ru
+  script: |
+    docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:latest .
+    docker push $CI_REGISTRY_IMAGE:latest
+
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-vendors
+    paths:
+      - /root/shared
+
+deploy-app:
+  stage: deploy
+  only:
+    - master
+  script: |
+    rancher up -d --stack MyCIC-Front --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml
+    rancher up -d --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml --force-upgrade --pull --stack MyCIC-Front --confirm-upgrade app
