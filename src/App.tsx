@@ -4,7 +4,7 @@ import Bday from "./components/Bday";
 import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";
 import Head from "./components/Head";
-import { Layout, Menu, Divider } from "antd";
+import { Layout, Menu, Divider, } from "antd";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
@@ -15,13 +15,18 @@ function App() {
   return (
     <Router>
       <div className="page">
-        <Layout>
+        <Layout 
+        >
+          
           <Sider
             className="section"
             style={{ height: "100vh", backgroundColor: "#F6F6F9" }}
             width={300}
           >
+         
             <Sidebar />
+        
+
           </Sider>
 
           <Layout>

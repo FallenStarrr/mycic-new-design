@@ -123,3 +123,34 @@ tr {
 .gray-row {
   background: #d9e3ff;
 }
+
+.card {
+  position: relative;
+}
+
+.card__digits {
+ 
+  font-weight: bold;
+  font-family: 'Museo Sans Cyrl';
+  font-size: 70px;
+  display: block;
+  color: #FFFFFF;
+
+}
+
+.card__container {
+  position: absolute;
+  left: 90px;
+  top: 90px;
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subflex-card {
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
