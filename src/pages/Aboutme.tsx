@@ -194,6 +194,15 @@ export function Aboutme() {
                 <img src="insu.png" alt="" />
               </div>
             </div>
+            <div style={{marginTop: '20px'}}>
+            <h5>Потратить Сенткоины</h5>
+            <Space><Button style={{borderColor: '#7449EF', color: '#7449EF', boxShadow: '0px 4px 3px 1px rgba(0, 0, 0, 0.03)', borderRadius: '5px'}}>Отправить</Button>
+            <Input  placeholder="Выберите товар" />
+            </Space>
+           
+            </div>
+            
+
           </section>
 
           <section
