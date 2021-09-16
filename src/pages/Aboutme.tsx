@@ -147,7 +147,7 @@ export function Aboutme() {
 
       {/***********************************  Card  ************************************ */}
 
-      <Row  className="white-section-2 white-section">
+      <Row>
         <Col sm={24} xs={24} lg={12}>
           <section className="white-section white-section-2-card-small card">
             <Image src="image 5.png"></Image>
