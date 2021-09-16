@@ -95,8 +95,8 @@ function App() {
           </ul>
         </nav>
         <Layout>
-          {/* <Sider
-            className="section"
+           <Sider
+            className="section sidebar"
             style={{ height: "100vh", backgroundColor: "#F6F6F9" }}
             width={300}
           >
@@ -104,7 +104,7 @@ function App() {
             <Sidebar />
         
 
-          </Sider> */}
+          </Sider> 
 
           <Layout>
             {/* <Header className="section" style={{ backgroundColor: "#F6F6F9" }}>
@@ -130,18 +130,15 @@ function App() {
             </Content>
           </Layout>
 
-          {/* <Sider
-            className="section"
+          <Sider
+            className="sbday"
             style={{
-              backgroundColor: "#F6F6F9",
-              position: "absolute",
-              right: "80px",
-              top: "140px",
+              backgroundColor: "#F6F6F9"
             }}
             width={350}
           >
             <Bday></Bday>
-          </Sider> */}
+          </Sider>
         </Layout>
       </div>
     </Router>

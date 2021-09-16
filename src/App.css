@@ -192,6 +192,14 @@ Navigation
     margin-right: 20px;
     transition: all .3s ease-in-out;
   }
+
+  .sidebar {
+    display: none !important;
+  }
+
+  .sbday {
+    display: none !important;
+  }
 }
 
 
