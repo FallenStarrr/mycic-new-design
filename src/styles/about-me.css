@@ -53,8 +53,6 @@ table {
     width: 975px;
     min-height: 118px;
     max-height: 100%;
-    margin-left: 20px;
-    margin: auto;
   }
   
   .white-section-2 {
@@ -73,4 +71,7 @@ table {
     height: 453px;
   }
 
+ .content {
+   margin-top: 5px;
+ }
   

@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import React from "react";
 import { UserOutlined, DownOutlined, EyeOutlined } from "@ant-design/icons";
-import '../styles/about-me.css'
+import "../styles/about-me.css";
 import {
   Menu,
   Space,
@@ -37,28 +37,30 @@ const { Panel } = Collapse;
 
 const { Text, Title } = Typography;
 
-
-
 export function Aboutme() {
   return (
     <div>
       <section>
         <div className="container">
           <Row justify="center">
-            <Col sm={24} xs={24}>
+            <Col sm={24} xs={24} lg={8}>
               <Image src="image 4.png" />
             </Col>
 
-            <Col sm={24} xs={24}>
+            <Col sm={24} xs={24}  lg={10}>
               <section className="white-section">
                 <Title>Алексей Щербаков</Title>
                 <Text>Бухгалтер</Text>
                 <Row>
-                  <Col sm={24} xs={24}>День рождения:</Col>
+                  <Col sm={24} xs={24}>
+                    День рождения:
+                  </Col>
                   <Col sm={24} xs={24}>
                     <strong>15 декабря</strong>{" "}
                   </Col>
-                  <Col sm={24} xs={24}>Образование:</Col>
+                  <Col sm={24} xs={24}>
+                    Образование:
+                  </Col>
                   <Col sm={24} xs={24}>
                     <strong>МГУ</strong>{" "}
                   </Col>
@@ -75,30 +77,27 @@ export function Aboutme() {
 
       <section
         className="white-section white-section-1"
-        style={{ marginRight: "490px" }}
+      
       >
         <Row justify="space-around">
-          <Col sm={24} md={8} xs={24}>
-          
+          <Col sm={24} md={8} xs={24} lg={8}>
             <Title title="3">Досье</Title>{" "}
           </Col>
-          <Col  sm={24}   md={8}  xs={24}>
-           
+          <Col sm={24} md={8} xs={24}  lg={9} >
             <Title title="3"> Мои результаты</Title>{" "}
           </Col>
-          <Col  sm={24} md={8}  xs={24}>
-           
+          <Col sm={24} md={8} xs={24} lg={7}>
             <Title title="3"> Сенткоины</Title>
           </Col>
         </Row>
         <Divider />
-        
-     </section>
+      </section>
 
-
-{/*      
-     <div>
-     <Collapse defaultActiveKey={["1"]} style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px'}}>
+         
+     <div style={{margin: 'auto', width: '975px' }}>
+     <Row gutter={35}>
+     <Col sm={24} md={24}  xs={24} lg={24}  className="content">
+     <Collapse defaultActiveKey={["1"]}>
           <Panel header="Кадровое перемещение" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -107,10 +106,10 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-      
-     
-        <Collapse  style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px',marginTop: '25px'}}>
-          <Panel header="Административные дни" key="1">
+      </Col>
+     <Col sm={24} md={24}  xs={24} lg={24}  className="content">
+        <Collapse >
+          <Panel header="Административные дни" key="1" >
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
               <Step title="In Progress" description="This is a description." />
@@ -118,11 +117,11 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-     
-
-   
-        <Collapse  style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px'}}>
-          <Panel header="Больничные дни" key="1">
+  
+</Col>
+   <Col sm={24} md={24}  xs={24}  lg={24}  className="content">
+        <Collapse  >
+          <Panel header="Больничные дни" key="1" >
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
               <Step title="In Progress" description="This is a description." />
@@ -130,10 +129,10 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-     
+     </Col>
 
-      
-        <Collapse style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px' }}>
+      <Col sm={24} md={24}  xs={24}  lg={24} className="content">
+        <Collapse   >
           <Panel header="Отпуск" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />
@@ -142,26 +141,24 @@ export function Aboutme() {
             </Steps>
           </Panel>
         </Collapse>
-    
-        </div> */}
+        </Col>
+       </Row>
+        </div> 
 
-  
-
-        
       {/***********************************  Card  ************************************ */}
 
-      <Row gutter={26} className="white-section-2">
-        
+      <Row  className="white-section-2 white-section">
         <Col sm={24} xs={24} lg={12}>
-
-
           <section className="white-section white-section-2-card-small card">
-
-
-
             <Image src="image 5.png"></Image>
             <div className="card__container">
-              <div style={{ display: "flex", flexDirection: "column", width: '100%' }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  maxWidth: "100%",
+                }}
+              >
                 <div className="subflex-card">
                   <span className="card__digits">30</span>
                   <img src="fes.png" alt="C" />
@@ -175,21 +172,16 @@ export function Aboutme() {
                 <img src="insu.png" alt="" />
               </div>
             </div>
-            <div style={{marginTop: '20px'}}>
-            <h5>Потратить Сенткоины</h5>
-            <Space><Button className="btn" >Отправить</Button>
-            <Input  placeholder="Выберите товар" />
-            </Space>
-           
+            <div style={{ marginTop: "20px" }}>
+              <h5>Потратить Сенткоины</h5>
+              <Space>
+                <Button className="btn">Отправить</Button>
+                <Input placeholder="Выберите товар" />
+              </Space>
             </div>
-            
-
           </section>
 
-          <section
-            className="white-section white-section-2-card-small"
-            
-          >
+          <section className="white-section white-section-2-card-small">
             <Space>
               <DatePicker />
               <DatePicker />
@@ -202,12 +194,9 @@ export function Aboutme() {
           </section>
         </Col>
 
-        <Col sm={24} xs={24}  lg={12}>
-          <section
-            className="white-section white-section-2-card "
-            
-          >
-            <table style={{  }}>
+        <Col sm={24} xs={24} lg={12}>
+          <section className="white-section white-section-2-card ">
+            <table style={{}}>
               <thead>
                 <tr>
                   <th>№</th>
@@ -258,11 +247,7 @@ export function Aboutme() {
               </tbody>
             </table>
 
-            <Button
-             className="btn"
-            >
-              Потратить Сенткоины
-            </Button>
+            <Button className="btn">Потратить Сенткоины</Button>
           </section>
         </Col>
       </Row>
