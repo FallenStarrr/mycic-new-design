@@ -152,7 +152,7 @@ export function Aboutme() {
 
       <Row gutter={26} className="white-section-2">
         
-        <Col sm={24} xs={24}>
+        <Col sm={24} xs={24} lg={12}>
 
 
           <section className="white-section white-section-2-card-small card">
@@ -177,7 +177,7 @@ export function Aboutme() {
             </div>
             <div style={{marginTop: '20px'}}>
             <h5>Потратить Сенткоины</h5>
-            <Space><Button style={{borderColor: '#7449EF', color: '#7449EF', boxShadow: '0px 4px 3px 1px rgba(0, 0, 0, 0.03)', borderRadius: '5px'}}>Отправить</Button>
+            <Space><Button className="btn" >Отправить</Button>
             <Input  placeholder="Выберите товар" />
             </Space>
            
@@ -188,7 +188,7 @@ export function Aboutme() {
 
           <section
             className="white-section white-section-2-card-small"
-            style={{ height: "284px" }}
+            
           >
             <Space>
               <DatePicker />
@@ -202,7 +202,7 @@ export function Aboutme() {
           </section>
         </Col>
 
-        <Col sm={24} xs={24}>
+        <Col sm={24} xs={24}  lg={12}>
           <section
             className="white-section white-section-2-card "
             

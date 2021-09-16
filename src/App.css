@@ -77,35 +77,6 @@ body {
   height: 100vh;
 }
 
-.white-section {
-  background: white;
-  width: 700px;
-  padding: 50px;
-  margin: auto;
-}
-
-.white-section-1 {
-  width: 975px;
-  height: 118px;
-  margin-left: 20px;
-  margin: auto;
-}
-
-.white-section-2 {
-  margin-top: 117px;
-  margin-bottom: 47px;
-  margin-right: 490px;
-}
-
-.white-section-2-card {
-  width: 832px;
-  height: 756px;
-}
-
-.white-section-2-card-small {
-  width: 519px;
-  height: 453px;
-}
 
 .show-btn {
   border: 1px solid #7449ef !important;
