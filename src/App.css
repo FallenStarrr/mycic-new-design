@@ -160,6 +160,10 @@ Navigation
   display: none !important;
 }
 
+.unactive-brand-logo {
+  display: none !important;
+}
+
 
 @media(max-width: 750px) {
   .active-page {
@@ -176,7 +180,7 @@ Navigation
   .unactive-brand {
     display: block !important;
   }
-  .unactive-brand-logj {
+  .unactive-brand-logo {
     display: inline !important;
   }
   

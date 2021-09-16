@@ -27,7 +27,7 @@ function App() {
             /> 
 
             :
-            <AlignLeftOutlined   className="unactive-brand-log" style={{fontSize: '30px'}} onClick={() => setNav(true)}/>
+            <AlignLeftOutlined   className="unactive-brand-logo" style={{fontSize: '30px'}} onClick={() => setNav(true)}/>
 
 
      }
