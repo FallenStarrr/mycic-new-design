@@ -1,13 +1,17 @@
+
+
+
 table {
-    width: 700px;
+    
     padding: 40px;
+    border-radius: "25px";
+    max-width: 100%;
   }
   
   thead {
     height: 59px;
     background: #7449ef;
     color: white;
-  
     padding: 25px !important;
   }
   
@@ -22,4 +26,13 @@ table {
   
   tr {
     height: 59px;
+  }
+
+  .btn {
+    background: #7449EF;
+    padding: 1px 13px 40px 14px;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
   }

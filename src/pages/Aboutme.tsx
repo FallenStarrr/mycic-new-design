@@ -37,64 +37,33 @@ const { Panel } = Collapse;
 
 const { Text, Title } = Typography;
 
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
-  },
-];
 
 export function Aboutme() {
   return (
     <div>
-      <section style={{ width: "700px" }}>
+      <section>
         <div className="container">
           <Row justify="center">
-            <Col span={10}>
+            <Col sm={24} xs={24}>
               <Image src="image 4.png" />
             </Col>
 
-            <Col span={10}>
+            <Col sm={24} xs={24}>
               <section className="white-section">
                 <Title>Алексей Щербаков</Title>
                 <Text>Бухгалтер</Text>
                 <Row>
-                  <Col span={12}>День рождения:</Col>
-                  <Col span={12}>
+                  <Col sm={24} xs={24}>День рождения:</Col>
+                  <Col sm={24} xs={24}>
                     <strong>15 декабря</strong>{" "}
                   </Col>
-                  <Col span={12}>Образование:</Col>
-                  <Col span={12}>
+                  <Col sm={24} xs={24}>Образование:</Col>
+                  <Col sm={24} xs={24}>
                     <strong>МГУ</strong>{" "}
                   </Col>
-                  <Col span={12}>Город:</Col>
-                  <Col span={12}>
+                  <Col sm={24}>Город:</Col>
+                  <Col sm={24} xs={24}>
                     <strong>Москва</strong>
                   </Col>
                 </Row>
@@ -109,16 +78,16 @@ export function Aboutme() {
         style={{ marginRight: "490px" }}
       >
         <Row justify="space-around">
-          <Col>
-            {" "}
+          <Col sm={24} md={8} xs={24}>
+          
             <Title title="3">Досье</Title>{" "}
           </Col>
-          <Col>
-            {" "}
+          <Col  sm={24}   md={8}  xs={24}>
+           
             <Title title="3"> Мои результаты</Title>{" "}
           </Col>
-          <Col>
-            {" "}
+          <Col  sm={24} md={8}  xs={24}>
+           
             <Title title="3"> Сенткоины</Title>
           </Col>
         </Row>
@@ -127,7 +96,7 @@ export function Aboutme() {
      </section>
 
 
-     
+{/*      
      <div>
      <Collapse defaultActiveKey={["1"]} style={{ width: '975px', margin: 'auto', position: 'relative', right: '206px', marginTop: '25px'}}>
           <Panel header="Кадровое перемещение" key="1">
@@ -174,7 +143,7 @@ export function Aboutme() {
           </Panel>
         </Collapse>
     
-        </div>
+        </div> */}
 
   
 
@@ -183,8 +152,13 @@ export function Aboutme() {
 
       <Row gutter={26} className="white-section-2">
         
-        <Col span={8}>
+        <Col sm={24} xs={24}>
+
+
           <section className="white-section white-section-2-card-small card">
+
+
+
             <Image src="image 5.png"></Image>
             <div className="card__container">
               <div style={{ display: "flex", flexDirection: "column", width: '100%' }}>
@@ -228,12 +202,12 @@ export function Aboutme() {
           </section>
         </Col>
 
-        <Col span={14}>
+        <Col sm={24} xs={24}>
           <section
-            className="white-section white-section-2-card  "
-            style={{ paddingRight: "100px" }}
+            className="white-section white-section-2-card "
+            
           >
-            <table style={{ borderRadius: "25px" }}>
+            <table style={{  }}>
               <thead>
                 <tr>
                   <th>№</th>
@@ -285,14 +259,7 @@ export function Aboutme() {
             </table>
 
             <Button
-              style={{
-                background: "#7449EF",
-                padding: "1px 13px 40px 14px",
-                fontSize: "24px",
-                color: "#fff",
-                borderRadius: "5px",
-                marginTop: "20px",
-              }}
+             className="btn"
             >
               Потратить Сенткоины
             </Button>

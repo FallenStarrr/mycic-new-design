@@ -41,60 +41,56 @@ function App() {
           }
         >
           <ul className="nav__list">
-            <div className="nav__brand">
-             
-             
-            </div>
-
+        
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="/aboutme">
                 Обо мне
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="/news">
                 Новости
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="/colleagues">
                 Коллеги
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="/agree">
                 Согласование
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 О Компании
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 Рейтинг
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 Шеф говорит
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 Котировки
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 Предстраховой осмотр
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a className="nav__link" href="#">
+              <Link className="nav__link" to="#">
                 Уведомления
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
