@@ -149,7 +149,7 @@ export function Aboutme() {
 
       <Row>
         <Col sm={24} xs={24} lg={12}>
-          <section className="white-section white-section-2-card-small card">
+          <section className="white-section white-section-2-card-small card p-0 mt">
             <Image src="image 5.png"></Image>
             <div className="card__container">
               <div
@@ -195,7 +195,7 @@ export function Aboutme() {
         </Col>
 
         <Col sm={24} xs={24} lg={12}>
-          <section className="white-section white-section-2-card ">
+          <section className="white-section white-section-2-card p-0">
             <table style={{}}>
               <thead>
                 <tr>
