@@ -4,8 +4,10 @@ import Bday from "./components/Bday";
 import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";
 import Head from "./components/Head";
-import { Layout, Menu, Divider, } from "antd";
-
+import { Layout, Menu, Divider, Space } from "antd";
+import {
+  CloseOutlined
+} from '@ant-design/icons';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 
@@ -15,10 +17,36 @@ function App() {
   return (
     <Router>
       <div className="page">
-        <Layout 
+      <nav className="nav">
+      
+            <ul className="nav__list">
+              <div className="nav__brand">
+               
+              <CloseOutlined className="nav__logo"/>
+              <h1 className="nav__heading"> My.cic.kz </h1>
+              
+              </div>
+            
+
+              <li className="nav__item"><a className="nav__link" href="#">Обо мне</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Новости</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Коллеги</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Согласование</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">О Компании</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Рейтинг</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Шеф говорит</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Котировки</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Предстраховой осмотр</a></li>
+              <li className="nav__item"><a className="nav__link" href="#">Уведомления</a></li>
+              
+
+            </ul>
+          </nav>
+        <Layout
         >
+  
           
-          <Sider
+          {/* <Sider
             className="section"
             style={{ height: "100vh", backgroundColor: "#F6F6F9" }}
             width={300}
@@ -27,12 +55,12 @@ function App() {
             <Sidebar />
         
 
-          </Sider>
+          </Sider> */}
 
           <Layout>
-            <Header className="section" style={{ backgroundColor: "#F6F6F9" }}>
+            {/* <Header className="section" style={{ backgroundColor: "#F6F6F9" }}>
               <Head />
-            </Header>
+            </Header> */}
 
             <Divider></Divider>
 
@@ -53,7 +81,7 @@ function App() {
             </Content>
           </Layout>
 
-          <Sider
+          {/* <Sider
             className="section"
             style={{
               backgroundColor: "#F6F6F9",
@@ -64,7 +92,7 @@ function App() {
             width={350}
           >
             <Bday></Bday>
-          </Sider>
+          </Sider> */}
         </Layout>
       </div>
     </Router>

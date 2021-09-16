@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import React from "react";
 import { UserOutlined, DownOutlined, EyeOutlined } from "@ant-design/icons";
-
+import '../styles/about-me.css'
 import {
   Menu,
   Space,

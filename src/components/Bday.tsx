@@ -174,8 +174,8 @@ export default function Bday() {
         <div>27</div>
         <div>28</div>
         <div>29</div>
-        <div className=" holiday">30</div>
-        <div className=" holiday">1</div>
+        <div className="holiday">30</div>
+        <div className="holiday">1</div>
       </div>
       <div style={{ marginTop: "25px" }}>
         <LeftOutlined />

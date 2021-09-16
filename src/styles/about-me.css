@@ -1,0 +1,25 @@
+table {
+    width: 700px;
+    padding: 40px;
+  }
+  
+  thead {
+    height: 59px;
+    background: #7449ef;
+    color: white;
+  
+    padding: 25px !important;
+  }
+  
+  td,
+  th {
+    padding-left: 10px;
+  }
+  
+  th:last-child {
+    padding-right: 10px;
+  }
+  
+  tr {
+    height: 59px;
+  }

@@ -1,6 +1,15 @@
 html,
 body {
   min-height: 100%;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+li {
+  list-style: none;
 }
 
 * {
@@ -94,31 +103,6 @@ body {
   color: #7449ef !important;
   padding: 15px;
 }
-table {
-  width: 700px;
-  padding: 40px;
-}
-
-thead {
-  height: 59px;
-  background: #7449ef;
-  color: white;
-
-  padding: 25px !important;
-}
-
-td,
-th {
-  padding-left: 10px;
-}
-
-th:last-child {
-  padding-right: 10px;
-}
-
-tr {
-  height: 59px;
-}
 
 .gray-row {
   background: #d9e3ff;
@@ -129,13 +113,11 @@ tr {
 }
 
 .card__digits {
- 
   font-weight: bold;
-  font-family: 'Museo Sans Cyrl';
+  font-family: "Museo Sans Cyrl";
   font-size: 70px;
   display: block;
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
 .card__container {
@@ -154,3 +136,53 @@ tr {
   justify-content: space-between;
   align-items: center;
 }
+
+/******************
+
+Navigation
+
+
+
+********************/
+.nav {
+  width: 100vh;
+  height: 100vh;
+  background: white;
+  max-width: 100%;
+ 
+}
+
+.nav__list {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.nav__link {
+  color: #474747;
+  font-family: Museo Sans Cyrl;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.nav__item {
+  margin-top: 30px;
+}
+
+.nav__heading {
+  color: #0057FF;
+  text-align: center;
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+}
+.nav__logo {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+
+/******************/
