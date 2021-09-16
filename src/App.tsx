@@ -13,21 +13,28 @@ import { useState } from "react";
 const { Header, Sider, Content } = Layout;
 
 function App() {
-  const [navbar, setNav] = useState(true);
+  const [navbar, setNav] = useState(false);
 
   return (
     <Router>
-      <div className="page">
-     { navbar ?
-      <CloseOutlined
-                className="nav__logo"
-                onClick={() => setNav(false)}
-              /> 
-              :
+      <div className={navbar ? 'page active-page': 'page'}>
+        <div>
+        { navbar ?
+             
+             <CloseOutlined
+              className="nav__logo unactive-brand-logo "
+              onClick={() => setNav(false)}
+            /> 
 
-      <AlignLeftOutlined  style={{fontSize: '30px'}} onClick={() => setNav(true)}/>
+            :
+            <AlignLeftOutlined   className="unactive-brand-log" style={{fontSize: '30px'}} onClick={() => setNav(true)}/>
+
+
      }
-      <h1 className="nav__heading"> My.cic.kz </h1>
+
+        </div>
+    
+      <h1 className="nav__heading unactive-brand" > My.cic.kz </h1>
         <nav
           className={
             navbar ? "nav-nav-navigation active" : "nav-nav-navigation"

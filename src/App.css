@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 html,
 body {
   min-height: 100%;
@@ -66,6 +74,7 @@ body {
   max-width: 100%;
   margin: auto;
   padding: 30px;
+  height: 100vh;
 }
 
 .white-section {
@@ -145,50 +154,71 @@ Navigation
 
 ********************/
 .nav-nav-navigation {
-  width: 100vh;
-  height: 100vh;
-  background: white;
-  max-width: 100%;
   display: none;
 }
-
-.active {
-  display: block;
-  transition: all .3s ease-in-out;
+.unactive-brand {
+  display: none !important;
 }
 
-.nav__list {
-  margin-top: 25px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+
+@media(max-width: 750px) {
+  .active-page {
+    overflow-y: hidden;
+  }
+  .nav-nav-navigation {
+    width: 100vh;
+    height: 100vh;
+    background: white;
+    max-width: 100%;
+    display: none;
+  }
+
+  .unactive-brand {
+    display: block !important;
+  }
+  .unactive-brand-logj {
+    display: inline !important;
+  }
+  
+  .active {
+    display: block;
+    transition: all .3s ease-in-out;
+  }
+  
+  .nav__list {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .nav__link {
+    color: #474747;
+    font-family: Museo Sans Cyrl;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  
+  .nav__item {
+    margin-top: 30px;
+  }
+  
+  .nav__heading {
+    color: #0057FF;
+    text-align: center;
+  }
+  .nav__brand {
+    display: flex;
+    align-items: center;
+  }
+  .nav__logo {
+    font-size: 40px;
+    margin-right: 20px;
+    transition: all .3s ease-in-out;
+  }
 }
 
-.nav__link {
-  color: #474747;
-  font-family: Museo Sans Cyrl;
-  font-size: 20px;
-  line-height: 23px;
-}
-
-.nav__item {
-  margin-top: 30px;
-}
-
-.nav__heading {
-  color: #0057FF;
-  text-align: center;
-}
-.nav__brand {
-  display: flex;
-  align-items: center;
-}
-.nav__logo {
-  font-size: 40px;
-  margin-right: 20px;
-  transition: all .3s ease-in-out;
-}
 
 
 /******************/
