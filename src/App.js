@@ -4,7 +4,6 @@ import Bday from "./components/Bday";
 import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";
 
-
 import Head from "./components/Head";
 import { Layout, Menu, Divider, Space } from "antd";
 import { CloseOutlined, AlignLeftOutlined } from "@ant-design/icons";

@@ -17,14 +17,14 @@ const Announcement = () => {
             />
           </div>
           <div>
-            <label>Cпикер</label>{" "}
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail113"
-              aria-describedby="emailHelp"
-              placeholder="Спикер"
-            />
+            <label>Cпикер</label>
+           
+
+            <select name="choice" id="choice">
+              <option value="one">One</option>
+              <option value="two">Two</option>
+              <option value="three">Three</option>
+            </select>
           </div>
           <div>
             <label>Описание</label>{" "}
