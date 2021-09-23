@@ -7,6 +7,9 @@ import TakeLesson from "../components/TakeLesson";
 import WannaLearn from "../components/WannaLearn";
 import WantTeach from "../components/WantTeach";
 import "../styles/tests.css";
+import { Tabs } from "antd";
+const { TabPane } = Tabs;
+
 const Tests = () => {
   return (
     <>
@@ -100,15 +103,31 @@ const Tests = () => {
         </button>
       </div>
 
-      <Announcement />
+      <Tabs defaultActiveKey="1" className="m-auto">
+        <TabPane tab="Tab 1" key="1">
+          <Announcement />
+        </TabPane>
+        <TabPane tab="Tab 2" key="2">
+          <TakeLesson />
+        </TabPane>
+        <TabPane tab="Tab 3" key="3">
+          <WantTeach />
+        </TabPane>
+        <TabPane tab="Tab 4" key="4">
+          <WannaLearn />
+        </TabPane>
 
-      <TakeLesson />
-      <WantTeach />
-      <WannaLearn />
-      <Report />
-      <StudyProgram />
+        <TabPane tab="Tab 5" key="5">
+          <Report />
+        </TabPane>
+        <TabPane tab="Tab 6" key="6">
+          <StudyProgram />
+        </TabPane>
 
-      <Download />
+        <TabPane tab="Tab 7" key="7">
+          <Download />
+        </TabPane>
+      </Tabs>
     </>
   );
 };
