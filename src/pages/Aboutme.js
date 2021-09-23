@@ -132,7 +132,7 @@ export function Aboutme() {
      </Col>
 
       <Col sm={24} md={24}  xs={24}  lg={24} className="content">
-        <Collapse   >
+        <Collapse>
           <Panel header="Отпуск" key="1">
             <Steps direction="vertical" size="small" current={1}>
               <Step title="Finished" description="This is a description." />

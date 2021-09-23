@@ -71,37 +71,33 @@ const suffix = (
 export default function Head() {
   return (
     <>
-   
       <Menu
         style={{ backgroundColor: "#F6F6F9" }}
         theme="light"
         mode="horizontal"
       >
-      
         <Menu.Item key="1">О компани</Menu.Item>
         <Menu.Item key="2">Parse</Menu.Item>
         <Menu.Item key="3">Библиотека</Menu.Item>
         <Menu.Item key="4">Рейтинг</Menu.Item>
         <Menu.Item key="5">Шеф говорит</Menu.Item>
         <Menu.Item key="6">KPI</Menu.Item>
-      
-       
-        <Menu.Item style={{marginLeft: '60px'}}>
-        <Space>
+
+        <Menu.Item style={{ marginLeft: "60px" }}>
+          <Space>
             <Avatars />
             <Text>Имя Фамилия</Text>
-          
-          <Dropdown overlay={menu}>
-            <a
-              className="ant-dropdown-link"
-              onClick={(e) => e.preventDefault()}
-            >
-              Hover me <DownOutlined />
-            </a>
-          </Dropdown>
+
+            <Dropdown overlay={menu}>
+              <a
+                className="ant-dropdown-link"
+                onClick={(e) => e.preventDefault()}
+              >
+                Hover me <DownOutlined />
+              </a>
+            </Dropdown>
           </Space>
         </Menu.Item>
-      
       </Menu>
 
       <section className="feed">
