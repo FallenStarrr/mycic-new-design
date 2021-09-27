@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Announcement from "../components/Announcement";
 import Download from "../components/Download";
 import Report from "../components/Report";
@@ -11,11 +11,16 @@ import { Tabs } from "antd";
 const { TabPane } = Tabs;
 
 const Tests = () => {
+  
   return (
+
+
     <>
       <div className="container">
         <h1>Админка</h1>
         <hr />
+
+        
 
         <Tabs defaultActiveKey="1" className="m-auto">
           <TabPane tab="Анонсы обучения" key="1">

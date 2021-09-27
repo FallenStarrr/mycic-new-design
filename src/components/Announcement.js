@@ -1,6 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Announcement = () => {
+  let [options, setOptions] = useState([
+    {
+      id: 1446232,
+      label: "Курбанова Рашидам Турсуновна",
+    },
+    {
+      id: 1446241,
+      label: "Таджибаева Татьяна Юрьевна",
+    },
+    {
+      id: 1446248,
+      label: "Даузов Турсун Рахимович",
+    },
+  ]);
+
+  const tree = (nodes) => {
+    nodes.forEach((node) => {
+      setOptions(node.label);
+
+      if (!node.children) return node.label;
+
+      tree(node.children);
+    });
+  };
+
+  async function fetchSpeakers() {
+    let speakers =  fetch("http://127.0.0.1:8000/api/getFullBranch" , {mode:'cors'});
+
+     let res = await speakers
+     res.json()
+     console.log(res.result)
+     console.log(options)
+     tree(res.result);
+   
+  }
+
+  useEffect(() => {
+    fetchSpeakers();
+
+  }, []);
+
   return (
     <>
       <div className="container">
@@ -18,12 +59,11 @@ const Announcement = () => {
           </div>
           <div>
             <label>Cпикер</label>
-           
 
             <select name="choice" id="choice">
-              <option value="one">One</option>
-              <option value="two">Two</option>
-              <option value="three">Three</option>
+              {options.map((i) => (
+                <option key={i.id}>{i.label}</option>
+              ))}
             </select>
           </div>
           <div>
@@ -45,44 +85,52 @@ const Announcement = () => {
             />
           </div>
           <div>
-            <label>Формат обучения </label>{" "}
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail134"
-              aria-describedby="emailHelp"
-              placeholder="Формат"
-            />
+            <label>
+              Формат обучения{" "}
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputEmail134"
+                aria-describedby="emailHelp"
+                placeholder="Формат"
+              />{" "}
+            </label>{" "}
           </div>
           <div>
-            <label>Место обучения очно </label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail124"
-              aria-describedby="emailHelp"
-              placeholder="Место где очное обучение"
-            />
+            <label>
+              Место обучения очно{" "}
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputEmail124"
+                aria-describedby="emailHelp"
+                placeholder="Место где очное обучение"
+              />
+            </label>
           </div>
           <div>
-            <label>Место обучения онлайн</label>{" "}
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail12"
-              aria-describedby="emailHelp"
-              placeholder="Место где онлайн обучение"
-            />
+            <label>
+              Место обучения онлайн
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputEmail12"
+                aria-describedby="emailHelp"
+                placeholder="Место где онлайн обучение"
+              />
+            </label>{" "}
           </div>
           <div>
-            <label>Тип обучения</label>{" "}
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Тип"
-            />
+            <label>
+              Тип обучения{" "}
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Тип"
+              />
+            </label>{" "}
           </div>
         </form>
 
