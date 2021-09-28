@@ -1,46 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { setConstantValue } from "typescript";
 
 const Announcement = () => {
-  let [options, setOptions] = useState([
-    {
-      id: 1446232,
-      label: "Курбанова Рашидам Турсуновна",
-    },
-    {
-      id: 1446241,
-      label: "Таджибаева Татьяна Юрьевна",
-    },
-    {
-      id: 1446248,
-      label: "Даузов Турсун Рахимович",
-    },
-  ]);
+  let [options, setOptions] = useState([]);
+  let res = []
+   const tree =   (data) => {
+      data.forEach((d) => {
+      
+      res.push(d.label)
 
-  const tree = (nodes) => {
-    nodes.forEach((node) => {
-      setOptions(node.label);
-
-      if (!node.children) return node.label;
-
-      tree(node.children);
+      if (!d.children) return;
+     
+    
+      tree(d.children);
+     
     });
   };
 
   async function fetchSpeakers() {
-    let speakers =  fetch("http://127.0.0.1:8000/api/getFullBranch" , {mode:'cors'});
+    let speakers =  await fetch("http://127.0.0.1:8000/api/getFullBranch" , {mode:'cors',  headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    }});
 
-     let res = await speakers
-     res.json()
-     console.log(res.result)
+     console.log(await speakers.json())
+    //  console.log(options)
+    // let res = await speakers.json()
+    //  tree(res.result);
      console.log(options)
-     tree(res.result);
+     console.log(res.result)
+     return  res.result
    
   }
 
   useEffect(() => {
     fetchSpeakers();
-
-  }, []);
+    
+    setOptions(res)
+  }, [  ]);
 
   return (
     <>
@@ -61,9 +58,9 @@ const Announcement = () => {
             <label>Cпикер</label>
 
             <select name="choice" id="choice">
-              {options.map((i) => (
+              {/* {options.map((i) => (
                 <option key={i.id}>{i.label}</option>
-              ))}
+              ))} */}
             </select>
           </div>
           <div>
