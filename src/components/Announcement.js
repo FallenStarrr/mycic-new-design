@@ -1,46 +1,43 @@
 import React, { useState, useEffect } from "react";
 
 const Announcement = () => {
-  let [options, setOptions] = useState([
-    {
-      id: 1446232,
-      label: "Курбанова Рашидам Турсуновна",
-    },
-    {
-      id: 1446241,
-      label: "Таджибаева Татьяна Юрьевна",
-    },
-    {
-      id: 1446248,
-      label: "Даузов Турсун Рахимович",
-    },
-  ]);
+  let [options, setOptions] = useState([]);
 
   const tree = (nodes) => {
     nodes.forEach((node) => {
       setOptions(node.label);
 
-      if (!node.children) return node.label;
+      if (!nodes.children) return;
 
       tree(node.children);
     });
   };
 
-  async function fetchSpeakers() {
-    let speakers =  fetch("http://127.0.0.1:8000/api/getFullBranch" , {mode:'cors'});
+  // async function fetchSpeakers() {
 
-     let res = await speakers
-     res.json()
-     console.log(res.result)
-     console.log(options)
-     tree(res.result);
-   
-  }
+  
+    
+  //   // console.log(res);
+  //   // console.log(options);
+  //   // tree(res.result);
+  //   return  res;
+  // }
 
   useEffect(() => {
-    fetchSpeakers();
+    let res =  fetch("http://127.0.0.1:8000/getFullBranch", {
 
-  }, []);
+      mode: 'cors'
+
+    });
+    res.then((data) => {
+
+      return data.json()
+
+    }).then((data) => {
+      console.log(data)
+
+    }).catch((err) => { console.log(err)});
+    }, []);
 
   return (
     <>
