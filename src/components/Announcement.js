@@ -1,43 +1,45 @@
 import React, { useState, useEffect } from "react";
+import { setConstantValue } from "typescript";
 
 const Announcement = () => {
   let [options, setOptions] = useState([]);
 
-  const tree = (nodes) => {
-    nodes.forEach((node) => {
-      setOptions(node.label);
+  let res = []
+   const tree =   (data) => {
+      data.forEach((d) => {
+      
+      res.push(d.label)
 
-      if (!nodes.children) return;
-
-      tree(node.children);
+      if (!d.children) return;
+     
+    
+      tree(d.children);
+     
     });
   };
 
-  // async function fetchSpeakers() {
+  async function fetchSpeakers() {
+    let speakers =  await fetch("http://127.0.0.1:8000/api/getFullBranch" , {mode:'cors',  headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    }});
 
-  
-    
-  //   // console.log(res);
-  //   // console.log(options);
-  //   // tree(res.result);
-  //   return  res;
-  // }
+     console.log(await speakers.json())
+    //  console.log(options)
+    // let res = await speakers.json()
+    //  tree(res.result);
+     console.log(options)
+     console.log(res.result)
+     return  res.result
+   
+  }
 
   useEffect(() => {
-    let res =  fetch("http://127.0.0.1:8000/getFullBranch", {
-
-      mode: 'cors'
-
-    });
-    res.then((data) => {
-
-      return data.json()
-
-    }).then((data) => {
-      console.log(data)
-
-    }).catch((err) => { console.log(err)});
-    }, []);
+    fetchSpeakers();
+    
+    setOptions(res)
+  }, [  ]);
+>>>>>>> 63516a3567c9c38bf603a2302613216e35b5b07f
 
   return (
     <>
@@ -58,9 +60,9 @@ const Announcement = () => {
             <label>Cпикер</label>
 
             <select name="choice" id="choice">
-              {options.map((i) => (
+              {/* {options.map((i) => (
                 <option key={i.id}>{i.label}</option>
-              ))}
+              ))} */}
             </select>
           </div>
           <div>
