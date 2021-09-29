@@ -18,6 +18,9 @@ services:
     labels:
       io.rancher.container.pull_image: always
 
+    ports:
+      - "8880:5000"
+
     networks:
       - app_network
 
