@@ -2,7 +2,7 @@
 
 
 table {
-    
+  margin-right: 50px;
     padding: 40px;
     border-radius: "25px";
     width: 50% !important;
@@ -74,4 +74,14 @@ table {
  .content {
    margin-top: 5px;
  }
-  
+
+ .p-0 
+ {
+   padding: 0;
+ }
+ 
+
+ .mt
+  {
+    margin-top: 15px;
+  }

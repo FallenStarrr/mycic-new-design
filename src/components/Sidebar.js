@@ -66,6 +66,14 @@ export default function Sidebar() {
           </Space>
         </Link>
       </Menu.Item>
+      <Menu.Item>
+        <Link to="/knowledge">
+          <Space>
+            <EyeOutlined className="purp-icon" />
+            Обучение
+          </Space>
+        </Link>
+      </Menu.Item>
     </Menu>
   );
 }
