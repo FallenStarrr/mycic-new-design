@@ -1,6 +1,6 @@
 # Tested in node 14.7.6
 
-FROM node:16 as mycic-front-vendor
+FROM node:16-alpine as mycic-front-vendor
 WORKDIR /app
 
 COPY package-lock.json ./
@@ -8,7 +8,7 @@ COPY package.json ./
 
 RUN npm i
 
-FROM node:16 as mycic-front-build
+FROM node:16-alpine as mycic-front-build
 WORKDIR /app
 
 COPY package-lock.json ./
@@ -21,7 +21,7 @@ COPY --from=mycic-front-vendor /app/node_modules /app/node_modules
 
 RUN npm run build
 
-FROM node:16 as mycic-front-app
+FROM node:16-alpine as mycic-front-app
 WORKDIR /app
 
 COPY --from=mycic-front-build /app/build /app
