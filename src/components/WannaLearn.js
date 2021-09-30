@@ -1,6 +1,11 @@
+import e from "cors";
 import React from "react";
 
 const WannaLearn = () => {
+ 
+   
+
+
   return (
     <div className="container">
       <h2 className="text-align-center"> Хочу провести обучение</h2>
@@ -9,6 +14,27 @@ const WannaLearn = () => {
           Назначить
         </button>
       </div>
+
+      <form onSubmit={handleSubmit} className="quiz" noValidate>
+          <label htmlFor="quiz_id">Quiz id</label>
+          <input required type="text" name="quiz_id" id="quiz_id" />
+
+          <label htmlFor="user_id">User id</label>
+          <input required type="text" name="user_id" id="user_id"/>
+
+          <label htmlFor="count_question"></label>
+          <input required type="text" name="count_question" id="count_question" />
+
+          <label htmlFor="day">Day</label>
+          <input required type="text" name="day" id="day" />
+
+
+          <label htmlFor="try">Try</label>
+          <input required type="text" name="try" id="try" />
+
+          <button type="submit">Send data</button>
+
+      </form>
 
       <div className="d-flex ">
         <div className="order-0">
