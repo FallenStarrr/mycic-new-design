@@ -1,4 +1,6 @@
-FROM reg.cic.kz/centras/node:14 as mycic-front-vendor
+# Tested in node 14.7.6
+
+FROM node:16-alpine as mycic-front-vendor
 WORKDIR /app
 
 COPY package-lock.json ./
@@ -6,19 +8,20 @@ COPY package.json ./
 
 RUN npm i
 
-FROM reg.cic.kz/centras/node:14 as mycic-front-build
+FROM node:16-alpine as mycic-front-build
 WORKDIR /app
 
 COPY package-lock.json ./
 COPY package.json ./
-COPY ./src ./
-COPY ./public ./
+COPY tsconfig.json ./
+COPY ./src /app/src
+COPY ./public /app/public
 
 COPY --from=mycic-front-vendor /app/node_modules /app/node_modules
 
 RUN npm run build
 
-FROM reg.cic.kz/centras/node:14 as mycic-front-app
+FROM node:16-alpine as mycic-front-app
 WORKDIR /app
 
 COPY --from=mycic-front-build /app/build /app

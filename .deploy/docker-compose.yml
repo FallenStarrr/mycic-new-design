@@ -13,10 +13,14 @@ volumes:
 
 services:
   app:
-    image: reg.cic.kz/centras/node:14
+    image: reg.cic.kz/centras/mycic-new-design:latest
     container_name: Application
     labels:
       io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: name=kupipolis
+
+    ports:
+      - "8880:5000"
 
     networks:
       - app_network
