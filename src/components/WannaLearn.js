@@ -71,12 +71,11 @@ const WannaLearn = () => {
               id="exampleFormControlTextarea1"
               rows="3"
             ></textarea>
-          </label>
+           </label>
         </div>
       </form>
 
-      <hr />
-
+    
       <table className="table">
         <thead>
           <tr>

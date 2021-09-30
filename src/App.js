@@ -3,7 +3,6 @@ import { Aboutme } from "./pages/Aboutme";
 import Bday from "./components/Bday";
 import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";
-
 import Head from "./components/Head";
 import { Layout, Menu, Divider, Space } from "antd";
 import { CloseOutlined, AlignLeftOutlined } from "@ant-design/icons";
@@ -12,6 +11,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import React, { useState } from "react";
 
 import Tests from "./pages/Tests";
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -133,6 +133,8 @@ function App() {
                 <Route path="/knowledge">
                   <Tests />
                 </Route>
+
+                
               </Switch>
             </Content>
           </Layout>

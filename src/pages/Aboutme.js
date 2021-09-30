@@ -60,6 +60,7 @@ export function Aboutme() {
                   </Col>
                   <Col sm={24} xs={24}>
                     Образование:
+                  
                   </Col>
                   <Col sm={24} xs={24}>
                     <strong>МГУ</strong>{" "}
