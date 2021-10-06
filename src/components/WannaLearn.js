@@ -15,7 +15,7 @@ const WannaLearn = () => {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="quiz" noValidate>
+      <form className="quiz" noValidate>
           <label htmlFor="quiz_id">Quiz id</label>
           <input required type="text" name="quiz_id" id="quiz_id" />
 

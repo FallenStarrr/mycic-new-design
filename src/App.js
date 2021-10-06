@@ -11,6 +11,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import React, { useState } from "react";
 
 import Tests from "./pages/Tests";
+import TEST_REST from "./components/TEST_REST";
 
 
 const { Header, Sider, Content } = Layout;
@@ -43,6 +44,11 @@ function App() {
           }
         >
           <ul className="nav__list">
+          <li className="nav__item">
+              <Link className="nav__link" to="/test_rest">
+                TEST_REST
+              </Link>
+            </li>
             <li className="nav__item">
               <Link className="nav__link" to="/aboutme">
                 Обо мне
@@ -132,6 +138,10 @@ function App() {
                 </Route>
                 <Route path="/knowledge">
                   <Tests />
+                </Route>
+
+                <Route path="/test_rest">
+                  <TEST_REST/>
                 </Route>
 
                 

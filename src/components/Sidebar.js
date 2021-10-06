@@ -13,10 +13,22 @@ const { Title } = Typography;
 
 export default function Sidebar() {
   return (
+
+
+
     <Menu className="nav">
+     
       <Title level={2} style={{ color: "#0057FF", paddingLeft: "50px" }}>
         My.cic.kz
       </Title>
+      <Menu.Item className="nav__item" key="0">
+        <Link to="/test_rest">
+          <Space>
+            <UserOutlined className="purp-icon" />
+           TEST_REST
+          </Space>
+        </Link>
+      </Menu.Item>
       <Menu.Item className="nav__item" key="1">
         <Link to="/aboutme">
           <Space>

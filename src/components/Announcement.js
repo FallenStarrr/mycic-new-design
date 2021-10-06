@@ -129,23 +129,19 @@ const Announcement = () => {
                 <TreeItem nodeId={i.id} label={i.label}>
                   {i.children.map((level1) => (
                     <TreeItem nodeId={level1.id} label={level1.label}>
-                     {level1.children.map((level2) => 
-                     <TreeItem label={level2.label} nodeId={level2.id}
-                     >
-                     {level2.children ?  level2.children.map(i => 
-                     <TreeItem label={i.label} nodeId={i.id}/> ) 
-                     :
-                    ''
-                     
-
-                     }
-                     </TreeItem>)}
+                      {level1.children.map((level2) => (
+                        <TreeItem label={level2.label} nodeId={level2.id}>
+                          {level2.children
+                            ? level2.children.map((i) => (
+                                <TreeItem label={i.label} nodeId={i.id} />
+                              ))
+                            : ""}
+                        </TreeItem>
+                      ))}
                     </TreeItem>
                   ))}
                 </TreeItem>
               ))}
-
-            
             </TreeView>
           </Box>
         </div>
