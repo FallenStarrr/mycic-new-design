@@ -78,11 +78,20 @@ export default function Sidebar() {
           </Space>
         </Link>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className="nav__item" key="7">
         <Link to="/knowledge">
           <Space>
             <EyeOutlined className="purp-icon" />
             Обучение
+          </Space>
+        </Link>
+      </Menu.Item>
+
+      <Menu.Item className="nav__item" key="8">
+        <Link to="/auth">
+          <Space>
+            <EyeOutlined className="purp-icon" />
+            Регистрация
           </Space>
         </Link>
       </Menu.Item>

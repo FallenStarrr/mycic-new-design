@@ -132,7 +132,7 @@ export default function Head() {
             type="primary"
             className="btn"
             icon={<DownOutlined />}
-            size={"large"}
+            size="small"
           >
             Новости
           </Button>
@@ -140,7 +140,7 @@ export default function Head() {
             type="primary"
             className="btn"
             icon={<DownOutlined />}
-            size={"large"}
+            size="small"
           >
             {" "}
             Сортировка
@@ -149,7 +149,7 @@ export default function Head() {
             type="primary"
             className="btn"
             icon={<HeartOutlined />}
-            size={"large"}
+            size="small"
           >
             {" "}
             Понравилось

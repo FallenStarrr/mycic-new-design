@@ -12,6 +12,7 @@ import React, { useState } from "react";
 
 import Tests from "./pages/Tests";
 import TEST_REST from "./components/TEST_REST";
+import Auth from "./components/Auth";
 
 
 const { Header, Sider, Content } = Layout;
@@ -47,6 +48,11 @@ function App() {
           <li className="nav__item">
               <Link className="nav__link" to="/test_rest">
                 TEST_REST
+              </Link>
+            </li>
+            <li className="nav__item">
+              <Link className="nav__link" to="/auth">
+              Регистрация
               </Link>
             </li>
             <li className="nav__item">
@@ -117,9 +123,9 @@ function App() {
           </Sider>
 
           <Layout>
-            {/* <Header className="section" style={{ backgroundColor: "#F6F6F9" }}>
+            <Header className="section" style={{ backgroundColor: "#F6F6F9" }}>
               <Head />
-            </Header> */}
+            </Header>
 
             <Divider></Divider>
 
@@ -144,7 +150,7 @@ function App() {
                   <TEST_REST/>
                 </Route>
 
-                
+                <Route path="/auth" ><Auth/></Route>
               </Switch>
             </Content>
           </Layout>
