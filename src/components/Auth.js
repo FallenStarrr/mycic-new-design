@@ -19,11 +19,12 @@ const Auth = () => {
         try {
           const resp = await axios.post('url', data)
           let token =   localStorage.setItem('token', resp.headers.Authorization.split(' ')[1])
+          return resp
         } catch(e)
         {
           console.log(e)
         }
-        return resp
+     
 
   }
 
