@@ -16,8 +16,13 @@ const Auth = () => {
           password
         }
 
-        const resp = await axios.post('url', data)
-
+        try {
+          const resp = await axios.post('url', data)
+          let token =   localStorage.setItem('token', resp.headers.Authorization.split(' ')[1])
+        } catch(e)
+        {
+          console.log(e)
+        }
         return resp
 
   }
