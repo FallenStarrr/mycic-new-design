@@ -47,7 +47,7 @@ axios.interceptors.request.use((config) => {
       autoComplete="off"
       onSubmit={handleRequest}
     >
-            <h1>Регистрация</h1>
+            <h1>Логин</h1>
             
             <div>
             <TextField 
