@@ -195,8 +195,8 @@ export function Aboutme() {
           </section>
         </Col>
 
-        <Col sm={24} xs={24} lg={12}>
-          <section className="white-section white-section-2-card p-0">
+        <Col sm={24} xs={24} lg={12} >
+          <section className="white-section white-section-2-card p-0 mt-3">
             <table style={{}}>
               <thead>
                 <tr>
