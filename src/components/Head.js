@@ -87,8 +87,10 @@ export default function Head() {
           <Space>
             <Avatars />
             <Text>Имя Фамилия</Text>
-
-            <Dropdown overlay={menu}>
+          </Space>
+        </Menu.Item>
+        <Menu.Item>
+        <Dropdown overlay={menu}>
               <a
                 className="ant-dropdown-link"
                 onClick={(e) => e.preventDefault()}
@@ -96,7 +98,6 @@ export default function Head() {
                 Hover me <DownOutlined />
               </a>
             </Dropdown>
-          </Space>
         </Menu.Item>
       </Menu>
 
@@ -122,7 +123,9 @@ export default function Head() {
       <section className="feed">
         <Space>
           <Search
-            size="small"
+            size="large"
+            style={{width: '400px'}}
+            rounded
             placeholder="Поиск"
             enterButton
             className="search-inp"
