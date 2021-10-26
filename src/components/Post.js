@@ -44,7 +44,9 @@ const contentStyle = {
 export default function Post() {
   return (
     <React.Fragment>
-      <Row className="container">
+      <Row style={{textAlign: 'center'}}>
+
+      <div style={{margin: 'auto' , maxWidth: '1100px', padding: '30px'}}>
         <Col>
           <Space>
             <Avatar size="large" icon={<UserOutlined />} />
@@ -88,6 +90,7 @@ export default function Post() {
             </Button>
           </Form.Item>
         </Col>
+        </div>
       </Row>
 
       <Carousel className="w-50 m-auto ">

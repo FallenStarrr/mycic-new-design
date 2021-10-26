@@ -24,9 +24,11 @@ axios.interceptors.request.use((config) => {
         }
 
         try {
-          const resp = await axios.post('', data)
+          const resp = await axios.post('http://127.0.0.1:8000/api/login' , data)
           let token =   localStorage.setItem('token', resp.headers.Authorization.split(' ')[1])
+          console.log(resp)
           return resp
+
         } catch(e)
         {
           console.log(e)
@@ -70,7 +72,7 @@ axios.interceptors.request.use((config) => {
             />
 
             </div>
-            <Button variant="contained">Зарегестрироваться</Button>
+            <Button variant="contained" type="submit">Зарегестрироваться</Button>
     </Box>
     </Container>
   )
