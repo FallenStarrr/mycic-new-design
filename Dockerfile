@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY package-lock.json ./
 COPY package.json ./
-COPY tsconfig.json ./
+# COPY tsconfig.json ./
 COPY ./src /app/src
 COPY ./public /app/public
 
