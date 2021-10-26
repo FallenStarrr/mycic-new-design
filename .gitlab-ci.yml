@@ -1,6 +1,7 @@
 stages:
   - build
   - deploy
+  - sonarqube
 
 build-docker:
   stage: build
@@ -25,3 +26,23 @@ deploy-app:
   script: |
     rancher up -d --stack MyCIC-Front --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml
     rancher up -d --file .deploy/docker-compose.yml --rancher-file .deploy/rancher-compose.yml --force-upgrade --pull --stack MyCIC-Front --confirm-upgrade app
+
+
+sonarqube-check:
+  stage: sonarqube
+  when: manual
+
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  tags:
+    - docker
+  variables:
+    GIT_DEPTH: 0
+  script:
+    - sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.projectKey=$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG -Dsonar.sources=./src
+  allow_failure: true
+  only:
+    - merge_requests
+    - master
+
