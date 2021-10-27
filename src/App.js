@@ -122,7 +122,7 @@ function App() {
                 <Route path="/news">
                   <Cont></Cont>
                 </Route>
-
+   <Route path="/auth" ><Auth/></Route>
                 <Route path="/colleagues"></Route>
                 <Route path="/agree"></Route>
                 <Route path="/studycenter"></Route>
