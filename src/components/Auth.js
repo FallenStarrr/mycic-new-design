@@ -8,8 +8,14 @@ import axios from 'axios'
 const Auth = () => {
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
-  console.log(token)
-  if (token) config.headers.Authorization = `Bearer ${token}`
+  // console.log(token)
+  if (token) {
+    config.data.token_type = `Bearer`
+    config.data.token = `${token}`
+    console.log(config)
+    // console.log(config.token)
+    // console.log(config.token_type)
+  }
   return config
 }, error => {
   return Promise.reject(error )
@@ -31,7 +37,7 @@ axios.interceptors.request.use((config) => {
         
           var token =   localStorage.setItem('token', resp.data.token)
           
-          console.log(resp)
+          // console.log(resp)
           return resp
 
         } catch(e)
