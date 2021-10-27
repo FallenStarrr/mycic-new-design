@@ -39,7 +39,9 @@ axios.interceptors.request.use((config) => {
 
 
   return (
+
     <Container maxWidth="sm">
+
     <Box
       component="form"
       sx={{
@@ -49,32 +51,42 @@ axios.interceptors.request.use((config) => {
       autoComplete="off"
       onSubmit={handleRequest}
     >
-            <h1>Логин</h1>
+            <h1 className="mt-5">Логин</h1>
             
             <div>
             <TextField 
+            className="mt-5"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
              id="outlined-basic" 
             name="email" 
             label="Email" 
             variant="outlined" />
-
             </div>
+
             <div>
+
             <TextField 
+            className="mt-5"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             id="outlined-basic" 
             label="Пароль" 
             variant="outlined" 
               name="password"
-            
             />
-
             </div>
-            <Button variant="contained" type="submit">Войти</Button>
+
+            <Button 
+            variant="contained" 
+            type="submit"      
+            className="mt-5"
+            >
+            Войти
+            </Button>
+
     </Box>
+
     </Container>
   )
 }
