@@ -55,10 +55,11 @@ axios.interceptors.request.use((config) => {
             
             <div>
             <TextField 
+            style={{width: '20vw', height: '20vh'}}
             className="mt-5"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-             id="outlined-basic" 
+            id="outlined-basic" 
             name="email" 
             label="Email" 
             variant="outlined" />
@@ -67,20 +68,21 @@ axios.interceptors.request.use((config) => {
             <div>
 
             <TextField 
+            style={{width: '20vw',  height: '20vh'}}
             className="mt-5"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             id="outlined-basic" 
             label="Пароль" 
             variant="outlined" 
-              name="password"
+            name="password"
             />
             </div>
 
             <Button 
             variant="contained" 
             type="submit"      
-            className="mt-5"
+            className="mb-5"
             >
             Войти
             </Button>
