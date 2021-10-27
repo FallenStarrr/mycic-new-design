@@ -17,6 +17,7 @@ export default function Sidebar() {
       <Title level={2} style={{ color: "#0057FF", paddingLeft: "50px" }}>
         My.cic.kz
       </Title>
+
       <Menu.Item className="nav__item" key="1">
         <Link to="/aboutme">
           <Space>
@@ -66,11 +67,19 @@ export default function Sidebar() {
           </Space>
         </Link>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item className="nav__item   key="7">
         <Link to="/knowledge">
           <Space>
             <EyeOutlined className="purp-icon" />
             Обучение
+          </Space>
+        </Link>
+      </Menu.Item>
+     <Menu.Item className="nav__item" key="8">
+        <Link to="/auth">
+          <Space>
+            <EyeOutlined className="purp-icon" />
+            Регистрация
           </Space>
         </Link>
       </Menu.Item>
