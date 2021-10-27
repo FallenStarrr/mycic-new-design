@@ -43,6 +43,11 @@ function App() {
           }
         >
           <ul className="nav__list">
+              <li className="nav__item">
+              <Link className="nav__link" to="/auth">
+              Регистрация
+              </Link>
+            </li>
             <li className="nav__item">
               <Link className="nav__link" to="/aboutme">
                 Обо мне
