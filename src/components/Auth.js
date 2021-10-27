@@ -8,6 +8,7 @@ import axios from 'axios'
 const Auth = () => {
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
+  console.log(token)
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 }, error => {
@@ -18,23 +19,24 @@ axios.interceptors.request.use((config) => {
   const [password, setPassword] = useState('')
   async  function handleRequest(e) {
         e.preventDefault()
-        const data = {
+        const userInfo = {
           email: email.trim(),
           password: password.trim()
         }
      
-        console.log(data)
+        // console.log(data)
 
         try {
-          var resp = await axios.post('http://127.0.0.1:8000/api/login' , data)
+          var resp = await axios.post('http://127.0.0.1:8000/api/login' , userInfo)
         
-          let token =   localStorage.setItem('token', resp.headers.Authorization.split(' ')[1])
+          var token =   localStorage.setItem('token', resp.data.token)
+          
           console.log(resp)
           return resp
 
         } catch(e)
         {
-          console.log(resp)
+    
           console.log(e)
         }
      
