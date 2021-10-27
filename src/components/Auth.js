@@ -73,7 +73,7 @@ axios.interceptors.request.use((config) => {
             />
 
             </div>
-            <Button variant="contained" type="submit">Зарегестрироваться</Button>
+            <Button variant="contained" type="submit">Войти</Button>
     </Box>
     </Container>
   )
