@@ -19,18 +19,22 @@ axios.interceptors.request.use((config) => {
   async  function handleRequest(e) {
         e.preventDefault()
         const data = {
-          email,
-          password
+          email: email.trim(),
+          password: password.trim()
         }
+     
+        console.log(data)
 
         try {
-          const resp = await axios.post('http://127.0.0.1:8000/api/login' , data)
+          var resp = await axios.post('http://127.0.0.1:8000/api/login' , data)
+        
           let token =   localStorage.setItem('token', resp.headers.Authorization.split(' ')[1])
           console.log(resp)
           return resp
 
         } catch(e)
         {
+          console.log(resp)
           console.log(e)
         }
      
