@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, FC } from "react";
 import React from "react";
 import { UserOutlined, DownOutlined, EyeOutlined } from "@ant-design/icons";
 import "../styles/about-me.css";
@@ -22,9 +22,11 @@ import {
   Tag,
   Steps,
   DatePicker,
+  
 } from "antd";
 import "antd/dist/antd.css";
 import "../styles/post.css";
+import axios from 'axios'
 
 interface R {
   lastName: string;
@@ -37,7 +39,23 @@ const { Panel } = Collapse;
 
 const { Text, Title } = Typography;
 
-export function Aboutme() {
+
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token')
+  // console.log(token)
+  if (token) {
+    config.data.token_type = `Bearer`
+    config.data.token = `${token}`
+    console.log(config)
+    // console.log(config.token)
+    // console.log(config.token_type)
+  }
+  return config
+}, error => {
+  return Promise.reject(error)
+})
+
+export function Aboutme():FC<R>{
   return (
     <div>
       <section>
