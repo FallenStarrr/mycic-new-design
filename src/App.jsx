@@ -1,7 +1,7 @@
 import "./App.css";
 import {
   Aboutme
-} from "./pages/Aboutme";
+} from "./pages/Aboutme.jsx";
 import Bday from "./components/Bday";
 import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";

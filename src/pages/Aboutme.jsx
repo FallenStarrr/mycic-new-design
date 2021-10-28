@@ -1,4 +1,4 @@
-import { Fragment, FC } from "react";
+import { Fragment, FC, useEffect, useState } from "react";
 import React from "react";
 import { UserOutlined, DownOutlined, EyeOutlined } from "@ant-design/icons";
 import "../styles/about-me.css";
@@ -28,9 +28,9 @@ import "antd/dist/antd.css";
 import "../styles/post.css";
 import axios from 'axios'
 
-interface R {
-  lastName: string;
-}
+// interface R {
+//   lastName: string;
+// }
 
 const { Column, ColumnGroup } = Table;
 const { Step } = Steps;
@@ -40,22 +40,26 @@ const { Panel } = Collapse;
 const { Text, Title } = Typography;
 
 
-axios.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  // console.log(token)
-  if (token) {
-    config.data.token_type = `Bearer`
-    config.data.token = `${token}`
-    console.log(config)
-    // console.log(config.token)
-    // console.log(config.token_type)
-  }
-  return config
-}, error => {
-  return Promise.reject(error)
-})
+// axios.interceptors.request.use((config) => {
+//   const token = localStorage.getItem('token')
+//   // console.log(token)
+//   if (token) {
+//     config.data.token_type = `Bearer`
+//     config.data.token = `${token}`
+//     console.log(config)
+//     // console.log(config.token)
+//     // console.log(config.token_type)
+//   }
+//   return config
+// }, error => {
+//   return Promise.reject(error)
+// })
 
-export function Aboutme():FC<R>{
+export function Aboutme(){
+  let [email, setEmail] = useState('')
+ useEffect(  () => {
+   axios.get('http://127.0.0.1:8000/api/user').then(res => setEmail(res.data.email)).catch(e => console.log(e))
+},[])
   return (
     <div>
       <section>
@@ -67,7 +71,7 @@ export function Aboutme():FC<R>{
 
             <Col sm={24} xs={24}  lg={10}>
               <section className="white-section">
-                <Title>Алексей Щербаков</Title>
+                <Title>Алексей Щербаков  email: {email}</Title>
                 <Text>Бухгалтер</Text>
                 <Row>
                   <Col sm={24} xs={24}>
