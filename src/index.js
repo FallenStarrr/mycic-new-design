@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 axios.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
   // console.log(token)
   if (token) {
     config.data.token_type = `Bearer`
@@ -17,4 +17,6 @@ axios.interceptors.request.use((config) => {
 }, error => {
   return Promise.reject(error)
 })
+
+
 ReactDOM.render(<App />, document.getElementById("root"));

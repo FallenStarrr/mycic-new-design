@@ -22,15 +22,13 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
-import React, {
-  useState
-} from "react";
-
+import "antd/dist/antd.css";
 import Tests from "./pages/Tests";
 import TEST_REST from "./components/TEST_REST";
-import Auth from "./components/Auth";
+import Auth from "./components/Auth.jsx";
 import axios from "axios";
+import useToken from './hooks/useToken'
+import { useState } from "react";
 
 
 const {
@@ -40,10 +38,16 @@ const {
 } = Layout;
 
 function App() {
- 
+  const { token, setToken } = useToken()
+  // console.log(token)
   const [navbar, setNav] = useState(false);
+  // const [token , setToken] = useState()
 
-  axios.get('https://swapi.dev/api/people/1');
+
+ if(!token) {
+   return <Auth setToken={setToken}/>
+ }
+  // axios.get('https://swapi.dev/api/people/1');
 
   return ( <
     Router >
@@ -79,93 +83,61 @@ function App() {
     nav className = {
       navbar ? "nav-nav-navigation active" : "nav-nav-navigation"
     } >
-    <
-    ul className = "nav__list" >
-    <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
-    to = "/test_rest" >
-    TEST_REST <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
-    to = "/auth" >
-    Регистрация <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    <ul className = "nav__list">
+    <li className = "nav__item" >
+    <Link className = "nav__link"
+    to = "/test_rest" > TEST_REST </Link>
+    </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
+    to = "/auth"> Регистрация </Link>
+    </li> 
+ <li className = "nav__item">
+    <Link className = "nav__link"
     to = "/aboutme" >
-    Обо мне <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
-    to = "/news" >
-    Новости <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
-    to = "/colleagues" >
-    Коллеги <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    Обо мне </Link> </li>
+    <li className = "nav__item" >
+    <Link className = "nav__link" to = "/news">
+    Новости </Link>
+     </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
+  to = "/colleagues" >
+    Коллеги </Link> 
+    </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "/agree" >
-    Согласование <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    Согласование </Link> 
+    </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "#" >
-    О Компании <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    О Компании </Link> </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "#" >
-    Рейтинг <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    Рейтинг </Link> 
+    </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "#" >
-    Шеф говорит <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    Шеф говорит </Link> 
+    </li> 
+    <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "#" >
-    Котировки <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
+    Котировки </Link> 
+    </li> <li className = "nav__item" >
+    <Link className = "nav__link"
     to = "#" >
-    Предстраховой осмотр <
-    /Link> < /
-    li > <
-    li className = "nav__item" >
-    <
-    Link className = "nav__link"
-    to = "#" >
-    Уведомления <
-    /Link> < /
-    li >
+    Предстраховой осмотр </Link>
+    </li>
+     <li className = "nav__item" >
+    <Link className = "nav__link"
+    to = "#">
+    Уведомления </Link> 
+    </li>
 
     <
     li className = "nav__item" >
@@ -222,25 +194,21 @@ function App() {
     Switch >
     <
     Route path = "/news" >
-    <
-    Cont > < /Cont> < /
-    Route >
+    <Cont > </Cont> 
+    </Route>
 
-    <
-    Route path = "/colleagues" > < /Route> <
-    Route path = "/agree" > < /Route> <
-    Route path = "/studycenter" > < /Route> <
-    Route path = "/talks" > < /Route> <
-    Route path = "/aboutme" >
-    <
-    Aboutme / >
-    <
-    /Route> <
-    Route path = "/knowledge" >
-    <
-    Tests / >
-    <
-    /Route>
+    <Route path = "/colleagues" > </Route>
+     <Route path = "/agree" > </Route> 
+     <Route path = "/studycenter" > 
+     </Route>
+     <Route path = "/talks" > 
+     </Route> 
+     <Route path = "/aboutme" >
+    <Aboutme / >
+    </Route> 
+    <Route path = "/knowledge" >
+    <Tests / >
+    </Route>
 
     <
     Route path = "/test_rest" >
@@ -250,13 +218,10 @@ function App() {
     /Route>
 
     <
-    Route path = "/auth" > < Auth / > < /Route> < /
-    Switch > <
-    /Content> < /
-    Layout >
+    Route path = "/auth" > < Auth / > < /Route> < /Switch> </Content> 
+    </Layout>
 
-    <
-    Sider className = "sbday"
+    <Sider className = "sbday"
     style = {
       {
         backgroundColor: "#F6F6F9",
@@ -265,12 +230,11 @@ function App() {
     width = {
       350
     } >
-    <
-    Bday > < /Bday> < /
-    Sider > <
-    /Layout> < /
-    div > <
-    /Router>
+        <Bday /> 
+        </Sider> 
+        </Layout> 
+        </div> 
+    </Router>
   );
 }
 

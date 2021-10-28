@@ -1,4 +1,5 @@
 import {
+  SyntheticEvent,
   useState
 } from 'react';
 import Box from '@mui/material/Box';
@@ -7,39 +8,56 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import auth from '../http/auth/auth'
 import axios from 'axios'
-const Auth = () => {
-  axios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token')
-    debugger;
-    // console.log(token)
-    if (token) {
-      config.data.token_type = `Bearer`
-      config.data.token = `${token}`
-      console.log(config)
-      // console.log(config.token)
-      // console.log(config.token_type)
-    }
-    return config
-  }, error => {
-    return Promise.reject(error)
-  })
+import   {Redirect, useHistory} from 'react-router-dom'
+function Auth ({ setToken }) {
+  // axios.interceptors.request.use((config) => {
+  //   const token = localStorage.getItem('token')
+  //   debugger;
+  //   // console.log(token)
+  //   if (token) {
+  //     config.data.token_type = `Bearer`
+  //     config.data.token = `${token}`
+  //     console.log(config)
+  //     // console.log(config.token)
+  //     // console.log(config.token_type)
+  //   }
+  //   return config
+  // }, error => {
+  //   return Promise.reject(error)
+  // })
 
+  let his = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  
+  // const [redirect, setRedirect] = useState('false')
+
   async function handleRequest(e) {
     e.preventDefault()
+
+    // interface IUserInfo {
+    //   email:string,
+    //   password:string
+    // }
+
     const userInfo = {
-      email: email.trim(),
-      password: password.trim()
+      email,
+      password
     }
-
     // console.log(data)
-
     try {
       var resp = await axios.post('http://127.0.0.1:8000/api/login', userInfo)
-
-      var token = localStorage.setItem('token', resp.data.token)
-
+      // console.log(userInfo)
+      console.log(resp.data.token)
+    
+      setToken(resp.data.token)
+      
+      // var token = localStorage.setItem('token', resp.token)
+      // console.log(token)
+      // setEmail('')
+      // setPassword('')
+      // setRedirect(true)
+    //  his.push('/aboutme')
       // console.log(resp)
       return resp
 
@@ -51,6 +69,10 @@ const Auth = () => {
 
   }
 
+  // if (redirect) {
+  // return <Redirect to={"/aboutme"}
+  // />
+  
 
   return (
 
