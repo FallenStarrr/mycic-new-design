@@ -18,7 +18,7 @@ function Auth ({ setToken }) {
   //     config.data.token_type = `Bearer`
   //     config.data.token = `${token}`
   //     console.log(config)
-  //     // console.log(config.token)
+  //     //console.log(config.token)
   //     // console.log(config.token_type)
   //   }
   //   return config
@@ -32,42 +32,43 @@ function Auth ({ setToken }) {
   
   // const [redirect, setRedirect] = useState('false')
 
-  async function handleRequest(e) {
-    e.preventDefault()
+  //  async function handleRequest(e) {
+  //   e.preventDefault()
 
-    // interface IUserInfo {
-    //   email:string,
-    //   password:string
-    // }
+  //   // interface IUserInfo {
+  //   //   email:string,
+  //   //   password:string
+  //   // }
 
-    const userInfo = {
-      email,
-      password
-    }
-    // console.log(data)
-    try {
-      var resp = await axios.post('http://127.0.0.1:8000/api/login', userInfo)
-      // console.log(userInfo)
-      console.log(resp.data.token)
+  //   const userInfo = {
+  //     email,
+  //     password
+  //   }
+  //   // console.log(data)
+  //   try {
+  //     var resp = await axios.post('http://127.0.0.1:8000/api/login', userInfo)
+  //     let token_val = resp.data.token
+  //     // console.log(userInfo)
+  //     console.log(resp)
     
-      setToken(resp.data.token)
+  //     setToken(token_val)
       
-      // var token = localStorage.setItem('token', resp.token)
-      // console.log(token)
-      // setEmail('')
-      // setPassword('')
-      // setRedirect(true)
-    //  his.push('/aboutme')
-      // console.log(resp)
-      return resp
+  //     // var token = localStorage.setItem('token', resp.token)
+  //     // console.log(token)
+  //     // setEmail('')
+  //     // setPassword('')
+  //     // setRedirect(true)
+  //   //  his.push('/aboutme')
+  //     // console.log(resp)
+  //     return token_val
 
-    } catch (e) {
+  //   } catch (e) {
 
-      console.log(e)
-    }
+  //     console.log(e)
+  //   }
 
 
-  }
+  // }
 
   // if (redirect) {
   // return <Redirect to={"/aboutme"}
@@ -87,10 +88,7 @@ function Auth ({ setToken }) {
             },
           }
         }
-        noValidate autoComplete="off"
-        onSubmit={
-          handleRequest
-        } >
+        noValidate autoComplete="off">
         <h1 className="mt-5" > Логин </h1>
 
         <div>
