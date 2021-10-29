@@ -40,9 +40,9 @@ function Auth({setToken}) {
       // console.log(userInfo)
       console.log(resp);
 
-      let token = localStorage.setItem("token", resp.data.token);
+      let token = localStorage.setItem("token", token_val);
       console.log(token);
-
+      setToken(token);
       console.log(resp);
     } catch (e) {
       console.log(e);

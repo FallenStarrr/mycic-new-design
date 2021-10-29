@@ -21,7 +21,9 @@ const { Header, Sider, Content } = Layout;
 function App() {
   // console.log(token)
   const [navbar, setNav] = useState(false);
-  const [token, setToken] = useState();
+
+
+  const { token, setToken } = useToken();
 
  if (!token) {
    return <Auth setToken={setToken}/>
