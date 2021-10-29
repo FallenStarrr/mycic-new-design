@@ -38,15 +38,13 @@ const {
 } = Layout;
 
 function App() {
-  const { token, setToken } = useToken()
+  
   // console.log(token)
   const [navbar, setNav] = useState(false);
   // const [token , setToken] = useState()
 
 
- if(!token) {
-   return <Auth setToken={setToken}/>
- }
+ 
   // axios.get('https://swapi.dev/api/people/1');
 
   return ( <

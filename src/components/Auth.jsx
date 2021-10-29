@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import auth from '../http/auth/auth'
 import axios from 'axios'
 import   {Redirect, useHistory} from 'react-router-dom'
-function Auth ({ setToken }) {
+function Auth () {
   // axios.interceptors.request.use((config) => {
   //   const token = localStorage.getItem('token')
   //   debugger;
@@ -25,61 +25,43 @@ function Auth ({ setToken }) {
   // }, error => {
   //   return Promise.reject(error)
   // })
-
   let his = useHistory()
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('') 
   
-  // const [redirect, setRedirect] = useState('false')
 
-  //  async function handleRequest(e) {
-  //   e.preventDefault()
+   async function handleRequest(e) {
+    e.preventDefault()
 
-  //   // interface IUserInfo {
-  //   //   email:string,
-  //   //   password:string
-  //   // }
 
-  //   const userInfo = {
-  //     email,
-  //     password
-  //   }
-  //   // console.log(data)
-  //   try {
-  //     var resp = await axios.post('http://127.0.0.1:8000/api/login', userInfo)
-  //     let token_val = resp.data.token
-  //     // console.log(userInfo)
-  //     console.log(resp)
+   
+
+    const userInfo = {
+      email,
+      password
+    }
+    try {
+      var resp = await axios.post('http://127.0.0.1:8000/api/login', userInfo)
+      let token_val = resp.data.token
+      // console.log(userInfo)
+      console.log(resp)
     
-  //     setToken(token_val)
       
-  //     // var token = localStorage.setItem('token', resp.token)
-  //     // console.log(token)
-  //     // setEmail('')
-  //     // setPassword('')
-  //     // setRedirect(true)
-  //   //  his.push('/aboutme')
-  //     // console.log(resp)
-  //     return token_val
-
-  //   } catch (e) {
-
-  //     console.log(e)
-  //   }
-
-
-  // }
-
-  // if (redirect) {
-  // return <Redirect to={"/aboutme"}
-  // />
-  
-
+      let token = localStorage.setItem('token', resp.data.token)
+      console.log(token)
+     
+     his.push('/aboutme')
+      console.log(resp)
+    } catch (e) {
+      console.log(e)
+    }
+  }
   return (
 
     <Container maxWidth="sm" >
 
       <Box component="form"
+      onSubmit={handleRequest}
         sx={
           {
             '& > :not(style)': {
@@ -144,4 +126,4 @@ function Auth ({ setToken }) {
               )
 }
 
-              export default Auth
+export default Auth
