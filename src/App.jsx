@@ -13,9 +13,9 @@ import Tests from "./pages/Tests";
 import TEST_REST from "./components/TEST_REST";
 import Auth from "./components/Auth";
 import axios from "axios";
-import useToken from "./hooks/useToken";
+// import useToken from "./hooks/useToken";
 import { useState } from "react";
-
+import LoginForm from './components/LoginForm'
 const { Header, Sider, Content } = Layout;
 
 function App() {
@@ -23,11 +23,11 @@ function App() {
   const [navbar, setNav] = useState(false);
 
 
-  const { token, setToken } = useToken();
+//   const { token, setToken } = useToken();
 
- if (!token) {
-   return <Auth setToken={setToken}/>
- }
+//  if (!token) {
+//    return <Auth setToken={setToken}/>
+//  }
 
   return (
     <Router>
@@ -50,6 +50,8 @@ function App() {
           )}{" "}
         </div>
         <h1 className='nav__heading unactive-brand'> My.cic.kz </h1>{" "}
+
+        <LoginForm/>
         <nav
           className={
             navbar ? "nav-nav-navigation active" : "nav-nav-navigation"
