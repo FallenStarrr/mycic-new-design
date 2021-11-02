@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import Tests from "./pages/Tests";
 import TEST_REST from "./components/TEST_REST";
-import Auth from "./components/Auth";
 import axios from "axios";
 // import useToken from "./hooks/useToken";
 import { useState } from "react";
@@ -159,17 +158,13 @@ function App() {
                 <Route path='/news'>
                   <Cont> </Cont>
                 </Route>
-                <Route path='/colleagues'> </Route>{" "}
-                <Route path='/agree'></Route>{" "}
-                <Route path='/studycenter'></Route>{" "}
-                <Route path='/talks'></Route>{" "}
-                <Route
-                  path='/aboutme
-    '
-                >
-                  {" "}
+                <Route path='/colleagues'> </Route>
+                <Route path='/agree'></Route>
+                <Route path='/studycenter'></Route>
+                <Route path='/talks'></Route>
+                <Route path='/aboutme'>
                   <Aboutme />
-                </Route>{" "}
+                </Route>
                 <Route path='/knowledge'>
                   <Tests />
                 </Route>
@@ -177,8 +172,8 @@ function App() {
                   <TEST_REST />
                 </Route>
               
-              </Switch>{" "}
-            </Content>{" "}
+              </Switch>
+            </Content>
           </Layout>
           <Sider
             className='sbday'

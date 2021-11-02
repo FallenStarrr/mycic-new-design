@@ -83,13 +83,13 @@ export default function Head() {
         <Menu.Item key="5">Шеф говорит</Menu.Item>
         <Menu.Item key="6">KPI</Menu.Item>
 
-        <Menu.Item style={{ marginLeft: "60px" }}>
+        <Menu.Item  key="7" style={{ marginLeft: "60px" }}>
           <Space>
             <Avatars />
             <Text>Имя Фамилия</Text>
           </Space>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="8">
         <Dropdown overlay={menu}>
               <a
                 className="ant-dropdown-link"

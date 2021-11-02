@@ -38,54 +38,11 @@ const { Panel } = Collapse;
 
 const { Text, Title } = Typography;
 
-// axios.interceptors.request.use((config) => {
-//   const token = localStorage.getItem('token')
-//   // console.log(token)
-//   if (token) {
-//     config.data.token_type = `Bearer`
-//     config.data.token = `${token}`
-//     console.log(config)
-//     // console.log(config.token)
-//     // console.log(config.token_type)
-//   }
-//   return config
-// }, error => {
-//   return Promise.reject(error)
-// })
 
-axios.interceptors.request.use(
-  (config) => {
-    const token = sessionStorage.getItem("token");
-    // console.log(token)
-    if (token) {
-      // config.data.token_type = `Bearer`
-      config.data.token = `${token}`;
-      console.log(config);
-      // console.log(config.token)
-      // console.log(config.token_type)
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
+
 
 export default function Aboutme() {
-  let [email, setEmail] = useState("");
-  // useEffect(() => {
-  //   let config = {
-  //     headers: {
-  //       'Authorization': 'Bearer ' +  `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMzkwMGQzNDJmMjZlZGViMGEzYWQ0MjUwYTJiYTc2Y2I0ZTVjNTM4YWRlODAyZmY2YzI3Yzg3NmNiY2Q3ZWI3Zjc1YjMwZjhiZWQ5ODI0MTQiLCJpYXQiOjE2MzU0MjI3NDUuOTE4MDY1LCJuYmYiOjE2MzU0MjI3NDUuOTE4MDY4LCJleHAiOjE2NjY5NTg3NDUuOTA4MTkxLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0'`
-  //     }
-  //   }
-  //   let resp = axios.get('http://127.0.0.1:8000/api/user', config).then(data => console.log(data)).catch(e => console.log(e))
 
-  // console.log(resp)
-  // let email = resp.data.email
-  //  setEmail(email)
-  //  console.log(email)
-  // }, [])
   return (
     <div>
       <section>
@@ -96,7 +53,7 @@ export default function Aboutme() {
             </Col>
             <Col sm={24} xs={24} lg={10}>
               <section className='white-section'>
-                <Title> Алексей Щербаков email: {email} </Title>{" "}
+                <Title> Алексей Щербаков email:  </Title>{" "}
                 <Text> Бухгалтер </Text>{" "}
                 <Row>
                   <Col sm={24} xs={24}>
@@ -252,7 +209,7 @@ export default function Aboutme() {
         </Col>
         <Col sm={24} xs={24} lg={12}>
           <section className='white-section white-section-2-card p-0 mt-3'>
-            <table style={{}}>
+            <table>
               <thead>
                 <tr>
                   <th> № </th> <th> Вид </th> <th> Описание </th>{" "}
