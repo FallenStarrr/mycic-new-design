@@ -18,16 +18,16 @@ const TEST_REST = () => {
   // data.append('space', '2')
 
 
-  const [userInfo, setUserInfo] = useState({})
+//   const [userInfo, setUserInfo] = useState({})
 
 
-  async function getInfo() {
-  let res = await $api.get('/user')
-  console.log(res.data)
-  setUserInfo({...res.data})
-  console.log(userInfo)
-  return res
-}
+//   async function getInfo() {
+//   let res = await $api.get('/user')
+//   console.log(res.data)
+//   setUserInfo({...res.data})
+//   console.log(userInfo)
+//   return res
+// }
 
 
 
@@ -37,9 +37,9 @@ const TEST_REST = () => {
   return (
     <div>
     <div>
-
+{/* 
    <h1>Get Users Info</h1>
-   <button onClick={getInfo}>Get Users Info {userInfo.name}</button>
+   <button onClick={getInfo}>Get Users Info {userInfo.name}</button> */}
 
    
 
