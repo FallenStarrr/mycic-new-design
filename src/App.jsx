@@ -1,5 +1,4 @@
 import "./App.css";
-
 import Aboutme from "./pages/Aboutme";
 import Bday from "./components/Bday";
 import Cont from "./components/Cont";
@@ -7,32 +6,53 @@ import Sidebar from "./components/Sidebar";
 import Head from "./components/Head";
 import { Layout, Menu, Divider, Space } from "antd";
 import { CloseOutlined, AlignLeftOutlined } from "@ant-design/icons";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import "antd/dist/antd.css";
 import Tests from "./pages/Tests";
 import TEST_REST from "./components/TEST_REST";
 import axios from "axios";
 // import useToken from "./hooks/useToken";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import LoginForm from './components/LoginForm'
+import Auth from "./pages/Auth";
+import { Context } from './index'
 const { Header, Sider, Content } = Layout;
 
 function App() {
   // console.log(token)
   const [navbar, setNav] = useState(false);
-
-
+  const { store } = useContext(Context);
+  const logged = store.isAuth
+  const [login, setLogin] = useState(false)
 //   const { token, setToken } = useToken();
 
-//  if (!token) {
-//    return <Auth setToken={setToken}/>
-//  }
+ if (!localStorage.getItem('token')) {
+   return <Auth/>
+ }
 
-  return (
+
+
+
+  return (     
+
+   
+
     <Router>
-      <div className={navbar ? "page active-page" : "page"}>
+    <Switch>
+    {/* <Route exact path="/">
+      {
+        store.getAuth() ? <Redirect to="/home"/> :   <Redirect to="/auth"/>
+      }
+    </Route> */}
+
+    <Route path="/auth">
+       <Auth/>
+   </Route>
+
+<Route>
+     <div className={navbar ? "page active-page" : "page"}>
         <div>
-          {" "}
+          
           {navbar ? (
             <CloseOutlined
               className='nav__logo unactive-brand-logo '
@@ -46,11 +66,11 @@ function App() {
               }}
               onClick={() => setNav(true)}
             />
-          )}{" "}
+          )}
         </div>
-        <h1 className='nav__heading unactive-brand'> My.cic.kz </h1>{" "}
+        <h1 className='nav__heading unactive-brand'> My.cic.kz </h1>
 
-        <LoginForm/>
+
         <nav
           className={
             navbar ? "nav-nav-navigation active" : "nav-nav-navigation"
@@ -59,31 +79,26 @@ function App() {
           <ul className='nav__list'>
             <li className='nav__item'>
               <Link className='nav__link' to='/test_rest'>
-                {" "}
-                TEST_REST{" "}
-              </Link>{" "}
+                
+                TEST_REST
+              </Link>
             </li>
-            <li className='nav__item'>
-              <Link className='nav__link' to='/auth'>
-                {" "}
-                Регистрация{" "}
-              </Link>{" "}
-            </li>{" "}
+          
             <li className='nav__item'>
               <Link className='nav__link' to='/aboutme'>
-                Обо мне{" "}
-              </Link>{" "}
+                Обо мне
+              </Link>
             </li>
             <li className='nav__item'>
               <Link className='nav__link' to='/news'>
-                Новости{" "}
-              </Link>{" "}
-            </li>{" "}
+                Новости
+              </Link>
+            </li>
             <li className='nav__item'>
               <Link className='nav__link' to='/colleagues'>
-                Коллеги{" "}
-              </Link>{" "}
-            </li>{" "}
+                Коллеги
+              </Link>
+            </li>
             <li className='nav__item'>
               <Link className='nav__link' to='/agree'>
                 Согласование{" "}
@@ -171,7 +186,6 @@ function App() {
                 <Route path='/test_rest'>
                   <TEST_REST />
                 </Route>
-              
               </Switch>
             </Content>
           </Layout>
@@ -185,9 +199,21 @@ function App() {
             <Bday />
           </Sider>{" "}
         </Layout>{" "}
-      </div>{" "}
+    </div>
+</Route>
+   
+              
+    </Switch>
+    
+
+   
+
     </Router>
   );
 }
+
+
+
+
 
 export default App;

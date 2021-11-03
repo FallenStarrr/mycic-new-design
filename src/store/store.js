@@ -11,6 +11,10 @@ export default class Store {
               makeAutoObservable(this)
         }
 
+        getAuth() {
+          return this.isAuth
+        }
+
         setAuth(bool) {
           this.isAuth = bool
         }

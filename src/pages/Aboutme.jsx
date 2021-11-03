@@ -49,7 +49,7 @@ useEffect( () => {
   let res = await $api.get('/user')
   console.log(res.data)
   setUserInfo({...res.data})
-  // console.log(userInfo)
+  console.log(userInfo)
   return res
 }
 
