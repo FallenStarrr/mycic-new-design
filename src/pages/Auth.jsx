@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { Context } from "../index";
 import $api from "../http-axios";
 import axios from "axios";
@@ -11,11 +11,21 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { store } = useContext(Context);
+  const inputEl = useRef(null);
 
+
+  function show() {
+ 
+    if (inputEl.current.getAttribute('type') === 'password') {
+      inputEl.current.setAttribute('type', 'text')
+    } else {
+      inputEl.current.setAttribute('type', 'password')
+    }
+  }
   return (
     <div>
       {/*    <!-- Main --> */}
-      <div className='main'>
+      <div className='main' style={{overflow: 'hidden'}}>
         <div className='preloader' id='preloader'>
           <div className='item-1'></div>
           <div className='item-2'></div>
@@ -138,6 +148,7 @@ const Auth = () => {
                       <path d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z' />
                     </svg>
                     <input
+                      ref={inputEl}
                       id='password'
                       placeholder='Пароль'
                       type='password'
@@ -146,7 +157,7 @@ const Auth = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    <button type='button' className='show-btn'>
+                    <button type='button' className='show-btn' onClick={show}>
                       <svg
                         aria-hidden='true'
                         id='icon'
