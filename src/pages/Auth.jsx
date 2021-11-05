@@ -13,7 +13,6 @@ const Auth = () => {
   const { store } = useContext(Context);
   const inputEl = useRef(null);
 
-
   function show() {
  
     if (inputEl.current.getAttribute('type') === 'password') {
@@ -104,12 +103,13 @@ const Auth = () => {
                 </div>
               </div>
               <div className='line'></div>
-            </div>{" "}
+            </div>
             <div className='col-lg-6 column-2'>
               <div className='users d-flex justify-content-center'>
                 <img src={users} alt='users image' className='users__image' />
               </div>
               <div className='login-form'>
+              <form action="" >
                 <div className='input-container d-flex justify-content-center'>
                   <div className='input-container__background'>
                     <svg
@@ -180,12 +180,13 @@ const Auth = () => {
                     onClick={() => store.login(email, password)}
                   >
                     Войти
-                  </button>
-                </div>
-              </div>{" "}
+                     </button>
+                    </div>
+                </form>
+              </div>
               <div></div>
             </div>
-          </div>{" "}
+          </div>
           {/*<!--Second row--> */}
           {/* <!--Third row--> */}
           <div className='row row-3'>
