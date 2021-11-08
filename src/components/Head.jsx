@@ -128,11 +128,11 @@ export default function Head() {
 
             <section className="feed">
                 <Row justify="start">
-                    <Col span={4}>
+                    <Col span={2}>
                         <Avatars/>
                     </Col>
-                    <Col span={8}>
-                        <Text>Что у вас нового?</Text>
+                    <Col span={16}>
+                        <Text style={{color: '#C4C4C4'}}>Что у вас нового?</Text>
                     </Col>
                     <Col>
                         <Space>
@@ -145,16 +145,19 @@ export default function Head() {
                 </Row>
             </section>
 
-            <section className="feed">
-                <Space>
-                    <Search
-                        size="large"
-                        style={{width: '400px'}}
-                        rounded
-                        placeholder="Поиск"
-                        enterButton
-                        className="search-inp"
-                    />
+            <section className="feed d-flex justify-content-between align-items-center">
+                  <fieldset>
+                  <input 
+                     type="search" 
+                     placeholder="Поиск"
+                     style={
+                    {borderBottom: '2px solid black', 
+                     width: '309px',
+                     height: '22px'}}    
+                     />
+                     <i class="fab fa-searchengin"></i>
+                  </fieldset>
+                    
 
                     <Button
                         type="primary"
@@ -170,7 +173,7 @@ export default function Head() {
                         icon={<DownOutlined/>}
                         size="small"
                     >
-                        {" "}
+                        
                         Сортировка
                     </Button>
                     <Button
@@ -179,10 +182,10 @@ export default function Head() {
                         icon={<HeartOutlined/>}
                         size="small"
                     >
-                        {" "}
+                        
                         Понравилось
                     </Button>
-                </Space>
+            
             </section>
         </>
     );
