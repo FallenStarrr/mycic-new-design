@@ -75,23 +75,23 @@ export default function Head() {
     return (
         <>
             <Menu
-                style={{backgroundColor: "#F6F6F9", borderBottom: "2px solid black"}}
+                style={{background: '#F6F6F9'}}
                 theme="light"
                 mode="horizontal"
                 className="nav justify-content-between"
                 
             >
-            <div className="d-flex">
-                <Menu.Item key="1">О компани</Menu.Item>
-                <Menu.Item key="2">Parse</Menu.Item>
-                <Menu.Item key="3">Библиотека</Menu.Item>
-                <Menu.Item key="4">Рейтинг</Menu.Item>
-                <Menu.Item key="5">Шеф говорит</Menu.Item>
-                <Menu.Item key="6">KPI</Menu.Item>
+            <div className="d-flex left">
+                <Menu.Item key="1" className="nav__link">О компани</Menu.Item>
+                <Menu.Item key="2" className="nav__link">Parse</Menu.Item>
+                <Menu.Item key="3" className="nav__link">Библиотека</Menu.Item>
+                <Menu.Item key="4" className="nav__link">Рейтинг</Menu.Item>
+                <Menu.Item key="5" className="nav__link">Шеф говорит</Menu.Item>
+                <Menu.Item key="6" className="nav__link">KPI</Menu.Item>
                 </div>
 
 
-    <div className="d-flex">
+    <div className="d-flex right">
                 <Menu.Item key="7" style={{marginLeft: "60px"}}>
                     <Space>
                         <Avatars/>

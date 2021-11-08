@@ -22,5 +22,17 @@
 
 
 .nav {
-    display: flex;
+    display: flex ;
   }
+
+  .nav__link {
+    color: #533737 !important;
+  }
+
+  .left {
+      transform: translateX(-77px);
+  }
+
+  .right {
+    transform: translateX(87px);
+}
