@@ -19,3 +19,8 @@
 .big-icon {
     font-size: 40px;
 }
+
+
+.nav {
+    display: flex;
+  }

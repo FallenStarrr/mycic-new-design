@@ -24,7 +24,7 @@ const LoginForm = () => {
             password
         })
             .then(response => {
-                localStorage.setItem('token', response.data.access_token)
+                localStorage.setItem('token', response.data.token)
                 history.push('/news')
             })
             .catch(err => {
