@@ -26,7 +26,7 @@ import {
 import "antd/dist/antd.css";
 import "../styles/post.css";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import { API_URL } from "../http-axios";
 
@@ -44,13 +44,28 @@ const contentStyle = {
 
 export default function Post({ posts, setPost, deletePost, editPost, showEdit, setShowEdit }) {
     const [editVal, setEditVal] = useState('')
-
+    const [like, setLike] = useState(0)
+    let [comment, setComment] = useState([{
+        name: 'John Smith',
+        text: 'hello world'
+    }])
+    let [comDetails, setComDetails] = useState({name: '', text: ''})
+    const img_file = useRef()
+  
     function sendPost(post) {
             post.text = editVal
             setEditVal('')
             setShowEdit(false)
-
+            console.log(img_file.files)
     } 
+
+    function handleLike() {
+        setLike(like + 1)
+    }
+
+    function addCom() { 
+        setComment([...comment, {name: comDetails.name, text: comDetails.text}])
+    }
   return (
     <React.Fragment>
       <div>
@@ -78,22 +93,39 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                    }</Text>
                 </Col>
                 <Col span='24'>
-                  <Image src='image2.png' width='200' />
+                  <Image src={ img_file.value ?  img_file.value : 'image2.png'} width='200' />
                 </Col>
                 <Col>
-                  56 <HeartFilled className='purp-icon' /> 
+                  {like} <HeartFilled className='purp-icon' onClick={handleLike} /> 
                   <MessageFilled className='purp-icon' />
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
+                {
+                   comment.map(com =>  <ExampleComment text={com.text} name={com.name}/>
+                   ) 
+                }
                   <ExampleComment />
                 </Col>
                 <Col span={24}>
+                <Form.Item>
+                <div>
+                                <label htmlFor="name">Your name:</label>
+                                <input  
+                                id="name"
+                                value={comDetails.name} 
+                                onChange={(e) => setComDetails({...comDetails, name: e.target.value})} 
+                                class="form-control"
+                                />
+
+                            </div>
+                
+                </Form.Item>
                
                   <Form.Item>
-                    <TextArea rows={4} />
+                    <TextArea rows={4}  value={comDetails.text} onChange={(e) => setComDetails({ ...comDetails,  text: e.target.value}) }/>
                   </Form.Item>
                   <Form.Item>
-                    <Button htmlType='submit' type='primary'>
+                    <Button htmlType='submit' type='primary' onClick={addCom}>
                       Add Comment
                     </Button>
                     <Form.Item>
@@ -111,6 +143,8 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                     <Button htmlType='submit' type='primary' onClick={() => sendPost(post)}>
                                   Ok
                     </Button>
+
+                    <input ref={img_file} type="file"/>
                     </Form.Item>
                   </Form.Item>
                 </Col>

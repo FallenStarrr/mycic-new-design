@@ -15,10 +15,10 @@ import {
 } from "antd";
 import "antd/dist/antd.css";
 
-export const ExampleComment = () => (
+export const ExampleComment = ({name, text}) => (
   <Comment
     actions={[<span key="comment-nested-reply-to">Reply to</span>]}
-    author={<a>Han Solo</a>}
+    author={<a>{name ? name : 'Han Solo'}</a>}
     avatar={
       <Avatar
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
@@ -26,6 +26,8 @@ export const ExampleComment = () => (
       />
     }
     content={
+      text ? text 
+      :
       <p>
         We supply a series of design principles, practical patterns and high
         quality design resources (Sketch and Axure).

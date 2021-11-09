@@ -29,7 +29,7 @@ function App() {
 
 
 // Post creation
-let [edit, setEdit] = useState('false')
+let [edit, setEdit] = useState(false)
 let [text, setText] = useState('')
 let [editedPost, setEditPost ] = useState('')
 let [showEdit, setShowEdit] = useState(false)
