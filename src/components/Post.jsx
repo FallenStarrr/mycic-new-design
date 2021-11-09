@@ -42,7 +42,15 @@ const contentStyle = {
   background: "#364d79",
 };
 
-export default function Post({ posts, setPost, deletePost }) {
+export default function Post({ posts, setPost, deletePost, editPost, showEdit, setShowEdit }) {
+    const [editVal, setEditVal] = useState('')
+
+    function sendPost(post) {
+            post.text = editVal
+            setEditVal('')
+            setShowEdit(false)
+
+    } 
   return (
     <React.Fragment>
       <div>
@@ -61,13 +69,19 @@ export default function Post({ posts, setPost, deletePost }) {
                 <br />
 
                 <Col>
-                  <Text>{post.text}</Text>
+                  <Text>{
+                      showEdit ? 
+                      <Form.Item>
+                        <TextArea rows={4} value={editVal} onChange={(e) => setEditVal(e.target.value)} />
+                  </Form.Item>
+                   : post.text
+                   }</Text>
                 </Col>
                 <Col span='24'>
                   <Image src='image2.png' width='200' />
                 </Col>
                 <Col>
-                  56 <HeartFilled className='purp-icon' /> 23{" "}
+                  56 <HeartFilled className='purp-icon' /> 
                   <MessageFilled className='purp-icon' />
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
@@ -91,6 +105,12 @@ export default function Post({ posts, setPost, deletePost }) {
                       >
                         Delete Comment
                       </Button>
+                      <Button htmlType='submit' type='primary' onClick={editPost}>
+                                  Edit
+                    </Button>
+                    <Button htmlType='submit' type='primary' onClick={() => sendPost(post)}>
+                                  Ok
+                    </Button>
                     </Form.Item>
                   </Form.Item>
                 </Col>
@@ -99,7 +119,6 @@ export default function Post({ posts, setPost, deletePost }) {
           );
         })}
       </div>
-
       <Carousel className='w-50 m-auto '>
         <Carousel.Item>
           <img className='d-block w-100' src='image 4.png' alt='First slide' />

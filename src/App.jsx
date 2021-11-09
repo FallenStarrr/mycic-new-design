@@ -24,18 +24,27 @@ function App() {
     const {store} = useContext(Context);
     const logged = store.isAuth
     const [login, setLogin] = useState(false)
+
 //   const { token, setToken } = useToken();
 
 
 // Post creation
 let [edit, setEdit] = useState('false')
 let [text, setText] = useState('')
+let [editedPost, setEditPost ] = useState('')
+let [showEdit, setShowEdit] = useState(false)
 let [author, setAuthor] = useState('')
   function handleEdit() {
                 setEdit(!edit)
                 console.log(edit)
                 console.log(text)
   } 
+
+  function editPost() {
+            setShowEdit(!showEdit)
+  }    
+
+
 
   let [posts, setPost] = useState([{author: 'Jogn Doe',
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -215,6 +224,9 @@ let [author, setAuthor] = useState('')
                                                <Post 
                                                     posts={posts}
                                                     deletePost={deletePost}
+                                                    editPost={editPost}
+                                                    showEdit={showEdit}  
+                                                    setShowEdit={setShowEdit}
                                                />
                                         </Route>
                                         <Route path='/colleagues'> </Route>
@@ -241,8 +253,8 @@ let [author, setAuthor] = useState('')
                                 width={350}
                             >
                                 <Bday/>
-                            </Sider>{" "}
-                        </Layout>{" "}
+                            </Sider>
+                        </Layout>
                     </div>
                 </Route>
 
