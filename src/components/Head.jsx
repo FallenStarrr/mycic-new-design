@@ -144,7 +144,7 @@ export default function Head({
           </Menu.Item>
         </div>
       </Menu>
-
+<div className={edit ? "overlay" : ''}>
       <section className={edit ? "feed  feed-edit" : "feed"}>
         <Row justify='space-between'>
           <Col span={2}>
@@ -211,6 +211,7 @@ export default function Head({
           </Col>
         </Row>
       </section>
+      </div>
 
       <section className='feed d-flex justify-content-between align-items-center'>
         <fieldset>
