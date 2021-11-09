@@ -26,6 +26,39 @@ function App() {
     const [login, setLogin] = useState(false)
 //   const { token, setToken } = useToken();
 
+
+// Post creation
+let [edit, setEdit] = useState('false')
+let [text, setText] = useState('')
+let [author, setAuthor] = useState('')
+  function handleEdit() {
+                setEdit(!edit)
+                console.log(edit)
+                console.log(text)
+  } 
+
+  let [posts, setPost] = useState([{author: 'Jogn Doe',
+  text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+  aliquip ex ea commodo consequat. Duis aute irure dolor in
+  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+  culpa qui officia deserunt mollit anim id est laborum`,
+  id: Date.now()
+  }])
+
+  
+  function deletePost(id) {
+    setPost(posts.filter(post => post.id !== id))
+    console.log(posts)
+}
+  
+  function addPost() {
+      setPost([...posts, {text: text, id: Date.now(), author: author}])
+      console.log(posts)
+  }
+
     if (!localStorage.getItem('token')) {
         return <Auth/>
     }
@@ -160,7 +193,15 @@ function App() {
                                         backgroundColor: "#F6F6F9",
                                     }}
                                 >
-                                    <Head/>
+                                    <Head
+                                        addPost={addPost}
+                                        edit={edit}
+                                        text={text}
+                                        handleEdit={handleEdit}
+                                        setText={setText}
+                                        author={author}
+                                        setAuthor={setAuthor}
+                                    />
                                 </Header>
                                 <Divider> </Divider>
                                 <Content
@@ -170,9 +211,12 @@ function App() {
                                     }}
                                 >
                                     <Switch>
-                                        <Route exact path='/news'
-                                               component={Post}
-                                        />
+                                        <Route exact path='/news'>
+                                               <Post 
+                                                    posts={posts}
+                                                    deletePost={deletePost}
+                                               />
+                                        </Route>
                                         <Route path='/colleagues'> </Route>
                                         <Route path='/agree'></Route>
                                         <Route path='/studycenter'></Route>
