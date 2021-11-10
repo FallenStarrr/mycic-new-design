@@ -19,6 +19,8 @@ import Post from "./components/Post";
 const {Header, Sider, Content} = Layout;
 
 function App() {
+    // Emoji state
+    const [ input, setInput] = useState('')
     // console.log(token)
     const [navbar, setNav] = useState(false);
     const {store} = useContext(Context);
@@ -218,6 +220,9 @@ let [author, setAuthor] = useState('')
                                         setText={setText}
                                         author={author}
                                         setAuthor={setAuthor}
+                                        input={input}
+                                        setInput={setInput}
+
                                     />
                                 </Header>
                                 <Divider> </Divider>
@@ -236,6 +241,7 @@ let [author, setAuthor] = useState('')
                                                     editPost={editPost}
                                                     showEdit={showEdit}  
                                                     setShowEdit={setShowEdit}
+                                                    smile={input}
                                                />
                                         </Route>
                                         <Route path='/colleagues'> </Route>

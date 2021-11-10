@@ -1,4 +1,6 @@
 import Avatars from "./Avatars";
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 import polygon from "../assets/polygon.png";
 import {
   UserOutlined,
@@ -26,6 +28,7 @@ import {
 import "../styles/head.css";
 import { useState } from "react";
 import { TextareaAutosize } from "@mui/material";
+import Emoji from "./Emoji";
 
 const { Text } = Typography;
 const { TextArea } = Input;
@@ -82,7 +85,18 @@ export default function Head({
   deletePost,
   author,
   setAuthor,
+  input,
+  setInput
 }) {
+  
+    let [showSmile, setShowSmile] = useState(false)
+    const addEmoji = (e) => {
+        let sym = e.unified.split("-");
+        let codesArray = [];
+        sym.forEach((el) => codesArray.push("0x" + el));
+        let emoji = String.fromCodePoint(...codesArray);
+        setInput(input + emoji);
+      };
   return (
     <>
       <Menu
@@ -187,13 +201,38 @@ export default function Head({
                     />
                   </Form.Item>
                   <Form.Item>
+                  {  
+                    showSmile && 
+                      (  <><Picker onSelect={addEmoji}/>
+                      <div className="mt-4">
+                          <input type="text"
+                                   value={input}
+                                   onChange={e => setInput(e.target.value)}/>
+                      </div></>)
+                  }         
+                 </Form.Item>
+                  <Form.Item>
                     <Button htmlType='submit' type='primary' onClick={addPost}>
                       Add Comment
                     </Button>
                   </Form.Item>
                 </>
               ) : (
-                <Text style={{ color: "#C4C4C4", cursor: 'pointer '}}  onClick={handleEdit}>Что у вас нового?</Text>
+                  <>
+                                <Text style={{ color: "#C4C4C4", cursor: 'pointer '}}  onClick={handleEdit}>Что у вас нового?</Text>
+                             
+                                
+                                {/* <Emoji  emoji="😊" onClick={e =>  {
+                                    setSmiles(e.target.props.emoji) 
+                                    console.log(smile)
+                                }}/>
+                                <Emoji emoji="😂"/>
+                                <Emoji emoji="😅"/>
+                                <Emoji emoji="😆"/>
+                                <Emoji emoji="🥰"/>
+                                <Emoji emoji="😶‍🌫️"/>
+                                <Emoji emoji="😌"/> */}
+                </>
               )}
             </Col>
             <Col
@@ -205,7 +244,7 @@ export default function Head({
             >
               <span style={{ fontSize: "30px" }}>
                 <Space>
-                  <i class='far fa-smile-beam'></i>
+                  <i class='far fa-smile-beam' onClick={() => setShowSmile(!showSmile)}></i>
                   <i class='far fa-image'></i>
                   <i class='far fa-folder'></i>
                   <i class='fas fa-ellipsis-h'></i>

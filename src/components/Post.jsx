@@ -49,6 +49,7 @@ export default function Post({
   editPost,
   showEdit,
   setShowEdit,
+  smile
 }) {
   const [editVal, setEditVal] = useState("");
   const [like, setLike] = useState(0);
@@ -80,6 +81,7 @@ export default function Post({
         text: comDetails.text,
         id: Date.now(),
         reply: [{ name: "John", text: "Text", id: Date.now() }],
+        emoji: ''
       },
     ]);
     console.log(comment);
@@ -148,7 +150,7 @@ export default function Post({
                               alt='Han Solo'
                             />
                           }
-                          content={repl.text}
+                          content={repl.text +  ' ' + smile}
                         />
                       ))}
                     </ExampleComment>
