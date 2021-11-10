@@ -169,20 +169,15 @@ export default function Head({
               {edit ? (
                 <>
                   <Form.Item>
+                  <label htmlFor='user_name'>Имя:</label>
                     <Form.Item
+                    
                       class='w-50'
-                      label='Имя'
                       name='username'
                       value={author}
                       onChange={(e) => setAuthor(e.target.value)}
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your username!",
-                        },
-                      ]}
                     >
-                      <Input />
+                      <Input   id="user_name" />
                     </Form.Item>
                     <label htmlFor='area'>Ваш пост:</label>
                     <TextArea
@@ -213,7 +208,7 @@ export default function Head({
                  </Form.Item>
                   <Form.Item>
                     <Button htmlType='submit' type='primary' onClick={addPost}>
-                      Add Comment
+                      Создать Пост
                     </Button>
                   </Form.Item>
                 </>
