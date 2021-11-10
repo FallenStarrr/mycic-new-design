@@ -12,10 +12,15 @@ import {
   Row,
   Col,
   Comment,
+  Button
 } from "antd";
 import "antd/dist/antd.css";
 
-export const ExampleComment = ({name, text}) => (
+export const ExampleComment = ({name, text, id, comment, setComment}) => {
+  function deleteCom(id) {
+    setComment(comment.filter(post => post.id !== id))   
+}
+return  <>
   <Comment
     actions={[<span key="comment-nested-reply-to">Reply to</span>]}
     author={<a>{name ? name : 'Han Solo'}</a>}
@@ -33,5 +38,21 @@ export const ExampleComment = ({name, text}) => (
         quality design resources (Sketch and Axure).
       </p>
     }
-  ></Comment>
-);
+  >
+  {
+    comment
+  }
+  </Comment>
+  <Button
+                        htmlType='submit'
+                        type='danger'
+                        className='mt-5'
+                        onClick={() => deleteCom(id)}
+                      >
+                        Delete Comment
+                      </Button>
+                      {/* <Button htmlType='submit' type='primary' onClick={editCom}>
+                                  Edit Post
+                    </Button> */}           
+  </>
+}

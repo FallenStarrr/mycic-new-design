@@ -34,11 +34,18 @@ let [text, setText] = useState('')
 let [editedPost, setEditPost ] = useState('')
 let [showEdit, setShowEdit] = useState(false)
 let [author, setAuthor] = useState('')
+
+// show post edit form
   function handleEdit() {
-                setEdit(!edit)
+                setEdit(true)
                 console.log(edit)
                 console.log(text)
   } 
+  // hide post edit form
+  function hideEdit() {
+      setEdit(false)
+      console.log('hide')
+  }
 
   function editPost() {
             setShowEdit(!showEdit)
@@ -207,6 +214,7 @@ let [author, setAuthor] = useState('')
                                         edit={edit}
                                         text={text}
                                         handleEdit={handleEdit}
+                                        hideEdit={hideEdit}
                                         setText={setText}
                                         author={author}
                                         setAuthor={setAuthor}
@@ -218,6 +226,7 @@ let [author, setAuthor] = useState('')
                                     style={{
                                         marginTop: "240px",
                                     }}
+                                    onClick={hideEdit}
                                 >
                                     <Switch>
                                         <Route exact path='/news'>

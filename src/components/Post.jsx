@@ -45,10 +45,7 @@ const contentStyle = {
 export default function Post({ posts, setPost, deletePost, editPost, showEdit, setShowEdit }) {
     const [editVal, setEditVal] = useState('')
     const [like, setLike] = useState(0)
-    let [comment, setComment] = useState([{
-        name: 'John Smith',
-        text: 'hello world'
-    }])
+    let [comment, setComment] = useState([])
     let [comDetails, setComDetails] = useState({name: '', text: ''})
     const img_file = useRef()
   
@@ -61,10 +58,13 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
 
     function handleLike() {
         setLike(like + 1)
+        if (like < like  + 1) {
+                return   
+        }
     }
 
     function addCom() { 
-        setComment([...comment, {name: comDetails.name, text: comDetails.text}])
+        setComment([...comment, {name: comDetails.name, text: comDetails.text, id: Date.now(), reply: []}])
     }
   return (
     <React.Fragment>
@@ -101,10 +101,10 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
                 {
-                   comment.map(com =>  <ExampleComment text={com.text} name={com.name}/>
+                   comment.map(com =>  <ExampleComment text={com.text} name={com.name} id={com.id} comment={comment} setComment={setComment}/>
                    ) 
                 }
-                  <ExampleComment />
+                 
                 </Col>
                 <Col span={24}>
                 <Form.Item>
@@ -128,6 +128,7 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                     <Button htmlType='submit' type='primary' onClick={addCom}>
                       Add Comment
                     </Button>
+                    <Form.Item/>
                     <Form.Item>
                       <Button
                         htmlType='submit'
@@ -135,13 +136,13 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                         className='mt-5'
                         onClick={() => deletePost(post.id)}
                       >
-                        Delete Comment
+                        Delete Post
                       </Button>
                       <Button htmlType='submit' type='primary' onClick={editPost}>
-                                  Edit
+                                  Edit Post
                     </Button>
                     <Button htmlType='submit' type='primary' onClick={() => sendPost(post)}>
-                                  Ok
+                                  Ok Post
                     </Button>
 
                     <input ref={img_file} type="file"/>

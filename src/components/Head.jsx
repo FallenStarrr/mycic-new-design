@@ -76,16 +76,17 @@ export default function Head({
   edit,
   text,
   handleEdit,
+  hideEdit,
   setText,
   addPost,
   deletePost,
   author,
-  setAuthor
+  setAuthor,
 }) {
   return (
     <>
       <Menu
-        style={{ background: "#F6F6F9" }}
+        style={{ background: "#F6F6F9", borderBottom: "2px solid black" }}
         theme='light'
         mode='horizontal'
         className='nav justify-content-between'
@@ -144,73 +145,76 @@ export default function Head({
           </Menu.Item>
         </div>
       </Menu>
-<div className={edit ? "overlay" : ''}>
-      <section className={edit ? "feed  feed-edit" : "feed"}>
-        <Row justify='space-between'>
-          <Col span={2}>
-            <Avatars />
-          </Col>
-          <Col span={14}>
-            {edit ? (
-              <>
-                <Form.Item>
-                  <Form.Item
-                    class="w-50"
-                    label="Имя"
-                    name='username'
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your username!",
-                      },
-                    ]}
-                  >
-                    <Input />
+      <div className={edit ? "overlay" : ""}>
+        <section className={edit ? "feed  feed-edit" : "feed"}>
+          <Row justify='space-between'>
+            <Col span={2}>
+              <Avatars />
+            </Col>
+            <Col span={14}>
+              {edit ? (
+                <>
+                  <Form.Item>
+                    <Form.Item
+                      class='w-50'
+                      label='Имя'
+                      name='username'
+                      value={author}
+                      onChange={(e) => setAuthor(e.target.value)}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your username!",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    <label htmlFor='area'>Ваш пост:</label>
+                    <TextArea
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your username!",
+                        },
+                      ]}
+                      class='w-75 border'
+                      id='area'
+                      label='Your post'
+                      rows={4}
+                      value={text}
+                      onChange={(e) => setText(e.target.value)}
+                    />
                   </Form.Item>
-                  <label htmlFor="area">Ваш пост:</label>
-                  <TextArea
-                   rules={[
-                      {
-                        required: true,
-                        message: "Please input your username!",
-                      }]}
-                   class="w-75 border"
-                   id="area"
-                   label='Your post'
-                    rows={4}
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Button htmlType='submit' type='primary' onClick={addPost}>
-                    Add Comment
-                  </Button>
-                </Form.Item>
-              </>
-            ) : (
-              <Text style={{ color: "#C4C4C4" }}>Что у вас нового?</Text>
-            )}
-          </Col>
-          <Col span={7}
-          style={{
-              position: 'relative',
-              left: '10%'
-          }}
-          >
-            <span style={{ fontSize: "30px" }}>
-              <Space>
-                <i class='far fa-smile-beam'></i>
-                <i class='far fa-image'></i>
-                <i class='far fa-folder'></i>
-                <i class='fas fa-ellipsis-h' onClick={handleEdit}></i>
-              </Space>
-            </span>
-          </Col>
-        </Row>
-      </section>
+                  <Form.Item>
+                    <Button htmlType='submit' type='primary' onClick={addPost}>
+                      Add Comment
+                    </Button>
+                  </Form.Item>
+                </>
+              ) : (
+                <Text style={{ color: "#C4C4C4", cursor: 'pointer '}}  onClick={handleEdit}>Что у вас нового?</Text>
+              )}
+            </Col>
+            <Col
+              span={7}
+              style={{
+                position: "relative",
+                left: "10%",
+              }}
+            >
+              <span style={{ fontSize: "30px" }}>
+                <Space>
+                  <i class='far fa-smile-beam'></i>
+                  <i class='far fa-image'></i>
+                  <i class='far fa-folder'></i>
+                  <i class='fas fa-ellipsis-h'></i>
+                  {edit && <i class='fas fa-times' onClick={hideEdit}></i>}
+                </Space>
+              </span>
+            </Col>
+          </Row>
+        </section>
       </div>
 
       <section className='feed d-flex justify-content-between align-items-center'>
