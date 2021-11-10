@@ -95,7 +95,7 @@ export default function Head({
         let codesArray = [];
         sym.forEach((el) => codesArray.push("0x" + el));
         let emoji = String.fromCodePoint(...codesArray);
-        setInput(input + emoji);
+        setText(text + emoji);
       };
   return (
     <>
@@ -198,11 +198,11 @@ export default function Head({
                   <Form.Item>
                   {  
                     showSmile && 
-                      (  <><Picker onSelect={addEmoji}/>
+                      (  <><Picker onSelect={addEmoji} theme="dark"/>
                       <div className="mt-4">
-                          <input type="text"
+                          {/* <input type="text"
                                    value={input}
-                                   onChange={e => setInput(e.target.value)}/>
+                                   onChange={e => setInput(e.target.value)}/> */}
                       </div></>)
                   }         
                  </Form.Item>
