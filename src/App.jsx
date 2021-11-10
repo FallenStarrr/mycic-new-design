@@ -73,7 +73,8 @@ let [author, setAuthor] = useState('')
 }
   
   function addPost() {
-      setPost([...posts, {text: text, id: Date.now(), author: author}])
+      setPost([...posts, {text: text, id: Date.now(), author: author, emoji: input}])
+      setEdit(false)
       console.log(posts)
   }
 
@@ -241,7 +242,6 @@ let [author, setAuthor] = useState('')
                                                     editPost={editPost}
                                                     showEdit={showEdit}  
                                                     setShowEdit={setShowEdit}
-                                                    smile={input}
                                                />
                                         </Route>
                                         <Route path='/colleagues'> </Route>
