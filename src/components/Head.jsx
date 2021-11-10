@@ -107,7 +107,7 @@ export default function Head({
       >
         <div className='d-flex left'>
           <Menu.Item key='1' className='nav__link'>
-            О компани
+            О компании
           </Menu.Item>
           <Menu.Item key='2' className='nav__link'>
             Parse
