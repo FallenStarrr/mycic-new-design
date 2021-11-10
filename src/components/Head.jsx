@@ -100,7 +100,7 @@ export default function Head({
   return (
     <>
       <Menu
-        style={{ background: "#F6F6F9", borderBottom: "2px solid black" }}
+        style={{ background: "#F6F6F9", borderBottom: "2px solid black", paddingBottom: '4px' }}
         theme='light'
         mode='horizontal'
         className='nav justify-content-between'

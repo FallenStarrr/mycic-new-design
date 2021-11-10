@@ -114,7 +114,7 @@ export default function Post({
                         />
                       </Form.Item>
                     ) : (
-                      `${post.text} ${post.emoji}` 
+                      `${ post.text} ${post.emoji}` 
                     )}
                   </Text>
                 </Col>

@@ -63,7 +63,8 @@ let [author, setAuthor] = useState('')
   reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
   pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
   culpa qui officia deserunt mollit anim id est laborum`,
-  id: Date.now()
+  id: Date.now(),
+  emoji: '😂'
   }])
 
   
@@ -230,7 +231,7 @@ let [author, setAuthor] = useState('')
                                 <Content
                                     className='section'
                                     style={{
-                                        marginTop: "240px",
+                                        marginTop: "340px",
                                     }}
                                     onClick={hideEdit}
                                 >
