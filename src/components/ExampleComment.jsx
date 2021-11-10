@@ -45,6 +45,8 @@ export const ExampleComment = ({
         content={
           text ? (
             text
+           
+            
           ) : (
             <p>
               We supply a series of design principles, practical patterns and
@@ -53,16 +55,17 @@ export const ExampleComment = ({
           )
         }
       >
-        {children}
-      </Comment>
-      <Button
+       <Button
         htmlType='submit'
         type='danger'
-        className='mt-5'
+      
         onClick={() => deleteCom(id)}
       >
         Delete Comment
       </Button>
+        {children}
+      </Comment>
+     
       {/* <Button htmlType='submit' type='primary' onClick={editCom}>
                                   Edit Post
                     </Button> */}

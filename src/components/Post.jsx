@@ -156,7 +156,7 @@ export default function Post({
                     </ExampleComment>
                   ))}
                 </Col>
-                <Col span={24}>
+                <Col span={24} className="mt-3">
                   <Form.Item>
                     <div>
                       <label htmlFor='name'>Your name:</label>
