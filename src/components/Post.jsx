@@ -42,30 +42,48 @@ const contentStyle = {
   background: "#364d79",
 };
 
-export default function Post({ posts, setPost, deletePost, editPost, showEdit, setShowEdit }) {
-    const [editVal, setEditVal] = useState('')
-    const [like, setLike] = useState(0)
-    let [comment, setComment] = useState([])
-    let [comDetails, setComDetails] = useState({name: '', text: ''})
-    const img_file = useRef()
-  
-    function sendPost(post) {
-            post.text = editVal
-            setEditVal('')
-            setShowEdit(false)
-            console.log(img_file.files)
-    } 
+export default function Post({
+  posts,
+  setPost,
+  deletePost,
+  editPost,
+  showEdit,
+  setShowEdit,
+}) {
+  const [editVal, setEditVal] = useState("");
+  const [like, setLike] = useState(0);
+  let [comment, setComment] = useState([]);
+  let [comDetails, setComDetails] = useState({ name: "", text: "" });
+  const img_file = useRef();
 
-    function handleLike() {
-        setLike(like + 1)
-        if (like < like  + 1) {
-                return   
-        }
-    }
+  function sendPost(post) {
+    post.text = editVal;
+    setEditVal("");
+    setShowEdit(false);
+    console.log(img_file.files);
+  }
 
-    function addCom() { 
-        setComment([...comment, {name: comDetails.name, text: comDetails.text, id: Date.now(), reply: []}])
+  // Likes tried to insist on 1 like per person and decrement in case of unlike
+  function handleLike() {
+    setLike(like + 1);
+    if (like < like + 1) {
+      return;
     }
+  }
+
+  //Added reply
+  function addCom() {
+    setComment([
+      ...comment,
+      {
+        name: comDetails.name,
+        text: comDetails.text,
+        id: Date.now(),
+        reply: [{ name: "John", text: "Text", id: Date.now() }],
+      },
+    ]);
+    console.log(comment);
+  }
   return (
     <React.Fragment>
       <div>
@@ -84,51 +102,87 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                 <br />
 
                 <Col>
-                  <Text>{
-                      showEdit ? 
+                  <Text>
+                    {showEdit ? (
                       <Form.Item>
-                        <TextArea rows={4} value={editVal} onChange={(e) => setEditVal(e.target.value)} />
-                  </Form.Item>
-                   : post.text
-                   }</Text>
+                        <TextArea
+                          rows={4}
+                          value={editVal}
+                          onChange={(e) => setEditVal(e.target.value)}
+                        />
+                      </Form.Item>
+                    ) : (
+                      post.text
+                    )}
+                  </Text>
                 </Col>
                 <Col span='24'>
-                  <Image src={ img_file.value ?  img_file.value : 'image2.png'} width='200' />
+                  <Image
+                    src={img_file.value ? img_file.value : "image2.png"}
+                    width='200'
+                  />
                 </Col>
                 <Col>
-                  {like} <HeartFilled className='purp-icon' onClick={handleLike} /> 
+                  {like}{" "}
+                  <HeartFilled className='purp-icon' onClick={handleLike} />
                   <MessageFilled className='purp-icon' />
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
-                {
-                   comment.map(com =>  <ExampleComment text={com.text} name={com.name} id={com.id} comment={comment} setComment={setComment}/>
-                   ) 
-                }
-                 
+                  {comment.map((com) => (
+                    <ExampleComment
+                      text={com.text}
+                      name={com.name}
+                      id={com.id}
+                      comment={comment}
+                      setComment={setComment}
+                    >
+                      {com.reply.map((repl) => (
+                        <ExampleComment
+                          actions={[
+                            <span key='comment-nested-reply-to'>Reply to</span>,
+                          ]}
+                          author={<a>{repl.name}</a>}
+                          avatar={
+                            <Avatar
+                              src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+                              alt='Han Solo'
+                            />
+                          }
+                          content={repl.text}
+                        />
+                      ))}
+                    </ExampleComment>
+                  ))}
                 </Col>
                 <Col span={24}>
-                <Form.Item>
-                <div>
-                                <label htmlFor="name">Your name:</label>
-                                <input  
-                                id="name"
-                                value={comDetails.name} 
-                                onChange={(e) => setComDetails({...comDetails, name: e.target.value})} 
-                                class="form-control"
-                                />
-
-                            </div>
-                
-                </Form.Item>
-               
                   <Form.Item>
-                    <TextArea rows={4}  value={comDetails.text} onChange={(e) => setComDetails({ ...comDetails,  text: e.target.value}) }/>
+                    <div>
+                      <label htmlFor='name'>Your name:</label>
+                      <input
+                        id='name'
+                        value={comDetails.name}
+                        onChange={(e) =>
+                          setComDetails({ ...comDetails, name: e.target.value })
+                        }
+                        class='form-control'
+                      />
+                    </div>
+                  </Form.Item>
+
+                  <Form.Item>
+                    <TextArea
+                      rows={4}
+                      value={comDetails.text}
+                      onChange={(e) =>
+                        setComDetails({ ...comDetails, text: e.target.value })
+                      }
+                    />
                   </Form.Item>
                   <Form.Item>
                     <Button htmlType='submit' type='primary' onClick={addCom}>
                       Add Comment
                     </Button>
-                    <Form.Item/>
+                    <Form.Item />
                     <Form.Item>
                       <Button
                         htmlType='submit'
@@ -138,14 +192,22 @@ export default function Post({ posts, setPost, deletePost, editPost, showEdit, s
                       >
                         Delete Post
                       </Button>
-                      <Button htmlType='submit' type='primary' onClick={editPost}>
-                                  Edit Post
-                    </Button>
-                    <Button htmlType='submit' type='primary' onClick={() => sendPost(post)}>
-                                  Ok Post
-                    </Button>
+                      <Button
+                        htmlType='submit'
+                        type='primary'
+                        onClick={editPost}
+                      >
+                        Edit Post
+                      </Button>
+                      <Button
+                        htmlType='submit'
+                        type='primary'
+                        onClick={() => sendPost(post)}
+                      >
+                        Ok Post
+                      </Button>
 
-                    <input ref={img_file} type="file"/>
+                      <input ref={img_file} type='file' />
                     </Form.Item>
                   </Form.Item>
                 </Col>

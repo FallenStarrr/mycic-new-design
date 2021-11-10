@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { UserOutlined, DownOutlined } from "@ant-design/icons";
+import { UserOutlined, DownOutlined, PropertySafetyFilled } from "@ant-design/icons";
 
 import {
   Menu,
@@ -16,7 +16,7 @@ import {
 } from "antd";
 import "antd/dist/antd.css";
 
-export const ExampleComment = ({name, text, id, comment, setComment}) => {
+export const ExampleComment = ({name, children, text, id, comment, setComment}) => {
   function deleteCom(id) {
     setComment(comment.filter(post => post.id !== id))   
 }
@@ -39,9 +39,8 @@ return  <>
       </p>
     }
   >
-  {
-    comment
-  }
+  {children}
+
   </Comment>
   <Button
                         htmlType='submit'
