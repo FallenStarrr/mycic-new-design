@@ -270,7 +270,7 @@ export default function Head({
                   <span style={{ color: "Mediumslateblue" }}>
                     <i class='fas fa-ellipsis-h'></i>
                   </span>
-                  {edit && <i class='fas fa-times' onClick={hideEdit}></i>}
+                  {edit && <i class='fas fa-times' onClick={hideEdit}  style={{color: 'Mediumslateblue'}}></i>}
                 </Space>
               </span>
             </Col>
