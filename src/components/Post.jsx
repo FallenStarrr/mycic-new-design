@@ -102,6 +102,11 @@ export default function Post({
                     <Text>{post.author ? post.author : "Author"}</Text>
                   </Space>
                   <img src={editIcon} alt="" width ="40px"  style={{position: 'relative', left: '500px'}}   onClick={editPost}/>
+                
+                      <i class="fas fa-clipboard-check"  style={{ color: "Mediumslateblue", transform: 'translateX(430px) translateY(10px)', fontSize: '30px' }}
+                       onClick={() => sendPost(post)}
+                      ></i>
+                 
                 </Col>
                 <br />
 
@@ -111,7 +116,7 @@ export default function Post({
                       <Form.Item>
                         <TextArea
                           rows={4}
-                          value={editVal}
+                          value={editVal ? editVal : post.text}
                           onChange={(e) => setEditVal(e.target.value)}
                         />
                       </Form.Item>
@@ -203,13 +208,7 @@ export default function Post({
                       >
                         Edit Post
                       </Button> */}
-                      <Button
-                        htmlType='submit'
-                        type='primary'
-                        onClick={() => sendPost(post)}
-                      >
-                        Ok Post
-                      </Button>
+                     
 
                       <input ref={img_file} type='file' />
                     </Form.Item>
