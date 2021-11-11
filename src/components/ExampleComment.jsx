@@ -28,11 +28,13 @@ export const ExampleComment = ({
   comment,
   setComment,
 }) => {
+  let showComments1 = true
   function deleteCom(id) {
     setComment(comment.filter((post) => post.id !== id));
   }
   return (
     <>
+    
       <Comment
         actions={[<span key='comment-nested-reply-to'>Reply to</span>]}
         author={<a>{name ? name : "Han Solo"}</a>}

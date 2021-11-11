@@ -58,6 +58,16 @@ export default function Post({
   let [comDetails, setComDetails] = useState({ name: "", text: "" });
   const img_file = useRef();
 
+  // Show and hide comments 
+const [showComments , setShowComments] = useState(true)
+
+function handleComments()
+{
+  setShowComments(!showComments)
+  console.log(showComments)
+}
+
+// Just change state of post by val of Edit
   function sendPost(post) {
     post.text = editVal;
     setEditVal("");
@@ -73,7 +83,12 @@ export default function Post({
     }
   }
 
-  //Added reply
+  // !Added reply
+  // TODO: Responses for comments
+  // ? How can I add replies to reply arr?
+  //*  I have one default arr el
+/*@param  para*/
+
   function addCom() {
     setComment([
       ...comment,
@@ -87,6 +102,32 @@ export default function Post({
     ]);
     console.log(comment);
   }
+
+  let comments = comment.map((com) => (
+    <ExampleComment
+      text={com.text}
+      name={com.name}
+      id={com.id}
+      comment={comment}
+      setComment={setComment}
+    >
+      {com.reply.map((repl) => (
+        <ExampleComment
+          actions={[
+            <span key='comment-nested-reply-to'>Reply to</span>,
+          ]}
+          author={<a>{repl.name}</a>}
+          avatar={
+            <Avatar
+              src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+              alt='Han Solo'
+            />
+          }
+          content={repl.text +  ' ' + smile}
+        />
+      ))}
+    </ExampleComment>
+  ))
   return (
     <React.Fragment>
       <div>
@@ -134,34 +175,14 @@ export default function Post({
                 <Col>
                   {like}{" "}
                   <HeartFilled className='purp-icon' onClick={handleLike} />
-                  <MessageFilled className='purp-icon' />
+                  <MessageFilled className='purp-icon'  onClick={handleComments}/>
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
-                  {comment.map((com) => (
-                    <ExampleComment
-                      text={com.text}
-                      name={com.name}
-                      id={com.id}
-                      comment={comment}
-                      setComment={setComment}
-                    >
-                      {com.reply.map((repl) => (
-                        <ExampleComment
-                          actions={[
-                            <span key='comment-nested-reply-to'>Reply to</span>,
-                          ]}
-                          author={<a>{repl.name}</a>}
-                          avatar={
-                            <Avatar
-                              src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
-                              alt='Han Solo'
-                            />
-                          }
-                          content={repl.text +  ' ' + smile}
-                        />
-                      ))}
-                    </ExampleComment>
-                  ))}
+                  {/*============================================ КОММЕНТЫ ==========================================    */} 
+{showComments ? comments : `Напишите свой первый комментарий!`} 
+
+
+                  
                 </Col>
                 <Col span={24} className="mt-3">
                   <Form.Item>
