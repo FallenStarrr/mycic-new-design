@@ -29,7 +29,7 @@ import "../styles/head.css";
 import { useState } from "react";
 import { TextareaAutosize } from "@mui/material";
 import Emoji from "./Emoji";
-
+import message from './send.png'
 const { Text } = Typography;
 const { TextArea } = Input;
 const { Search } = Input;
@@ -181,19 +181,22 @@ export default function Head({
                     </Form.Item>
                     <label htmlFor='area'>Ваш пост:</label>
                     <TextArea
+                    
                       rules={[
                         {
                           required: true,
                           message: "Please input your username!",
                         },
                       ]}
-                      class='w-75 border'
+                      className=' w-75 border'
                       id='area'
                       label='Your post'
                       rows={4}
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                     />
+                  <img src={message} width="50px"  height="50px" alt="message icon"  onClick={addPost} className="mt-5" />
+
                   </Form.Item>
                   <Form.Item>
                   {  
@@ -207,9 +210,9 @@ export default function Head({
                   }         
                  </Form.Item>
                   <Form.Item>
-                    <Button htmlType='submit' type='primary' onClick={addPost}>
+                    {/* <Button htmlType='submit' type='primary' >
                       Создать Пост
-                    </Button>
+                    </Button> */}
                   </Form.Item>
                 </>
               ) : (

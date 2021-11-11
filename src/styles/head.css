@@ -1,5 +1,17 @@
+img {
+    max-width: 100%;
+    cursor: pointer;
+}
+img:hover, i:hover, span:hover {
+    box-shadow: 2px 3px 8px  #533737;
+}
+::selection {
+    color: #fff;
+    background: #6610f2;
+  }
+
 li:hover {
-    border-bottom: 2px solid #7440ef;   
+    border-bottom: 2px solid #7440ef;      
 }
 .emoji {
         max-width: 120px;
@@ -25,7 +37,7 @@ li:hover {
     position: fixed;
     top: 0;
     padding-bottom: 10px;
-    width: 100vw;
+    width: 60vw;
     
 }
 
@@ -46,19 +58,20 @@ li:hover {
 
 .nav {
     display: flex ;
+    width: 100%;
   }
 
   .nav__link {
     color: #533737 !important;
   }
 
-  .left {
+  /* .left {
       transform: translateX(-77px);
   }
 
   .right {
     transform: translateX(87px);
-}
+} */
 
 
 i {

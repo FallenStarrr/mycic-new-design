@@ -15,7 +15,7 @@ import {useState, useEffect, useContext} from "react";
 import Auth from "./pages/Auth";
 import {Context} from './index'
 import Post from "./components/Post";
-
+import  './App.css'
 const {Header, Sider, Content} = Layout;
 
 function App() {
@@ -55,7 +55,7 @@ let [author, setAuthor] = useState('')
 
 
 
-  let [posts, setPost] = useState([{author: 'Jogn Doe',
+  let [posts, setPost] = useState([{author: 'John Doe',
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
   ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -74,7 +74,7 @@ let [author, setAuthor] = useState('')
 }
   
   function addPost() {
-      setPost([...posts, {text: text, id: Date.now(), author: author, emoji: input}])
+      setPost([...posts, {text: text, id: Date.now(), author, emoji: input}])
       setEdit(false)
       console.log(posts)
   }
