@@ -195,7 +195,7 @@ export default function Head({
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                     />
-                  <img src={message} width="50px"  height="50px" alt="message icon"  onClick={addPost} className="mt-5" />
+             
 
                   </Form.Item>
                   <Form.Item>
@@ -210,6 +210,7 @@ export default function Head({
                   }         
                  </Form.Item>
                   <Form.Item>
+                  <img src={message} width="50px"  height="50px" alt="message icon"  onClick={addPost}  />
                     {/* <Button htmlType='submit' type='primary' >
                       Создать Пост
                     </Button> */}
