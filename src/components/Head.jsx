@@ -12,7 +12,6 @@ import {
   MoreOutlined,
   PictureOutlined,
 } from "@ant-design/icons";
-
 import {
   Menu,
   Space,
@@ -29,7 +28,7 @@ import "../styles/head.css";
 import { useState } from "react";
 import { TextareaAutosize } from "@mui/material";
 import Emoji from "./Emoji";
-import message from './send.png'
+import message from "./send (2).png";
 const { Text } = Typography;
 const { TextArea } = Input;
 const { Search } = Input;
@@ -86,21 +85,24 @@ export default function Head({
   author,
   setAuthor,
   input,
-  setInput
+  setInput,
 }) {
-  
-    let [showSmile, setShowSmile] = useState(false)
-    const addEmoji = (e) => {
-        let sym = e.unified.split("-");
-        let codesArray = [];
-        sym.forEach((el) => codesArray.push("0x" + el));
-        let emoji = String.fromCodePoint(...codesArray);
-        setText(text + emoji);
-      };
+  let [showSmile, setShowSmile] = useState(false);
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    setText(text + emoji);
+  };
   return (
     <>
       <Menu
-        style={{ background: "#F6F6F9", borderBottom: "2px solid black", paddingBottom: '4px' }}
+        style={{
+          background: "#F6F6F9",
+          borderBottom: "2px solid black",
+          paddingBottom: "4px",
+        }}
         theme='light'
         mode='horizontal'
         className='nav justify-content-between'
@@ -169,19 +171,17 @@ export default function Head({
               {edit ? (
                 <>
                   <Form.Item>
-                  <label htmlFor='user_name'>Имя:</label>
+                    <label htmlFor='user_name'>Имя:</label>
                     <Form.Item
-                    
                       class='w-50'
                       name='username'
                       value={author}
                       onChange={(e) => setAuthor(e.target.value)}
                     >
-                      <Input   id="user_name" />
+                      <Input id='user_name' />
                     </Form.Item>
                     <label htmlFor='area'>Ваш пост:</label>
                     <TextArea
-                    
                       rules={[
                         {
                           required: true,
@@ -195,33 +195,42 @@ export default function Head({
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                     />
-             
-
                   </Form.Item>
                   <Form.Item>
-                  {  
-                    showSmile && 
-                      (  <><Picker onSelect={addEmoji} theme="dark"/>
-                      <div className="mt-4">
+                    {showSmile && (
+                      <>
+                        <Picker onSelect={addEmoji} theme='dark' />
+                        <div className='mt-4'>
                           {/* <input type="text"
                                    value={input}
                                    onChange={e => setInput(e.target.value)}/> */}
-                      </div></>)
-                  }         
-                 </Form.Item>
+                        </div>
+                      </>
+                    )}
+                  </Form.Item>
                   <Form.Item>
-                  <img src={message} width="50px"  height="50px" alt="message icon"  onClick={addPost}  />
+                    <img
+                      src={message}
+                      width='50px'
+                      height='50px'
+                      alt='message icon'
+                      onClick={addPost}
+                    />
                     {/* <Button htmlType='submit' type='primary' >
                       Создать Пост
                     </Button> */}
                   </Form.Item>
                 </>
               ) : (
-                  <>
-                                <Text style={{ color: "#C4C4C4", cursor: 'pointer '}}  onClick={handleEdit}>Что у вас нового?</Text>
-                             
-                                
-                                {/* <Emoji  emoji="😊" onClick={e =>  {
+                <>
+                  <Text
+                    style={{ color: "#C4C4C4", cursor: "pointer " }}
+                    onClick={handleEdit}
+                  >
+                    Что у вас нового?
+                  </Text>
+
+                  {/* <Emoji  emoji="😊" onClick={e =>  {
                                     setSmiles(e.target.props.emoji) 
                                     console.log(smile)
                                 }}/>
@@ -243,10 +252,24 @@ export default function Head({
             >
               <span style={{ fontSize: "30px" }}>
                 <Space>
-                  <i class='far fa-smile-beam' onClick={() => setShowSmile(!showSmile)}></i>
-                  <i class='far fa-image'></i>
-                  <i class='far fa-folder'></i>
-                  <i class='fas fa-ellipsis-h'></i>
+                  <span style={{ color: "Mediumslateblue" }}>
+                    <i
+                      class='far fa-smile-beam'
+                      onClick={() => setShowSmile(!showSmile)}
+                    ></i>
+                  </span>
+
+                  <span style={{ color: "Mediumslateblue" }}>
+                    {" "}
+                    <i class='far fa-image'></i>
+                  </span>
+
+                  <span style={{ color: "Mediumslateblue" }}>
+                    <i class='far fa-folder'></i>
+                  </span>
+                  <span style={{ color: "Mediumslateblue" }}>
+                    <i class='fas fa-ellipsis-h'></i>
+                  </span>
                   {edit && <i class='fas fa-times' onClick={hideEdit}></i>}
                 </Space>
               </span>

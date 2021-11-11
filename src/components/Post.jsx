@@ -7,6 +7,7 @@ import {
   HeartFilled,
   MessageFilled,
 } from "@ant-design/icons";
+import editIcon from  './writer.png'
 
 import {
   Menu,
@@ -100,6 +101,7 @@ export default function Post({
                     <Avatar size='large' icon={<UserOutlined />} />
                     <Text>{post.author ? post.author : "Author"}</Text>
                   </Space>
+                  <img src={editIcon} alt="" width ="40px"  style={{position: 'relative', left: '500px'}}   onClick={editPost}/>
                 </Col>
                 <br />
 
@@ -194,13 +196,13 @@ export default function Post({
                       >
                         Delete Post
                       </Button>
-                      <Button
+                      {/* <Button
                         htmlType='submit'
                         type='primary'
-                        onClick={editPost}
+                      
                       >
                         Edit Post
-                      </Button>
+                      </Button> */}
                       <Button
                         htmlType='submit'
                         type='primary'
