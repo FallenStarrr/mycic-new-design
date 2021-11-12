@@ -2,11 +2,11 @@ import React from "react";
 
 const StudyProgram = () => {
   return (
-    <div class="container ">
-      <h2 class="text-align-center">Программа обучения</h2>
+    <div className="container ">
+      <h2 className="text-align-center">Программа обучения</h2>
       <hr />
-      <todoForm></todoForm>
-      <table class="table table-primary">
+      
+      <table className="table table-primary">
         <thead>
           <tr>
             <th scope="col">#</th>

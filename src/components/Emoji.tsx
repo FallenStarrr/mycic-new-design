@@ -1,7 +1,11 @@
 import { PropertySafetyFilled } from '@ant-design/icons'
-import React from 'react'
+import React, {FC} from 'react'
 
-const Emoji =  props => {
+interface IEmoji {
+  emoji: string
+}
+
+const Emoji: FC<IEmoji> =  props => {
   return (
     <span style={{fontSize: '40px'}}>
           {props.emoji}

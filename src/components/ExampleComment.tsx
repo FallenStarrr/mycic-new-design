@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, FC } from "react";
 
 import {
   UserOutlined,
@@ -20,7 +20,25 @@ import {
 } from "antd";
 import "antd/dist/antd.css";
 
-export const ExampleComment = ({
+interface IComment {
+  name: string
+  text: string
+  emoji?: string
+  id: number
+}
+
+
+interface IComments {
+  name: string
+  text: string
+  emoji?: string
+  id: number
+  reply?: IComment[]
+  comment: IComment[]
+  setComment: (comment: IComment[]) => void
+}
+
+export const ExampleComment:FC<IComments> = ({
   name,
   children,
   text,
@@ -28,8 +46,8 @@ export const ExampleComment = ({
   comment,
   setComment,
 }) => {
-  let showComments1 = true
-  function deleteCom(id) {
+
+  function deleteCom(id:number ) {
     setComment(comment.filter((post) => post.id !== id));
   }
   return (
@@ -59,7 +77,7 @@ export const ExampleComment = ({
       >
        <Button
         htmlType='submit'
-        type='danger'
+        type='dashed'
       
         onClick={() => deleteCom(id)}
       >

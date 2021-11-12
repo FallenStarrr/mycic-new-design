@@ -2,93 +2,93 @@ import React from "react";
 
 const Report = () => {
   return (
-    <div class='container'>
-      <h2 class='text-align-center'> Отчеты </h2>
-      <div class='col  left-check'>
+    <div className='container'>
+      <h2 className='text-align-center'> Отчеты </h2>
+      <div className='col  left-check'>
         <h3> Создать отчет по: </h3>{" "}
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck01'
           />
-          <label class='custom-control-label' for='customCheck01'>
+          <label className='custom-control-label' htmlFor='customCheck01'>
             По всем тестированиям{" "}
           </label>{" "}
         </div>{" "}
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck-02'
           />
-          <label class='custom-control-label' for='customCheck-02'>
+          <label className='custom-control-label' htmlFor='customCheck-02'>
             По результатам тестирования{" "}
           </label>{" "}
         </div>{" "}
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck03'
           />
-          <label class='custom-control-label' for='customCheck03'>
+          <label className='custom-control-label' htmlFor='customCheck03'>
             Заявки на обучение{" "}
           </label>{" "}
         </div>{" "}
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck04'
           />
-          <label class='custom-control-label' for='customCheck04'>
+          <label className='custom-control-label' htmlFor='customCheck04'>
             Анкеты обратной связи{" "}
           </label>{" "}
         </div>
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck05'
           />
-          <label class='custom-control-label' for='customCheck05'>
+          <label className='custom-control-label' htmlFor='customCheck05'>
             По загрузкам{" "}
           </label>{" "}
         </div>
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck06'
           />
-          <label class='custom-control-label ' for='customCheck06'>
+          <label className='custom-control-label ' htmlFor='customCheck06'>
             Популярные учебные материалы{" "}
           </label>{" "}
         </div>
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck07'
           />
-          <label class='custom-control-label ' for='customCheck07'>
+          <label className='custom-control-label ' htmlFor='customCheck07'>
             Популярные учебные материалы{" "}
           </label>{" "}
         </div>
-        <div class='custom-control custom-checkbox'>
+        <div className='custom-control custom-checkbox'>
           <input
             type='checkbox'
-            class='custom-control-input'
+            className='custom-control-input'
             id='customCheck08'
           />
-          <label class='custom-control-label ' for='customCheck08'>
+          <label className='custom-control-label ' htmlFor='customCheck08'>
             Популярные учебные материалы{" "}
           </label>{" "}
         </div>{" "}
       </div>
       <hr />
-      <table class='table table-dark mt-3'>
+      <table className='table table-dark mt-3'>
         <thead>
           <tr>
             <th scope='col'> # </th> <th scope='col'> Департамент </th>{" "}

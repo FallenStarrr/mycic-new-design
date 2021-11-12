@@ -1,7 +1,6 @@
 import "./App.css";
 import Aboutme from "./pages/Aboutme";
 import Bday from "./components/Bday";
-import Cont from "./components/Cont";
 import Sidebar from "./components/Sidebar";
 import Head from "./components/Head";
 import {Layout, Menu, Divider, Space} from "antd";
@@ -14,28 +13,29 @@ import TEST_REST from "./components/TEST_REST";
 import {useState, useEffect, useContext} from "react";
 import Auth from "./pages/Auth";
 import {Context} from './index'
-import Post from "./components/Post";
+
 import  './App.css'
+import Post from "./components/Post";
 const {Header, Sider, Content} = Layout;
 
 function App() {
     // Emoji state
-    const [ input, setInput] = useState('')
+    const [ input, setInput] = useState<string>('')
     // console.log(token)
-    const [navbar, setNav] = useState(false);
+    const [navbar, setNav] = useState<boolean>(false);
     const {store} = useContext(Context);
     const logged = store.isAuth
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState<boolean>(false)
 
 //   const { token, setToken } = useToken();
 
 
 // Post creation
-let [edit, setEdit] = useState(false)
-let [text, setText] = useState('')
-let [editedPost, setEditPost ] = useState('')
-let [showEdit, setShowEdit] = useState(false)
-let [author, setAuthor] = useState('')
+let [edit, setEdit] = useState<boolean>(false)
+let [text, setText] = useState<string>('')
+let [editedPost, setEditPost ] = useState<string>('')
+let [showEdit, setShowEdit] = useState<boolean>(false)
+let [author, setAuthor] = useState<string>('')
 
 // show post edit form
   function handleEdit() {
@@ -55,7 +55,8 @@ let [author, setAuthor] = useState('')
 
 
 
-  let [posts, setPost] = useState([{author: 'John Doe',
+  let [posts, setPost] = useState([{
+  author: 'John Doe',
   text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
   ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -68,7 +69,7 @@ let [author, setAuthor] = useState('')
   }])
 
   
-  function deletePost(id) {
+  function deletePost(id:number) {
     setPost(posts.filter(post => post.id !== id))
     console.log(posts)
 }
@@ -224,6 +225,9 @@ let [author, setAuthor] = useState('')
                                         setAuthor={setAuthor}
                                         input={input}
                                         setInput={setInput}
+                                        editedPost={editedPost}
+                                        showEdit={showEdit}
+                                        deletePost={deletePost}
 
                                     />
                                 </Header>
@@ -237,7 +241,8 @@ let [author, setAuthor] = useState('')
                                 >
                                     <Switch>
                                         <Route exact path='/news'>
-                                               <Post 
+                                               <Post
+                                                    setPost={setPost} 
                                                     posts={posts}
                                                     deletePost={deletePost}
                                                     editPost={editPost}

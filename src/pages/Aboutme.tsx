@@ -25,7 +25,7 @@ import {
 } from "antd";
 import "antd/dist/antd.css";
 import "../styles/post.css";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 
 const { Column, ColumnGroup } = Table;
@@ -39,16 +39,23 @@ const { Text, Title } = Typography;
 
 
 export default function Aboutme() {
+
+  interface IUserInfo {
+    email: string
+    name: string
+
+  }
   
-  const [userInfo, setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState<IUserInfo>()
 useEffect( () => {
   getInfo()
 }, [])
 
   async function getInfo() {
-  let res = await $api.get('/user')
+  let res = await $api.get<AxiosResponse<any>>('/user')
   console.log(res.data)
-  setUserInfo({...res.data})
+  let data:any = res.data
+  setUserInfo({...data})
   console.log(userInfo)
   return res
 }
@@ -64,7 +71,7 @@ useEffect( () => {
             </Col>
             <Col sm={24} xs={24} lg={10}>
               <section className='white-section'>
-                <Title> {userInfo.name} Щербаков email: {userInfo.email}  </Title>
+                <Title> {userInfo?.name} Щербаков email: {userInfo?.email}  </Title>
                 <Text> Бухгалтер </Text>
                 <Row>
                   <Col sm={24} xs={24}>
@@ -111,9 +118,9 @@ useEffect( () => {
       >
         <Row gutter={35}>
           <Col sm={24} md={24} xs={24} lg={24} className='content'>
-            <Collapse defaultActiveKey={["1"]}>
-              <Panel header='Кадровое перемещение' key='1'>
-                <Step direction='vertical' size='small' current={1}>
+            <Collapse  defaultActiveKey={["1"]}>
+              <Panel  header='Кадровое перемещение' key='1'>
+                <Step>
                   <Step title='Finished' description='This is a description.' />
                   <Step
                     title='In Progress'

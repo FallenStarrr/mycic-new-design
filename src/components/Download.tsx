@@ -3,65 +3,65 @@ import React from "react";
 const Download = () => {
   return (
     <div>
-      <div class="container">
-        <h2 class="text-align-center">Загрузки</h2>
+      <div className="container">
+        <h2 className="text-align-center">Загрузки</h2>
 
-        <div class="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox">
           <input
             type="checkbox"
-            class="custom-control-input"
+            className="custom-control-input"
             id="customCheck0"
           />
-          <label class="custom-control-label" for="customCheck0">
+          <label className="custom-control-label" htmlFor="customCheck0">
             Учебный материал (презентация + тест , документ, вебинар)
           </label>
         </div>
-        <div class="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox">
           <input
             type="checkbox"
-            class="custom-control-input"
+            className="custom-control-input"
             id="customCheck2"
           />
-          <label class="custom-control-label" for="customCheck2">
+          <label className="custom-control-label" htmlFor="customCheck2">
             Книга
           </label>
         </div>
-        <div class="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox">
           <input
             type="checkbox"
-            class="custom-control-input"
+            className="custom-control-input"
             id="customCheck3"
           />
-          <label class="custom-control-label" for="customCheck3">
+          <label className="custom-control-label" htmlFor="customCheck3">
             {" "}
             Видео
           </label>
         </div>
-        <div class="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox">
           <input
             type="checkbox"
-            class="custom-control-input"
+            className="custom-control-input"
             id="customCheck4"
           />
 
-          <label class="custom-control-label" for="customCheck4">
+          <label className="custom-control-label" htmlFor="customCheck4">
             Тест
           </label>
         </div>
 
-        <div class="custom-file ">
-          <input type="file" class="custom-file-input" id="customFile" />
-          <label class="custom-file-label h-100" for="customFile">
+        <div className="custom-file ">
+          <input type="file" className="custom-file-input" id="customFile" />
+          <label className="custom-file-label h-100" htmlFor="customFile">
             Choose file
           </label>
         </div>
-        <a href="" class="btn text-white bg-dark mt-3 ml-0 mb-1" onClick="edit">
+        <a href="" className="btn text-white bg-dark mt-3 ml-0 mb-1">
           Редактировать
         </a>
-        <input class="custom-file-input mb-2" type="file" />
+        <input className="custom-file-input mb-2" type="file" />
 
-        <table class="mt-4 table">
-          <thead class="thead-dark">
+        <table className="mt-4 table">
+          <thead className="thead-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Файл</th>

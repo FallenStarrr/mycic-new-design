@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Redirect, useHistory} from 'react-router-dom';
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import {API_URL} from "../http-axios";
 import ShowIcon from '@mui/icons-material/Visibility';
 import ShowOffIcon from '@mui/icons-material/VisibilityOff';
@@ -16,15 +16,21 @@ const LoginForm = () => {
         setShowPassword(!showPassword)
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e: any) {
         e.preventDefault();
+
+        interface IToken {
+            token:  string
+            email: string
+         password: string
+        }
 
         axios.post(`${API_URL}/login`, {
             email,
             password
         })
-            .then(response => {
-                localStorage.setItem('token', response.data.token)
+            .then((res: AxiosResponse<any>) => {
+                localStorage.setItem('token', res.data.token)
                 history.push('/news')
             })
             .catch(err => {

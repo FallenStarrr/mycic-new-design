@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import auth from "../http/auth/auth";
 import axios from "axios";
 import {Redirect, useHistory} from "react-router-dom";
 import {Context} from '../index'
@@ -24,7 +23,7 @@ function Auth() {
     // }, error => {
     //   return Promise.reject(error)
     // })
-    let his = useHistory();
+    let his = useHistory<string>();
 
 
     // async function handleRequest(e) {

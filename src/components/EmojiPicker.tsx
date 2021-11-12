@@ -7,7 +7,7 @@ const EmojiPicker = () => {
     <div>
     
 
-          />
+        
     </div>
   )
 }

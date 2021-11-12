@@ -25,7 +25,7 @@ import {
   Form,
 } from "antd";
 import "../styles/head.css";
-import { useState } from "react";
+import React, { FC, useState } from "react";
 import { TextareaAutosize } from "@mui/material";
 import Emoji from "./Emoji";
 import message from "./send (2).png";
@@ -74,7 +74,23 @@ const suffix = (
   />
 );
 
-export default function Head({
+interface headProps {
+  edit : boolean
+  text: string
+  editedPost: string
+  showEdit: boolean
+  author: string
+  handleEdit: () => void
+  hideEdit: () => void
+  setText: (str: string) => void
+  addPost: () => void
+  deletePost: (id: number) => void
+  setAuthor: (author: string) => void
+  input: string
+  setInput: (input: string) => void
+}
+
+ let  Head:FC<headProps> = ({
   edit,
   text,
   handleEdit,
@@ -86,12 +102,12 @@ export default function Head({
   setAuthor,
   input,
   setInput,
-}) {
-  let [showSmile, setShowSmile] = useState(false);
-  const addEmoji = (e) => {
+}) => {
+  let [showSmile, setShowSmile] = useState<boolean>(false);
+  const addEmoji = (e: any) => {
     let sym = e.unified.split("-");
-    let codesArray = [];
-    sym.forEach((el) => codesArray.push("0x" + el));
+    let codesArray:any  = [];
+    sym.forEach((el: string) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
     setText(text + emoji);
   };
@@ -153,7 +169,7 @@ export default function Head({
                   <img
                     src={polygon}
                     alt='polygon'
-                    class='position-absolute d-block'
+                    className='position-absolute d-block'
                   />
                 </div>
               </a>
@@ -173,24 +189,18 @@ export default function Head({
                   <Form.Item>
                     <label htmlFor='user_name'>Имя:</label>
                     <Form.Item
-                      class='w-50'
+                      className='w-50'
                       name='username'
-                      value={author}
-                      onChange={(e) => setAuthor(e.target.value)}
+                    
+               
                     >
-                      <Input id='user_name' />
+                      <Input id='user_name'   value={author}       onChange={(e: any) => setAuthor(e.target.value)}/>
                     </Form.Item>
                     <label htmlFor='area'>Ваш пост:</label>
                     <TextArea
-                      rules={[
-                        {
-                          required: true,
-                          message: "Please input your username!",
-                        },
-                      ]}
+                    
                       className=' w-75 border'
                       id='area'
-                      label='Your post'
                       rows={4}
                       value={text}
                       onChange={(e) => setText(e.target.value)}
@@ -254,23 +264,23 @@ export default function Head({
                 <Space>
                   <span style={{ color: "Mediumslateblue" }}>
                     <i
-                      class='far fa-smile-beam'
+                      className='far fa-smile-beam'
                       onClick={() => setShowSmile(!showSmile)}
                     ></i>
                   </span>
 
                   <span style={{ color: "Mediumslateblue" }}>
                     {" "}
-                    <i class='far fa-image'></i>
+                    <i className='far fa-image'></i>
                   </span>
 
                   <span style={{ color: "Mediumslateblue" }}>
-                    <i class='far fa-folder'></i>
+                    <i className='far fa-folder'></i>
                   </span>
                   <span style={{ color: "Mediumslateblue" }}>
-                    <i class='fas fa-ellipsis-h'></i>
+                    <i className='fas fa-ellipsis-h'></i>
                   </span>
-                  {edit && <i class='fas fa-times' onClick={hideEdit}  style={{color: 'Mediumslateblue'}}></i>}
+                  {edit && <i className='fas fa-times' onClick={hideEdit}  style={{color: 'Mediumslateblue'}}></i>}
                 </Space>
               </span>
             </Col>
@@ -289,7 +299,7 @@ export default function Head({
               height: "22px",
             }}
           />
-          <i class='fab fa-searchengin'></i>
+          <i className='fab fa-searchengin'></i>
         </fieldset>
 
         <Button
@@ -320,3 +330,5 @@ export default function Head({
     </>
   );
 }
+
+export default Head

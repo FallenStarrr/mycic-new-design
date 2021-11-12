@@ -54,7 +54,7 @@ const Auth = () => {
                                             width='36'
                                             height='36'
                                             fill='white'
-                                            class='bi bi-instagram'
+                                            className='bi bi-instagram'
                                             viewBox='0 0 16 16'
                                         >
                                             <path
@@ -70,7 +70,7 @@ const Auth = () => {
                                             width='36'
                                             height='36'
                                             fill='white'
-                                            class='bi bi-facebook'
+                                            className='bi bi-facebook'
                                             viewBox='0 0 16 16'
                                         >
                                             <path
@@ -86,7 +86,7 @@ const Auth = () => {
                                             width='36'
                                             height='36'
                                             fill='white'
-                                            class='bi bi-youtube'
+                                            className='bi bi-youtube'
                                             viewBox='0 0 16 16'
                                         >
                                             <path

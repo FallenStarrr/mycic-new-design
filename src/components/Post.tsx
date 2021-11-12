@@ -7,7 +7,7 @@ import {
   HeartFilled,
   MessageFilled,
 } from "@ant-design/icons";
-import editIcon from  './writer.png'
+import editIcon from "./writer.png";
 
 import {
   Menu,
@@ -27,7 +27,7 @@ import {
 import "antd/dist/antd.css";
 import "../styles/post.css";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, FC } from "react";
 import axios from "axios";
 import { API_URL } from "../http-axios";
 
@@ -43,36 +43,71 @@ const contentStyle = {
   background: "#364d79",
 };
 
-export default function Post({
+interface IPost {
+  author: string;
+  text: string;
+  emoji: string;
+  id: number;
+}
+
+interface IPosts {
+  posts: IPost[];
+  showEdit: boolean;
+  setPost: (arr: IPost[]) => void;
+  deletePost: (id: number) => void;
+  editPost: () => void;
+  setShowEdit: (show: boolean) => void;
+}
+
+const Post: FC<IPosts> = ({
   posts,
   setPost,
   deletePost,
   editPost,
   showEdit,
   setShowEdit,
-  smile
-}) {
-  const [editVal, setEditVal] = useState("");
-  const [like, setLike] = useState(0);
-  let [comment, setComment] = useState([]);
-  let [comDetails, setComDetails] = useState({ name: "", text: "" });
+}) => {
+
+  interface IComment {
+    name: string
+    text: string
+    emoji?: string
+    id: number
+  }
+
+
+  interface IComments {
+    name: string
+    text: string
+    emoji?: string
+    id: number
+    reply?: IComment[]
+  }
+
+  interface IDetails {
+    name: string
+    text: string
+  }
+
+  const [editVal, setEditVal] = useState<string>("");
+  const [like, setLike] = useState<number>(0);
+  let [comment, setComment] = useState<IComments[]>([]);
+  let [comDetails, setComDetails] = useState<IDetails>({ name: "", text: "" });
   const img_file = useRef();
 
-  // Show and hide comments 
-const [showComments , setShowComments] = useState(true)
+  // Show and hide comments
+  const [showComments, setShowComments] = useState<boolean>(true);
 
-function handleComments()
-{
-  setShowComments(!showComments)
-  console.log(showComments)
-}
+  function handleComments() {
+    setShowComments(!showComments);
+    console.log(showComments);
+  }
 
-// Just change state of post by val of Edit
-  function sendPost(post) {
+  // Just change state of post by val of Edit
+  function sendPost(post: IPost) {
     post.text = editVal;
     setEditVal("");
     setShowEdit(false);
-    console.log(img_file.files);
   }
 
   // Likes tried to insist on 1 like per person and decrement in case of unlike
@@ -87,7 +122,7 @@ function handleComments()
   // TODO: Responses for comments
   // ? How can I add replies to reply arr?
   //*  I have one default arr el
-/*@param  para*/
+  /*@param  para*/
 
   function addCom() {
     setComment([
@@ -97,7 +132,7 @@ function handleComments()
         text: comDetails.text,
         id: Date.now(),
         reply: [{ name: "John", text: "Text", id: Date.now() }],
-        emoji: ''
+        emoji: "",
       },
     ]);
     console.log(comment);
@@ -110,24 +145,22 @@ function handleComments()
       id={com.id}
       comment={comment}
       setComment={setComment}
-    >
-      {com.reply.map((repl) => (
-        <ExampleComment
-          actions={[
-            <span key='comment-nested-reply-to'>Reply to</span>,
-          ]}
-          author={<a>{repl.name}</a>}
-          avatar={
-            <Avatar
-              src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
-              alt='Han Solo'
-            />
-          }
-          content={repl.text +  ' ' + smile}
-        />
-      ))}
-    </ExampleComment>
-  ))
+    />
+      // {com.reply?.map((repl) => (
+    //     <ExampleComment
+    //       actions={[<span key='comment-nested-reply-to'>Reply to</span>]}
+    //       author={<a>{repl.name}</a>}
+    //       avatar={
+    //         <Avatar
+    //           src='https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+    //           alt='Han Solo'
+    //         />
+    //       }
+    //       content={repl.text + " " }
+    //     />
+    //   ))}
+    // </ExampleComment>
+  ));
   return (
     <React.Fragment>
       <div>
@@ -142,12 +175,23 @@ function handleComments()
                     <Avatar size='large' icon={<UserOutlined />} />
                     <Text>{post.author ? post.author : "Author"}</Text>
                   </Space>
-                  <img src={editIcon} alt="" width ="40px"  style={{position: 'relative', left: '500px'}}   onClick={editPost}/>
-                
-                      <i class="fas fa-clipboard-check"  style={{ color: "Mediumslateblue", transform: 'translateX(430px) translateY(10px)', fontSize: '30px' }}
-                       onClick={() => sendPost(post)}
-                      ></i>
-                 
+                  <img
+                    src={editIcon}
+                    alt=''
+                    width='40px'
+                    style={{ position: "relative", left: "500px" }}
+                    onClick={editPost}
+                  />
+
+                  <i
+                    className='fas fa-clipboard-check'
+                    style={{
+                      color: "Mediumslateblue",
+                      transform: "translateX(430px) translateY(10px)",
+                      fontSize: "30px",
+                    }}
+                    onClick={() => sendPost(post)}
+                  ></i>
                 </Col>
                 <br />
 
@@ -162,29 +206,31 @@ function handleComments()
                         />
                       </Form.Item>
                     ) : (
-                      `${ post.text} ${post.emoji}` 
+                      `${post.text} ${post.emoji}`
                     )}
                   </Text>
                 </Col>
                 <Col span='24'>
                   <Image
-                    src={img_file.value ? img_file.value : "image2.png"}
+                    src={"image2.png"}
                     width='200'
                   />
                 </Col>
                 <Col>
                   {like}{" "}
                   <HeartFilled className='purp-icon' onClick={handleLike} />
-                  <MessageFilled className='purp-icon'  onClick={handleComments}/>
+                  <MessageFilled
+                    className='purp-icon'
+                    onClick={handleComments}
+                  />
                 </Col>
                 <Col style={{ marginTop: "20px" }}>
-                  {/*============================================ КОММЕНТЫ ==========================================    */} 
-{showComments ? comments : `Напишите свой первый комментарий!`} 
-
-
-                  
+                  {/*============================================ КОММЕНТЫ ==========================================    */}
+                  {showComments
+                    ? comments
+                    : `Напишите свой первый комментарий!`}
                 </Col>
-                <Col span={24} className="mt-3">
+                <Col span={24} className='mt-3'>
                   <Form.Item>
                     <div>
                       <label htmlFor='name'>Your name:</label>
@@ -194,7 +240,7 @@ function handleComments()
                         onChange={(e) =>
                           setComDetails({ ...comDetails, name: e.target.value })
                         }
-                        class='form-control'
+                        className='form-control'
                       />
                     </div>
                   </Form.Item>
@@ -216,7 +262,7 @@ function handleComments()
                     <Form.Item>
                       <Button
                         htmlType='submit'
-                        type='danger'
+                        type='primary'
                         className='mt-5'
                         onClick={() => deletePost(post.id)}
                       >
@@ -229,9 +275,7 @@ function handleComments()
                       >
                         Edit Post
                       </Button> */}
-                     
 
-                      <input ref={img_file} type='file' />
                     </Form.Item>
                   </Form.Item>
                 </Col>
@@ -269,4 +313,6 @@ function handleComments()
       </Carousel>
     </React.Fragment>
   );
-}
+};
+
+export default Post;

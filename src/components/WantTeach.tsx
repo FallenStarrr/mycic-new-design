@@ -70,7 +70,7 @@ const WantTeach = () => {
               v-model="description"
               className="form-control "
               id="exampleFormControlTextarea1"
-              rows="3"
+              rows={3}
             ></textarea>
           </label>
         </div>

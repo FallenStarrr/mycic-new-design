@@ -37,16 +37,28 @@ const Announcement = () => {
             ],
         },
     ];
+    
+    interface IUser {
+        id: string
+        label: string
+        children: IUsers[]
+    }
 
-    const [expanded, setExpanded] = React.useState([]);
-    const [selected, setSelected] = React.useState([]);
-    const [users, setUsers] = useState([]);
+    interface IUsers {
+        id: string
+        label: string
+        children: IUser[]
+    }
 
-    const handleToggle = (event, nodeIds) => {
+    const [expanded, setExpanded] = React.useState<string[]>([]);
+    const [selected, setSelected] = React.useState<string[]>([]);
+    const [users, setUsers] = useState<IUsers[]>([]);
+
+    const handleToggle = (event: React.SyntheticEvent, nodeIds: string[]) => {
         setExpanded(nodeIds);
     };
 
-    const handleSelect = (event, nodeIds) => {
+    const handleSelect = (event: React.SyntheticEvent, nodeIds: string[]) => {
         setSelected(nodeIds);
     };
 
@@ -64,20 +76,20 @@ const Announcement = () => {
         );
     };
 
-    const resursive = (tree) => {
-        let childs;
-        let nodes = tree.map((node) => {
-            <TreeItem label={node.label} nodeId={node.id}>
-                {childs}
-            </TreeItem>;
+    // const resursive = (tree) => {
+    //     let childs;
+    //     let nodes = tree.map((node) => {
+    //         <TreeItem label={node.label} nodeId={node.id}>
+    //             {childs}
+    //         </TreeItem>;
 
-            if (!node.c) {
-                return node.label;
-            }
-            childs = resursive(node.children);
-        });
-        return childs;
-    };
+    //         if (!node.c) {
+    //             return node.label;
+    //         }
+    //         childs = resursive(node.children);
+    //     });
+    //     return childs;
+    // };
 
     useEffect(() => {
         fetch("http://127.0.0.1:8000/api/getFullBranch")
@@ -150,7 +162,7 @@ const Announcement = () => {
                     <textarea
                         className="form-control"
                         id="exampleFormControlTextarea22"
-                        rows="3"
+                        rows={3}
                     ></textarea>
                 </div>
                 <div>

@@ -2,60 +2,60 @@ import React from "react";
 
 const TakeLesson = () => {
   return (
-    <div class="container">
-      <h2 class="text-align-center">Назначить обучение</h2>
-      <div class="custom-control custom-checkbox">
+    <div className="container">
+      <h2 className="text-align-center">Назначить обучение</h2>
+      <div className="custom-control custom-checkbox">
         <input
           type="checkbox"
-          class="custom-control-input"
+          className="custom-control-input"
           id="customCheck11"
         />
-        <label class="custom-control-label" for="customCheck11">
+        <label className="custom-control-label" htmlFor="customCheck11">
           Департамент/филиал
         </label>
       </div>
 
-      <div class="custom-control custom-checkbox">
+      <div className="custom-control custom-checkbox">
         <input
           type="checkbox"
-          class="custom-control-input"
+          className="custom-control-input"
           id="customCheck22"
         />
-        <label class="custom-control-label" for="customCheck22">
+        <label className="custom-control-label" htmlFor="customCheck22">
           Список сотрудников
         </label>
       </div>
 
-      <div class="custom-control custom-checkbox">
+      <div className="custom-control custom-checkbox">
         <input
           type="checkbox"
-          class="custom-control-input"
+          className="custom-control-input"
           id="customCheck33"
         />
-        <label class="custom-control-label" for="customCheck33">
+        <label className="custom-control-label" htmlFor="customCheck33">
           Выбор даты
         </label>
       </div>
 
-      <div class="custom-control custom-checkbox">
+      <div className="custom-control custom-checkbox">
         <input
           type="checkbox"
-          class="custom-control-input"
+          className="custom-control-input"
           id="customCheck44"
         />
 
-        <label class="custom-control-label" for="customCheck44">
+        <label className="custom-control-label" htmlFor="customCheck44">
           Выбор материала
         </label>
       </div>
       <input
         type="date"
-        class="form-control"
+        className="form-control"
         required
         pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
       />
       <hr />
-      <table class="table table-dark">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -87,22 +87,22 @@ const TakeLesson = () => {
             <td>the Bird</td>
             <td>@twitter</td>
           </tr>
-          <tr v-for="user in users">
+          <tr v-htmlFor="user in users">
             <td>
-              <div class="custom-control custom-checkbox">
+              <div className="custom-control custom-checkbox">
                 <input
                   type="checkbox"
-                  class="custom-control-input "
+                  className="custom-control-input "
                   id="customCheck1"
                 />
-                <label class="custom-control-label" for="customCheck1">
+                <label className="custom-control-label" htmlFor="customCheck1">
                   Выбрать заявку
                 </label>
               </div>
             </td>
           </tr>
         </tbody>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Назначить
         </button>
       </table>
