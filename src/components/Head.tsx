@@ -164,7 +164,7 @@ let Head: FC<headProps> = ({
                     borderRadius: "50%",
                     height: "48px",
                   }}
-                  className='d-flex justify-content-center align-items-center'
+                  className='d-flex justify-content-center align-items-center mt-2'
                 >
                   <img
                     src={polygon}
