@@ -253,16 +253,17 @@ const Post: FC<IPosts> = ({
                     <Button htmlType='submit' type='primary' onClick={addCom}>
                       Add Comment
                     </Button>
-                    <Form.Item />
-                    <Form.Item>
-                      <Button
+                    <Button
                         htmlType='submit'
                         type='primary'
-                        className='mt-5'
+                        style={{marginLeft: '5%'}}
                         onClick={() => deletePost(post.id)}
                       >
                         Delete Post
                       </Button>
+                    <Form.Item />
+                    <Form.Item>
+                  
                       {/* <Button
                         htmlType='submit'
                         type='primary'
