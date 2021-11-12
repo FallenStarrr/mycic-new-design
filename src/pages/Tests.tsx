@@ -11,46 +11,41 @@ import { Tabs } from "antd";
 const { TabPane } = Tabs;
 
 const Tests = () => {
-  
   return (
-
-
     <>
-      <div className="container">
+      <div className='container'>
         <h1>Админка</h1>
         <hr />
 
-        
-
-        <Tabs defaultActiveKey="1" className="m-auto">
-          <TabPane tab="Анонсы обучения" key="1">
+        <Tabs defaultActiveKey='1' className='m-auto'>
+          <TabPane tab='Анонсы обучения' key='1'>
             <Announcement />
           </TabPane>
-          <TabPane tab=" Назначение обучения" key="2">
+          <TabPane tab=' Назначение обучения' key='2'>
             <TakeLesson />
           </TabPane>
-          <TabPane tab="Хочу провести обучение" key="3">
+          <TabPane tab='Хочу провести обучение' key='3'>
             <WantTeach />
           </TabPane>
-          <TabPane tab="Хочу пройти обучение" key="4">
+          <TabPane tab='Хочу пройти обучение' key='4'>
             <WannaLearn />
           </TabPane>
 
           <TabPane
-            tab=" Отчеты
-        "
-            key="5"
+            tab=' Отчеты
+        '
+            key='5'
           >
             <Report />
           </TabPane>
-          <TabPane tab=" Программа обучения" key="6">
+          <TabPane tab=' Программа обучения' key='6'>
             <StudyProgram />
           </TabPane>
 
           <TabPane
-            tab="
-          Загрузки"
-            key="7"
+            tab='
+          Загрузки'
+            key='7'
           >
             <Download />
           </TabPane>

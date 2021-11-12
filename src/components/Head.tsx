@@ -75,22 +75,22 @@ const suffix = (
 );
 
 interface headProps {
-  edit : boolean
-  text: string
-  editedPost: string
-  showEdit: boolean
-  author: string
-  handleEdit: () => void
-  hideEdit: () => void
-  setText: (str: string) => void
-  addPost: () => void
-  deletePost: (id: number) => void
-  setAuthor: (author: string) => void
-  input: string
-  setInput: (input: string) => void
+  edit: boolean;
+  text: string;
+  editedPost: string;
+  showEdit: boolean;
+  author: string;
+  handleEdit: () => void;
+  hideEdit: () => void;
+  setText: (str: string) => void;
+  addPost: () => void;
+  deletePost: (id: number) => void;
+  setAuthor: (author: string) => void;
+  input: string;
+  setInput: (input: string) => void;
 }
 
- let  Head:FC<headProps> = ({
+let Head: FC<headProps> = ({
   edit,
   text,
   handleEdit,
@@ -106,7 +106,7 @@ interface headProps {
   let [showSmile, setShowSmile] = useState<boolean>(false);
   const addEmoji = (e: any) => {
     let sym = e.unified.split("-");
-    let codesArray:any  = [];
+    let codesArray: any = [];
     sym.forEach((el: string) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
     setText(text + emoji);
@@ -188,17 +188,15 @@ interface headProps {
                 <>
                   <Form.Item>
                     <label htmlFor='user_name'>Имя:</label>
-                    <Form.Item
-                      className='w-50'
-                      name='username'
-                    
-               
-                    >
-                      <Input id='user_name'   value={author}       onChange={(e: any) => setAuthor(e.target.value)}/>
+                    <Form.Item className='w-50' name='username'>
+                      <Input
+                        id='user_name'
+                        value={author}
+                        onChange={(e: any) => setAuthor(e.target.value)}
+                      />
                     </Form.Item>
                     <label htmlFor='area'>Ваш пост:</label>
                     <TextArea
-                    
                       className=' w-75 border'
                       id='area'
                       rows={4}
@@ -280,7 +278,13 @@ interface headProps {
                   <span style={{ color: "Mediumslateblue" }}>
                     <i className='fas fa-ellipsis-h'></i>
                   </span>
-                  {edit && <i className='fas fa-times' onClick={hideEdit}  style={{color: 'Mediumslateblue'}}></i>}
+                  {edit && (
+                    <i
+                      className='fas fa-times'
+                      onClick={hideEdit}
+                      style={{ color: "Mediumslateblue" }}
+                    ></i>
+                  )}
                 </Space>
               </span>
             </Col>
@@ -329,6 +333,6 @@ interface headProps {
       </section>
     </>
   );
-}
+};
 
-export default Head
+export default Head;

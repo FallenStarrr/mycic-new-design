@@ -67,26 +67,24 @@ const Post: FC<IPosts> = ({
   showEdit,
   setShowEdit,
 }) => {
-
   interface IComment {
-    name: string
-    text: string
-    emoji?: string
-    id: number
+    name: string;
+    text: string;
+    emoji?: string;
+    id: number;
   }
 
-
   interface IComments {
-    name: string
-    text: string
-    emoji?: string
-    id: number
-    reply?: IComment[]
+    name: string;
+    text: string;
+    emoji?: string;
+    id: number;
+    reply?: IComment[];
   }
 
   interface IDetails {
-    name: string
-    text: string
+    name: string;
+    text: string;
   }
 
   const [editVal, setEditVal] = useState<string>("");
@@ -146,7 +144,7 @@ const Post: FC<IPosts> = ({
       comment={comment}
       setComment={setComment}
     />
-      // {com.reply?.map((repl) => (
+    // {com.reply?.map((repl) => (
     //     <ExampleComment
     //       actions={[<span key='comment-nested-reply-to'>Reply to</span>]}
     //       author={<a>{repl.name}</a>}
@@ -211,10 +209,7 @@ const Post: FC<IPosts> = ({
                   </Text>
                 </Col>
                 <Col span='24'>
-                  <Image
-                    src={"image2.png"}
-                    width='200'
-                  />
+                  <Image src={"image2.png"} width='200' />
                 </Col>
                 <Col>
                   {like}{" "}
@@ -275,7 +270,6 @@ const Post: FC<IPosts> = ({
                       >
                         Edit Post
                       </Button> */}
-
                     </Form.Item>
                   </Form.Item>
                 </Col>

@@ -1,15 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const EmojiPicker = () => {
+  return <div></div>;
+};
 
-
-  return (
-    <div>
-    
-
-        
-    </div>
-  )
-}
-
-export default EmojiPicker
+export default EmojiPicker;

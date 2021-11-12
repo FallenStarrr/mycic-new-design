@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import all_ann from '../http/announcements/all_ann'
-import change_ann from '../http/announcements/change_ann'
-import save_ann from '../http/announcements/save_ann'
-import delete_ann from '../http/announcements/delete_ann'
-import all_mat from '../http/materials/all_mat'
-import $api from '../http-axios'
+import React, { useEffect, useState } from "react";
+import all_ann from "../http/announcements/all_ann";
+import change_ann from "../http/announcements/change_ann";
+import save_ann from "../http/announcements/save_ann";
+import delete_ann from "../http/announcements/delete_ann";
+import all_mat from "../http/materials/all_mat";
+import $api from "../http-axios";
 
 const TEST_REST = () => {
   // let data = new FormData()
@@ -17,71 +17,70 @@ const TEST_REST = () => {
   // data.append('site', 'NULL')
   // data.append('space', '2')
 
+  //   const [userInfo, setUserInfo] = useState({})
 
-//   const [userInfo, setUserInfo] = useState({})
-
-
-//   async function getInfo() {
-//   let res = await $api.get('/user')
-//   console.log(res.data)
-//   setUserInfo({...res.data})
-//   console.log(userInfo)
-//   return res
-// }
-
-
-
-
- 
+  //   async function getInfo() {
+  //   let res = await $api.get('/user')
+  //   console.log(res.data)
+  //   setUserInfo({...res.data})
+  //   console.log(userInfo)
+  //   return res
+  // }
 
   return (
     <div>
-    <div>
-{/* 
+      <div>
+        {/* 
    <h1>Get Users Info</h1>
    <button onClick={getInfo}>Get Users Info {userInfo.name}</button> */}
 
-   
-
-    <h2>announcement</h2>
-    {/* <button  onClick={all_mat}>all_mat</button> <br />
+        <h2>announcement</h2>
+        {/* <button  onClick={all_mat}>all_mat</button> <br />
     <button onClick={change_ann}>change_ann</button> <br /> */}
-    {/* <button onClick={delete_ann}>delete_ann</button> <br /> */}
+        {/* <button onClick={delete_ann}>delete_ann</button> <br /> */}
 
+        <div>
+          <form action='#' method='POST' onSubmit={save_ann}>
+            <div>
+              {" "}
+              <input type='text' name='thema' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='user_id' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='description' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='date_time' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='online' /> <br />
+            </div>
+            <div>
+              <input type='text' name='type' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='space' /> <br />
+            </div>
+            <div>
+              {" "}
+              <input type='text' name='site' />{" "}
+            </div>
 
+            <button>save_ann</button>
+          </form>
 
-    <div>
-    <form action="#" method="POST" onSubmit={save_ann}>
-    <div> <input type="text" name="thema"/> <br /></div>
-    <div> <input type="text" name="user_id"/> <br /></div>
-    <div> <input type="text" name="description"/> <br /></div>
-    <div> <input type="text" name="date_time"/> <br /></div>
-    <div> <input type="text" name="online"/> <br /></div>
-    <div><input type="text" name="type"/> <br /></div>
-    <div> <input type="text" name="space"/> <br /></div>
-    <div> <input type="text" name="site"/> </div>
-   
-   
-   
-   
-    <button>save_ann</button> 
-
-    </form> 
-
-    <button onClick={all_mat}>All mat</button>
-    
-
-      
-     </div>
-    
-        
+          <button onClick={all_mat}>All mat</button>
+        </div>
+      </div>
     </div>
-         
-    
-    </div>
+  );
+};
 
-   
-  )
-}
-
-export default TEST_REST
+export default TEST_REST;
