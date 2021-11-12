@@ -1,6 +1,6 @@
-import  React,  { Fragment, FC, useEffect, useState } from "react";
+import React, { Fragment, FC, useEffect, useState } from "react";
 import { UserOutlined, DownOutlined, EyeOutlined } from "@ant-design/icons";
-import $api from '../http-axios'
+import $api from "../http-axios";
 import "../styles/about-me.css";
 import {
   Menu,
@@ -27,7 +27,6 @@ import "antd/dist/antd.css";
 import "../styles/post.css";
 import axios, { AxiosResponse } from "axios";
 
-
 const { Column, ColumnGroup } = Table;
 const { Step } = Steps;
 const { TextArea } = Input;
@@ -35,31 +34,25 @@ const { Panel } = Collapse;
 
 const { Text, Title } = Typography;
 
-
-
-
 export default function Aboutme() {
-
   interface IUserInfo {
-    email: string
-    name: string
-
+    email: string;
+    name: string;
   }
-  
-  const [userInfo, setUserInfo] = useState<IUserInfo>()
-useEffect( () => {
-  getInfo()
-}, [])
+
+  const [userInfo, setUserInfo] = useState<IUserInfo>();
+  useEffect(() => {
+    getInfo();
+  }, []);
 
   async function getInfo() {
-  let res = await $api.get<AxiosResponse<any>>('/user')
-  console.log(res.data)
-  let data:any = res.data
-  setUserInfo({...data})
-  console.log(userInfo)
-  return res
-}
-
+    let res = await $api.get<AxiosResponse<any>>("/user");
+    console.log(res.data);
+    let data: any = res.data;
+    setUserInfo({ ...data });
+    console.log(userInfo);
+    return res;
+  }
 
   return (
     <div>
@@ -71,7 +64,10 @@ useEffect( () => {
             </Col>
             <Col sm={24} xs={24} lg={10}>
               <section className='white-section'>
-                <Title> {userInfo?.name} Щербаков email: {userInfo?.email}  </Title>
+                <Title>
+                  {" "}
+                  {userInfo?.name} Щербаков email: {userInfo?.email}{" "}
+                </Title>
                 <Text> Бухгалтер </Text>
                 <Row>
                   <Col sm={24} xs={24}>
@@ -118,8 +114,8 @@ useEffect( () => {
       >
         <Row gutter={35}>
           <Col sm={24} md={24} xs={24} lg={24} className='content'>
-            <Collapse  defaultActiveKey={["1"]}>
-              <Panel  header='Кадровое перемещение' key='1'>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header='Кадровое перемещение' key='1'>
                 <Step>
                   <Step title='Finished' description='This is a description.' />
                   <Step
@@ -130,8 +126,8 @@ useEffect( () => {
                 </Step>
               </Panel>
             </Collapse>
-            </Col>
-        
+          </Col>
+
           <Col sm={24} md={24} xs={24} lg={24} className='content'>
             <Collapse>
               <Panel header='Административные дни' key='1'>
@@ -237,39 +233,39 @@ useEffect( () => {
               </thead>
               <tbody>
                 <tr className='gray-row'>
-                  <td> 256 </td> 
+                  <td> 256 </td>
                   <td> Поступление </td>
                   <td>
                     Организационная группа Kazakhstan Marketing Conference
                   </td>
-                  <td> 5 </td> 
+                  <td> 5 </td>
                   <td> 5 </td>
                 </tr>
                 <tr>
-                  <td> 256 </td> 
+                  <td> 256 </td>
                   <td> Поступление </td>
                   <td>
                     Организационная группа Kazakhstan Marketing Conference{" "}
                   </td>
-                  <td> 5 </td> 
+                  <td> 5 </td>
                   <td> 5 </td>
                 </tr>
                 <tr className='gray-row'>
                   <td> 256 </td>
-                   <td> Поступление </td>
-                  <td>
-                    Организационная группа Kazakhstan Marketing Conference
-                  </td>
-                  <td> 5 </td> 
-                  <td> 5 </td>
-                </tr>
-                <tr>
-                  <td> 256 </td> 
                   <td> Поступление </td>
                   <td>
                     Организационная группа Kazakhstan Marketing Conference
                   </td>
-                  <td> 5 </td> 
+                  <td> 5 </td>
+                  <td> 5 </td>
+                </tr>
+                <tr>
+                  <td> 256 </td>
+                  <td> Поступление </td>
+                  <td>
+                    Организационная группа Kazakhstan Marketing Conference
+                  </td>
+                  <td> 5 </td>
                   <td> 5 </td>
                 </tr>
               </tbody>
