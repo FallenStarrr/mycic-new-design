@@ -8,15 +8,17 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Layout, Typography, Menu, Col, Row, Space } from "antd";
-
+import '../styles/sidebar.css'
 const { Title } = Typography;
 
 export default function Sidebar() {
   return (
-    <Menu className='nav'>
-      <Title level={2} style={{ color: "#0057FF", paddingLeft: "50px" }}>
-        My.cic.kz
-      </Title>
+    <Menu inlineIndent={18} className="pt-4" mode="vertical" >
+      <Menu.Item  className='nav__item'>
+        <Title  level={2} style={{ color: "#0057FF" }}>
+          My.cic.kz
+        </Title>
+      </Menu.Item>
       <Menu.Item className='nav__item' key='0'>
         <Link to='/test_rest'>
           <Space>

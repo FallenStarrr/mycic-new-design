@@ -56,10 +56,7 @@ li:hover {
 }
 
 
-.nav {
-    display: flex ;
-    width: 100%;
-  }
+
 
   .nav__link {
     color: #533737 !important;

@@ -41,7 +41,7 @@ const menu = (
         rel='noopener noreferrer'
         href='https://www.antgroup.com'
       >
-        1st menu item
+        Статистика ДА
       </a>
     </Menu.Item>
     <Menu.Item>
@@ -50,7 +50,7 @@ const menu = (
         rel='noopener noreferrer'
         href='https://www.aliyun.com'
       >
-        2nd menu item
+       Котировки
       </a>
     </Menu.Item>
     <Menu.Item>
@@ -59,7 +59,35 @@ const menu = (
         rel='noopener noreferrer'
         href='https://www.luohanacademy.com'
       >
-        3rd menu item{" "}
+       Галерея
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a
+        target='_blank'
+        rel='noopener noreferrer'
+        href='https://www.luohanacademy.com'
+      >
+       Предстраховой осмотр
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a
+        target='_blank'
+        rel='noopener noreferrer'
+        href='https://www.luohanacademy.com'
+      >
+       Уведомления
+      </a>
+    </Menu.Item>
+
+    <Menu.Item>
+      <a
+        target='_blank'
+        rel='noopener noreferrer'
+        href='https://www.luohanacademy.com'
+      >
+       Выйти
       </a>
     </Menu.Item>
   </Menu>
@@ -115,7 +143,7 @@ let Head: FC<headProps> = ({
     <>
       <Menu
         style={{
-          background: "#F6F6F9",
+         
           borderBottom: "2px solid black",
           paddingBottom: "4px",
         }}

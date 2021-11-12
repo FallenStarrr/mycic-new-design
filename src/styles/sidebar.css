@@ -1,0 +1,9 @@
+.nav__item {
+  color: #474747 !important;
+  padding-left: 61px !important;
+  max-width: 200px;
+}
+
+.nav_title {
+  padding-top: 10px;
+}

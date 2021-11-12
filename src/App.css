@@ -30,11 +30,7 @@ body {
   color: #000;
 }
 
-.nav__item {
-  color: #474747 !important;
-  padding-left: 50px !important;
-  width: 200px;
-}
+
 
 .nav__item:hover {
   content: "";
@@ -54,8 +50,9 @@ body {
 }
 
 .section {
-  box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.12); */
   border-radius: 5px;
+  
 }
 
 

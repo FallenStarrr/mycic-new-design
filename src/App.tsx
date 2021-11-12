@@ -186,10 +186,7 @@ function App() {
             <Layout>
               <Sider
                 className='section sidebar'
-                style={{
-                  height: "100vh",
-                  backgroundColor: "#F6F6F9",
-                }}
+                style={{ background: 'white'}}
                 width={300}
               >
                 <Sidebar />
@@ -197,9 +194,8 @@ function App() {
               <Layout>
                 <Header
                   className='section'
-                  style={{
-                    backgroundColor: "#F6F6F9",
-                  }}
+                  style={{ background: "#F6F6F9"}}
+                
                 >
                   <Head
                     addPost={addPost}
